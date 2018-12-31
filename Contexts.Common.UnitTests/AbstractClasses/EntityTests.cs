@@ -7,7 +7,7 @@ using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.AbstractClasses
 {
-    public class EntityTest
+    public class EntityTests
     {
         // Entity is abstract, requiring concrete implementation to test
         private class ConcreteEntity : Entity

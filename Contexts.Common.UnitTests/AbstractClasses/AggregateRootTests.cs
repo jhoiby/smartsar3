@@ -8,7 +8,7 @@ using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.AbstractClasses
 {
-    public class AggregateRootTest
+    public class AggregateRootTests
     {
         // AggregateRoot is abstract, requiring concrete implementation to test
         // Though AggregateRoot has no Public behavior, the Protected methods and
