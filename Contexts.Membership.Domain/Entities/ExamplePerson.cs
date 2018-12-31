@@ -1,7 +1,11 @@
-﻿using SSar.Contexts.Common.AbstractClasses;
+﻿using System;
+using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Results;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
+    // TODO: Complete notifications by returning an OperationResult object from methods
+
     public class ExamplePerson : AggregateRoot
     {
         public string _name;
@@ -25,12 +29,35 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public string EmailAddress => _emailAddress;
 
 
-        private void SetName(string name)
+        public OperationResult SetName(string name)
         {
+            // TODO: Create a method like ValidateAgainstRules(Predicate[], nameof(name))
+            // where List<Predicate> is an array of lambdas expressing rules to be tested against
+            // The lambda would contain the test and the notification value. Also consider
+            // being able to throw exceptions.
+            // OR: Build a set of specifications somewhere and run through them here.
+
+            if (name == null)
+            {
+                throw new ArgumentNullException(nameof(Name));
+            }
+            
+            if (name.Length == 0)
+            {
+                AddError(nameof(Name), "Name is required.");
+            }
+
+            if (HasErrors)
+            {
+                return OperationResult.CreateFromErrors(Errors);
+            }
+
             _name = name;
+            
+            return OperationResult.CreateSuccessful();
         }
 
-        private void SetEmailAddress(string emailAddress)
+        public void SetEmailAddress(string emailAddress)
         {
             _emailAddress = emailAddress;
         }
