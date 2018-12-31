@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="6.0.0" />
+    <ProjectReference Include="..\Contexts.Common\SSar.Contexts.Common.csproj" />
   </ItemGroup>
 
 </Project>

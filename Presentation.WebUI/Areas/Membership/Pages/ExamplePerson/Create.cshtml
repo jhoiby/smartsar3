@@ -1,9 +1,25 @@
 ﻿@page
+@using SSar.Presentation.WebUI.Infrastructure.Tags
 @model Presentation.WebUI.Areas.Membership.Pages.ExamplePerson.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, HtmlTags.AspNetCore
 @{
     Layout = "_Layout";
 }
 
-<h1>Add ExamplePerson</h1>
 
-<form asp-area="Membership" asp-page="Membership/Create" method="post"></form>
+<div>
+    <h2>
+        Create ExamplePerson
+    </h2>
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+
+        @Html.ValidationDiv()
+        @Html.FormBlock(m => m.Data.Name)
+        @Html.FormBlock(m => m.Data.EmailAddress)
+
+        <input type="submit" value="Create" />
+
+    </form>
+</div>

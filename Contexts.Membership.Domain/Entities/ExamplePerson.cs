@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using SSar.Contexts.Common.AbstractClasses;
 
-namespace Contexts.Membership.Domain.Entities
+namespace SSar.Contexts.Membership.Domain.Entities
 {
-    public class ExamplePersonAggregate
+    public class ExamplePerson : AggregateRoot
     {
         public string _name;
         public string _emailAddress;
 
-        private ExamplePersonAggregate()
+        private ExamplePerson()
         {
         }
 
-        public static ExamplePersonAggregate CreateFromData(string name, string emailAddress)
+        public static ExamplePerson CreateFromData(string name, string emailAddress)
         {
-            var aggregate = new ExamplePersonAggregate();
+            var aggregate = new ExamplePerson();
 
             aggregate.SetName(name);
             aggregate.SetEmailAddress(emailAddress);

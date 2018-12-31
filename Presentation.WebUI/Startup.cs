@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HtmlTags;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Presentation.WebUI.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SSar.Contexts.Membership.Application.Commands;
+using SSar.Contexts.Membership.Data;
+using SSar.Presentation.WebUI.Data;
 
-namespace Presentation.WebUI
+namespace SSar.Presentation.WebUI
 {
     public class Startup
     {
@@ -35,9 +34,14 @@ namespace Presentation.WebUI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<MembershipDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("MembershipSqlDbConnection")));
+
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppIdentitySqlDbConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
@@ -47,6 +51,11 @@ namespace Presentation.WebUI
                 microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                 microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
             });
+
+
+            services.AddHtmlTags();
+
+            services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

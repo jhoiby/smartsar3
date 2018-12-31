@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contexts.Membership.Domain\Contexts.Membership.Domain.csproj" />
+    <Folder Include="Base\" />
   </ItemGroup>
 
 </Project>

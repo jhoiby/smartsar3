@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Presentation.WebUI.Migrations
+namespace SSar.Presentation.WebUI.Migrations
 {
     public partial class initial : Migration
     {

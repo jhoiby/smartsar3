@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Contexts.Membership.Domain.Entities;
+﻿using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 
-namespace Contexts.Membership.UnitTests
+namespace SSar.Contexts.Membership.UnitTests.Domain
 {
     public class ExamplePersonAggregateTests
     {
@@ -17,7 +14,7 @@ namespace Contexts.Membership.UnitTests
             // Arrange
             
             // Act
-            var sut = ExamplePersonAggregate.CreateFromData(_name, _email).Name;
+            var sut = ExamplePerson.CreateFromData(_name, _email).Name;
 
             // Assert
             Assert.Equal(_name, sut);
@@ -29,7 +26,7 @@ namespace Contexts.Membership.UnitTests
             // Arrange
 
             // Act
-            var sut = ExamplePersonAggregate.CreateFromData(_name, _email).EmailAddress;
+            var sut = ExamplePerson.CreateFromData(_name, _email).EmailAddress;
 
             // Assert
             Assert.Equal(_email, sut);

@@ -8,11 +8,18 @@
 
 
   <ItemGroup>
+    <PackageReference Include="HtmlTags.AspNetCore" Version="7.0.3" />
     <PackageReference Include="MediatR" Version="6.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspnetCore.Authentication.MicrosoftAccount" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj" />
+    <ProjectReference Include="..\Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj" />
   </ItemGroup>
 
 </Project>

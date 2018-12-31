@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Contexts.Common.AbstractClasses
+namespace SSar.Contexts.Common.AbstractClasses
 {
     // For an excellent article on DDD base classes see
     // https://github.com/dotnet/docs/blob/master/docs/standard/microservices-architecture/microservice-ddd-cqrs-patterns/seedwork-domain-model-base-classes-interfaces.md
