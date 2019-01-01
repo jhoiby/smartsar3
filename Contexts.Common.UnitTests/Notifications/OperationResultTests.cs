@@ -9,5 +9,6 @@ namespace SSar.Contexts.Common.UnitTests.Results
 {
     public class OperationResultTests
     {
+        
     }
 }

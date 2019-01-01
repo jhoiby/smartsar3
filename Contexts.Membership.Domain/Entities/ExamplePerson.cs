@@ -1,7 +1,6 @@
 ﻿using System;
 using SSar.Contexts.Common.AbstractClasses;
 using SSar.Contexts.Common.Results;
-using SSar.Contexts.Common.Validation;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
@@ -20,22 +19,21 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public static ExamplePerson CreateFromData(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
-            var finalResult = OperationResult.CreateEmpty();
 
-            aggregate.SetName(name).AppendErrorsTo(finalResult);
-            aggregate.SetEmailAddress(emailAddress).AppendErrorsTo(finalResult);
+            aggregate.SetName(name);
+            aggregate.SetEmailAddress(emailAddress);
 
             return aggregate;
         }
 
         public OperationResult SetName(string name)
         {
-            return OperationResult.CreateEmpty();
+            return new OperationResult();
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
-            return OperationResult.CreateEmpty();
+            return new OperationResult();
         }
     }
 }
