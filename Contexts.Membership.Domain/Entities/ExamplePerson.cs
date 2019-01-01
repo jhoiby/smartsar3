@@ -28,11 +28,25 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public OperationResult SetName(string name)
         {
+            if (name == null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            _name = name;
+
             return new OperationResult();
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
+            if (emailAddress == null)
+            {
+                throw new ArgumentNullException(nameof(emailAddress));
+            }
+
+            _emailAddress = emailAddress;
+
             return new OperationResult();
         }
     }

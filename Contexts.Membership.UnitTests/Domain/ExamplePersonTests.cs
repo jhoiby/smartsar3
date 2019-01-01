@@ -2,6 +2,7 @@
 using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 using Shouldly;
+using SSar.Contexts.Common.Results;
 
 namespace SSar.Contexts.Membership.UnitTests.Domain
 {
@@ -26,14 +27,43 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
             examplePerson.EmailAddress.ShouldBe(_email);
         }
 
-        //[Fact]
-        //public void SetName_given_null_should_throw_ArgumentNullException_with_param()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+        [Fact]
+        public void SetName_returns_OperationResult()
+        {
+            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
 
-        //    var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetName(null));
-        //    ex.ParamName.ShouldBe("name");
-        //}
+            var result = examplePerson.SetName("Orville");
+
+            result.ShouldBeOfType<OperationResult>();
+        }
+
+        [Fact]
+        public void SetEmail_returns_OperationResult()
+        {
+            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+
+            var result = examplePerson.SetEmailAddress("orville@first.com");
+
+            result.ShouldBeOfType<OperationResult>();
+        }
+
+        [Fact]
+        public void SetName_given_null_should_throw_ArgumentNullException_with_param()
+        {
+            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+
+            var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetName(null));
+            ex.ParamName.ShouldBe("name");
+        }
+
+        [Fact]
+        public void SetEmailAddress_given_null_should_throw_ArgumentNullException_with_param()
+        {
+            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+
+            var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetEmailAddress(null));
+            ex.ParamName.ShouldBe("emailAddress");
+        }
 
         //[Fact]
         //public void SetName_given_empty_name_should_return_error()
@@ -42,15 +72,6 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         //    var result = examplePerson.SetName("");
 
         //    result.Errors["Name"].ShouldBe("Name is required.");
-        //}
-
-        //[Fact]
-        //public void SetEmailAddress_given_null_should_throw_ArgumentNullException_with_param()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
-
-        //    var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetEmailAddress(null));
-        //    ex.ParamName.ShouldBe("emailAddress");
         //}
 
         //[Fact]
@@ -72,7 +93,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
 
         //    result.Successful.ShouldBeTrue();
         //}
-        
+
         //[Fact]
         //public void Notifications_should_be_cleared_between_calls()
         //{
@@ -80,7 +101,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
 
         //    var result1 = examplePerson.SetName("");
         //    result1.Successful.ShouldBe(false);
-            
+
         //    var result2 = examplePerson.SetName("Bugs");
         //    result2.Successful.ShouldBe(true);
 
