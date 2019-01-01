@@ -59,7 +59,7 @@ namespace SSar.Contexts.Common.UnitTests.Results
             errorDictionary2.AddOrAppend("key1", "value1");
             errorDictionary2.AddOrAppend("key2", "value2");
 
-            errorDictionary1.AddErrors(errorDictionary2);
+            errorDictionary1.AppendErrorsTo(errorDictionary2);
 
             errorDictionary1.ShouldSatisfyAllConditions(
                 () => errorDictionary1["key1"].ShouldBe("value1"),

@@ -31,7 +31,7 @@ namespace SSar.Contexts.Common.Results
             }
         }
         
-        public void AddErrors(IDictionary<string, string> errorDictionary)
+        public void AppendErrorsTo(IDictionary<string, string> errorDictionary)
         {
             foreach (var error in errorDictionary)
             {

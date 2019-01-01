@@ -72,7 +72,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
 
             result.Successful.ShouldBeTrue();
         }
-
+        
         [Fact]
         public void Errors_should_be_cleared_between_calls()
         {

@@ -18,25 +18,39 @@ namespace SSar.Contexts.Common.AbstractClasses
     {
         private ErrorDictionary _errors;
 
+        /// <summary>
+        /// Creates a new, empty aggregate root with an initialized ErrorDictionary.
+        /// Accessible only to internal factory methods as an empty aggregate may
+        /// not be permitted by domain rules.
+        /// </summary>
         protected AggregateRoot()
         {
             _errors = new ErrorDictionary();
         }
 
+        /// <summary>
+        /// Dictionary of errors resulting from current operations on the aggregate.
+        /// </summary>
         protected ErrorDictionary Errors => _errors;
 
         protected bool HasErrors => _errors.Count > 0;
 
-        private void ClearErrors()
+
+        protected void ClearErrors()
         {
             _errors = new ErrorDictionary();
         }
 
+        /// <summary>
+        /// If the error key already exists, appends the error message to the existing
+        /// error message.
+        /// </summary>
+        /// <param name="key">Name of property to which the error applies. Example: "FirstName".</param>
+        /// <param name="value">Error message text. Error messages should be created as full sentences
+        /// followed by a period so they look correct if several are appended into
+        /// one message. Example: "A first name is required."</param>
         protected void AddError(string key, string value)
         {
-            // If key already exists, appends the value to the existing value
-            // NOTE: It is recommended error messages be given as full sentences followed
-            // by a period so they look proper if several are appended into one string.
             _errors.AddOrAppend(key, value);
         }
 
@@ -56,6 +70,12 @@ namespace SSar.Contexts.Common.AbstractClasses
             }
         }
 
+        /// <summary>
+        /// Builds an OperationResult containing the error dictionary of the Aggregate, then
+        /// clears the Aggregate's errors. It is intended to be used at the end of a command
+        /// method.
+        /// </summary>
+        /// <returns>OperationResult</returns>
         protected OperationResult Result()
         {
             var result = OperationResult.CreateFromErrors(_errors);

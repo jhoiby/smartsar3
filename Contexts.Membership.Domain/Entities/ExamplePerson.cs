@@ -1,6 +1,7 @@
 ﻿using System;
 using SSar.Contexts.Common.AbstractClasses;
 using SSar.Contexts.Common.Results;
+using SSar.Contexts.Common.Validation;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
@@ -33,7 +34,22 @@ namespace SSar.Contexts.Membership.Domain.Entities
         {
             ThrowIfNullParam(name, nameof(name));
             
-            ValidateDomainRule( () => name.Length > 0, nameof(Name), "Name is required.");
+            //ValidateDomainRule( () => name.Length > 0, nameof(Name), "Name is required.");
+
+            var errorDictionary = new ErrorDictionary();
+
+            DomainRuleRunner.CreateRunner()
+                .ForPropertyNamed(nameof(Name))
+                .AddRule(() => Name.Length > 0).WithErrorMessage("A name is required.")
+                .AddRule(() => Name != "Bob").WithErrorMessage("People named Bob are not allowed!")
+                .RunValidation()
+                .AppendErrorsTo(errorDictionary);
+                
+
+
+
+
+
 
             if (!HasErrors)
             {

@@ -11,7 +11,7 @@ namespace SSar.Contexts.Common.Results
                 throw new ArgumentNullException(nameof(targetResult));
             }
 
-            targetResult.Errors.AddErrors(resultToMerge.Errors);
+            targetResult.Errors.AppendErrorsTo(resultToMerge.Errors);
 
             return targetResult;
         }
