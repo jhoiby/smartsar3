@@ -1,5 +1,6 @@
 ﻿using System;
 using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Helpers;
 using SSar.Contexts.Common.Results;
 
 namespace SSar.Contexts.Membership.Domain.Entities
@@ -28,10 +29,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public OperationResult SetName(string name)
         {
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
+            name.ThrowIfArgumentNull(nameof(name));
 
             _name = name;
 
@@ -40,10 +38,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
-            if (emailAddress == null)
-            {
-                throw new ArgumentNullException(nameof(emailAddress));
-            }
+            emailAddress.ThrowIfArgumentNull(nameof(emailAddress));
 
             _emailAddress = emailAddress;
 
