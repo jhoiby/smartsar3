@@ -13,7 +13,7 @@ namespace SSar.Contexts.Common.UnitTests.Results
         [Fact]
         public void CreateSuccessful_should_contain_nonNull_errorDictionary()
         {
-            var operationResult = OperationResult.CreateSuccessful();
+            var operationResult = OperationResult.CreateEmpty();
 
             operationResult.Errors.ShouldNotBeNull();
         }
@@ -21,7 +21,7 @@ namespace SSar.Contexts.Common.UnitTests.Results
         [Fact]
         public void If_no_errors_should_return_successful_true()
         {
-            var operationResult = OperationResult.CreateSuccessful();
+            var operationResult = OperationResult.CreateEmpty();
 
             operationResult.Successful.ShouldBeTrue();
         }
@@ -46,7 +46,7 @@ namespace SSar.Contexts.Common.UnitTests.Results
             var operationResult = OperationResult.CreateFromErrors(errorDictionary);
 
             operationResult.Errors["error key 1"].ShouldBe("error message 1");
-
         }
+        
     }
 }

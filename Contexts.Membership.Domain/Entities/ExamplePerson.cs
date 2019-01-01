@@ -18,9 +18,10 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public static ExamplePerson CreateFromData(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
+            var finalResult = OperationResult.CreateEmpty();
 
-            aggregate.SetName(name);
-            aggregate.SetEmailAddress(emailAddress);
+            aggregate.SetName(name).AppendErrorsTo(finalResult);
+            aggregate.SetEmailAddress(emailAddress).AppendErrorsTo(finalResult);
 
             return aggregate;
         }
@@ -28,18 +29,11 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public string Name => _name;
         public string EmailAddress => _emailAddress;
 
-
         public OperationResult SetName(string name)
         {
-            // TODO: Create a method like ValidateAgainstRules(Predicate[], nameof(name))
-            // where List<Predicate> is an array of lambdas expressing rules to be tested against
-            // The lambda would contain the test and the notification value. Also consider
-            // being able to throw exceptions.
-            // OR: Build a set of specifications somewhere and run through them here.
-
             if (name == null)
             {
-                throw new ArgumentNullException(nameof(Name));
+                throw new ArgumentNullException(nameof(name));
             }
             
             if (name.Length == 0)
@@ -54,13 +48,29 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _name = name;
             
-            return OperationResult.CreateSuccessful();
+            return OperationResult.CreateEmpty();
         }
 
-        public void SetEmailAddress(string emailAddress)
+        public OperationResult SetEmailAddress(string emailAddress)
         {
-            _emailAddress = emailAddress;
-        }
+            if (emailAddress == null)
+            {
+                throw new ArgumentNullException(nameof(emailAddress));
+            }
 
+            if (emailAddress.Length == 0)
+            {
+                AddError(nameof(EmailAddress), "Email address is required.");
+            }
+
+            if (HasErrors)
+            {
+                return OperationResult.CreateFromErrors(Errors);
+            }
+
+            _emailAddress = emailAddress;
+
+            return OperationResult.CreateEmpty();
+        }
     }
 }

@@ -49,5 +49,22 @@ namespace SSar.Contexts.Common.UnitTests.Results
 
             errorDictionary["key1"].ShouldBe("value1");
         }
+
+        [Fact]
+        public void AddErrors_adds_errors_to_dictionary()
+        {
+            var errorDictionary1 = new ErrorDictionary();
+            var errorDictionary2 = new ErrorDictionary();
+
+            errorDictionary2.AddOrAppend("key1", "value1");
+            errorDictionary2.AddOrAppend("key2", "value2");
+
+            errorDictionary1.AddErrors(errorDictionary2);
+
+            errorDictionary1.ShouldSatisfyAllConditions(
+                () => errorDictionary1["key1"].ShouldBe("value1"),
+                () => errorDictionary1["key2"].ShouldBe("value2")
+                );
+        }
     }
 }

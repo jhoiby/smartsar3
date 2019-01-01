@@ -30,5 +30,13 @@ namespace SSar.Contexts.Common.Results
                 this.Add(key, value);
             }
         }
+        
+        public void AddErrors(IDictionary<string, string> errorDictionary)
+        {
+            foreach (var error in errorDictionary)
+            {
+                this.AddOrAppend(error.Key, error.Value);
+            }
+        }
     }
 }

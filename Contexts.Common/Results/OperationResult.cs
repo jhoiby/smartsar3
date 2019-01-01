@@ -16,7 +16,7 @@ namespace SSar.Contexts.Common.Results
         public ErrorDictionary Errors => _errors;
         public bool Successful => _errors.Count == 0;
 
-        public static OperationResult CreateSuccessful()
+        public static OperationResult CreateEmpty()
         {
             return new OperationResult();
         }
