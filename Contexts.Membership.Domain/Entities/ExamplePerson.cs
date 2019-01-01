@@ -5,8 +5,6 @@ using SSar.Contexts.Common.Validation;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
-    // TODO: Complete notifications by returning an OperationResult object from methods
-
     public class ExamplePerson : AggregateRoot
     {
         public string _name;
@@ -32,48 +30,12 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public OperationResult SetName(string name)
         {
-            ThrowIfNullParam(name, nameof(name));
-            
-            //ValidateDomainRule( () => name.Length > 0, nameof(Name), "Name is required.");
-
-            var errorDictionary = new ErrorDictionary();
-
-            DomainRuleRunner.CreateRunner()
-                .ForPropertyNamed(nameof(Name))
-                .AddRule(() => Name.Length > 0).WithErrorMessage("A name is required.")
-                .AddRule(() => Name != "Bob").WithErrorMessage("People named Bob are not allowed!")
-                .RunValidation()
-                .AppendErrorsTo(errorDictionary);
-                
-
-
-
-
-
-
-            if (!HasErrors)
-            {
-                _name = name;
-            }
-
-            return Result();
+            return OperationResult.CreateEmpty();
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
-            ThrowIfNullParam(emailAddress, nameof(emailAddress));
-            
-            ValidateDomainRule( 
-                () => emailAddress.Length > 0, 
-                nameof(EmailAddress), 
-                "Email address is required.");
-
-            if (!HasErrors)
-            {
-                _emailAddress = emailAddress;
-            }
-
-            return Result();
+            return OperationResult.CreateEmpty();
         }
     }
 }
