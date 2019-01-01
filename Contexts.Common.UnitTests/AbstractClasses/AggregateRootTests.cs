@@ -16,11 +16,26 @@ namespace SSar.Contexts.Common.UnitTests.AbstractClasses
         private class ConcreteAggregateRoot : AggregateRoot
         {
             public new ErrorDictionary Notifications => base.Errors;
-            public new bool HasNotifications => base.HasErrors;
+            public new bool HasErrors => base.HasErrors;
 
-            public new void AddNotification(string key, string value)
+            public new void AddError(string key, string value)
             {
                 base.AddError(key, value);
+            }
+
+            //public new void ClearErrors()
+            //{
+            //    base.ClearErrors();
+            //}
+
+            public new void ThrowIfNullParam(object param, string paramName)
+            {
+                base.ThrowIfNullParam(param, paramName);
+            }
+
+            public new OperationResult OperationResultFromErrors()
+            {
+                return base.Result();
             }
         }
 
@@ -37,7 +52,7 @@ namespace SSar.Contexts.Common.UnitTests.AbstractClasses
         {
             var concreteAggregateRoot = new ConcreteAggregateRoot();
 
-            concreteAggregateRoot.AddNotification("key1", "value1");
+            concreteAggregateRoot.AddError("key1", "value1");
             
             concreteAggregateRoot.ShouldSatisfyAllConditions(
                 () => concreteAggregateRoot.Notifications.ShouldContainKey("key1"),
@@ -50,7 +65,7 @@ namespace SSar.Contexts.Common.UnitTests.AbstractClasses
         {
             var concreteAggregateRoot = new ConcreteAggregateRoot();
 
-            concreteAggregateRoot.HasNotifications.ShouldBe(false);
+            concreteAggregateRoot.HasErrors.ShouldBe(false);
         }
 
         [Fact]
@@ -58,9 +73,43 @@ namespace SSar.Contexts.Common.UnitTests.AbstractClasses
         {
             var concreteAggregateRoot = new ConcreteAggregateRoot();
 
-            concreteAggregateRoot.AddNotification("key1", "value1");
+            concreteAggregateRoot.AddError("key1", "value1");
 
-            concreteAggregateRoot.HasNotifications.ShouldBe(true);
+            concreteAggregateRoot.HasErrors.ShouldBe(true);
+        }
+
+        [Fact]
+        public void ThrowIfParamNull_should_throw_if_given_null_object()
+        {
+            var concreteAggregateRoot = new ConcreteAggregateRoot();
+
+            var ex = Should.Throw<ArgumentNullException>(() => concreteAggregateRoot.ThrowIfNullParam(null, "ParamName"));
+
+            ex.ParamName.ShouldBe("ParamName");
+        }
+
+        // Hidden as ClearErrors has been switched to Private method
+        //[Fact]
+        //public void Clear_errors_should_empty_error_dictionary()
+        //{
+        //    var concreteAggregateRoot = new ConcreteAggregateRoot();
+
+        //    concreteAggregateRoot.AddError("key1", "error1");
+        //    concreteAggregateRoot.ClearErrors();
+
+        //    concreteAggregateRoot.HasErrors.ShouldBeFalse();
+        //}
+
+        [Fact]
+        public void OperationResultFromErrors_returns_result_with_errors()
+        {
+            var concreteAggregateRoot = new ConcreteAggregateRoot();
+
+            concreteAggregateRoot.AddError("key1", "error1");
+
+            var result = concreteAggregateRoot.OperationResultFromErrors();
+
+            result.Errors["key1"].ShouldBe("error1");
         }
     }
 }

@@ -72,5 +72,23 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
 
             result.Successful.ShouldBeTrue();
         }
+
+        [Fact]
+        public void Errors_should_be_cleared_between_calls()
+        {
+            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+
+            var result1 = examplePerson.SetName("");
+            result1.Successful.ShouldBe(false);
+            
+            var result2 = examplePerson.SetName("Bugs");
+            result2.Successful.ShouldBe(true);
+
+            var result3 = examplePerson.SetEmailAddress("");
+            result3.Successful.ShouldBe(false);
+
+            var result4 = examplePerson.SetEmailAddress("xyz@abc.com");
+            result4.Successful.ShouldBe(true);
+        }
     }
 }

@@ -14,6 +14,9 @@ namespace SSar.Contexts.Membership.Domain.Entities
         private ExamplePerson()
         {
         }
+        
+        public string Name => _name;
+        public string EmailAddress => _emailAddress;
 
         public static ExamplePerson CreateFromData(string name, string emailAddress)
         {
@@ -26,51 +29,35 @@ namespace SSar.Contexts.Membership.Domain.Entities
             return aggregate;
         }
 
-        public string Name => _name;
-        public string EmailAddress => _emailAddress;
-
         public OperationResult SetName(string name)
         {
-            if (name == null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
+            ThrowIfNullParam(name, nameof(name));
             
-            if (name.Length == 0)
+            ValidateDomainRule( () => name.Length > 0, nameof(Name), "Name is required.");
+
+            if (!HasErrors)
             {
-                AddError(nameof(Name), "Name is required.");
+                _name = name;
             }
 
-            if (HasErrors)
-            {
-                return OperationResult.CreateFromErrors(Errors);
-            }
-
-            _name = name;
-            
-            return OperationResult.CreateEmpty();
+            return Result();
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
-            if (emailAddress == null)
+            ThrowIfNullParam(emailAddress, nameof(emailAddress));
+            
+            ValidateDomainRule( 
+                () => emailAddress.Length > 0, 
+                nameof(EmailAddress), 
+                "Email address is required.");
+
+            if (!HasErrors)
             {
-                throw new ArgumentNullException(nameof(emailAddress));
+                _emailAddress = emailAddress;
             }
 
-            if (emailAddress.Length == 0)
-            {
-                AddError(nameof(EmailAddress), "Email address is required.");
-            }
-
-            if (HasErrors)
-            {
-                return OperationResult.CreateFromErrors(Errors);
-            }
-
-            _emailAddress = emailAddress;
-
-            return OperationResult.CreateEmpty();
+            return Result();
         }
     }
 }
