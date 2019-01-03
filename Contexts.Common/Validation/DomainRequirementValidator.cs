@@ -84,7 +84,7 @@ namespace SSar.Contexts.Common.Validation
                     {
                         // Requirement not met
                         notifications
-                            .AddNotificationForField(requirementWithMessage.FailureMessage, _forFieldName);
+                            .AddNotification(requirementWithMessage.FailureMessage, _forFieldName);
                     }
                 }
             }
