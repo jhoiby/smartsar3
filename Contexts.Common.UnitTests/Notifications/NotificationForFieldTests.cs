@@ -12,24 +12,24 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
         [Fact]
         public void Constructor_sets_properties()
         {
-            var notification = new NotificationForField("Some message.", "DesiredField");
+            var notification = new Notification("Some message.", "DesiredField");
 
             notification.ShouldSatisfyAllConditions(
-                () => notification.Notification.ShouldBe("Some message."),
+                () => notification.Message.ShouldBe("Some message."),
                 () => notification.ForField.ShouldBe("DesiredField"));
         }
 
         [Fact]
         public void Throws_argument_null_exception_for_message()
         {
-            var ex = Should.Throw<ArgumentNullException>(() => new NotificationForField(null, "FieldName"));
+            var ex = Should.Throw<ArgumentNullException>(() => new Notification(null, "FieldName"));
             ex.ParamName.ShouldBe("notification");
         }
 
         [Fact]
         public void ForField_set_to_empty_string_if_not_provided()
         {
-            var notification = new NotificationForField("Some message.");
+            var notification = new Notification("Some message.");
             
             notification.ForField.ShouldBeEmpty();
         }
@@ -37,7 +37,7 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
         [Fact]
         public void ForField_provided_null_param_sets_empty_string()
         {
-            var notification = new NotificationForField("Some message.", null);
+            var notification = new Notification("Some message.", null);
 
             notification.ForField.ShouldBeEmpty(); // Null is not same as empty
         }

@@ -72,10 +72,10 @@ namespace SSar.Contexts.Common.UnitTests.Validation
             result.ShouldSatisfyAllConditions(
                 () => result.Notifications.Count.ShouldBe(2),
                 () => result.Notifications
-                    .Where(n => n.Notification == "You're not Bob Neighbor.")
+                    .Where(n => n.Message == "You're not Bob Neighbor.")
                     .ShouldNotBeEmpty(),
                 () => result.Notifications
-                    .Where(n => n.Notification == "We only accept people whose name is 9 characters long.")
+                    .Where(n => n.Message == "We only accept people whose name is 9 characters long.")
                     .ShouldNotBeEmpty());
         }
 

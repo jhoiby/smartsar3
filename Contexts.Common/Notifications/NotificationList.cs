@@ -6,19 +6,19 @@ namespace SSar.Contexts.Common.Notifications
 {
     public class NotificationList
     {
-        private List<NotificationForField> _notifications;
+        private List<Notification> _notifications;
 
         public NotificationList()
         {
-            _notifications = new List<NotificationForField>();
+            _notifications = new List<Notification>();
         }
 
         // TODO: Make this read only
-        public IList<NotificationForField> Notifications => _notifications;
+        public IList<Notification> Notifications => _notifications;
 
-        public void AddNotification(string notificationMessages, string forField)
+        public void AddNotification(string message, string forField)
         {
-            _notifications.Add(new NotificationForField(notificationMessages, forField));
+            _notifications.Add(new Notification(message, forField));
         }
 
         public void AddNotifications(NotificationList newNotifications)
