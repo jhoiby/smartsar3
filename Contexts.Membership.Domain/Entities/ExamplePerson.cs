@@ -31,14 +31,23 @@ namespace SSar.Contexts.Membership.Domain.Entities
         {
             name.ThrowIfArgumentNull(nameof(name));
 
+            var notifications = new NotificationList();
+
+            if (name.Length == 0)
+            {
+                notifications.AddNotification("Name is required.", nameof(name));
+            }
+
             _name = name;
 
-            return OperationResult.CreateSuccessful();
+            return OperationResult.FromNotificationList(notifications);
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
         {
             emailAddress.ThrowIfArgumentNull(nameof(emailAddress));
+
+            var notifications = new NotificationList();
 
             _emailAddress = emailAddress;
 
