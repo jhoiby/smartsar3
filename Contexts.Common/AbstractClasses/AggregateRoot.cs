@@ -1,5 +1,5 @@
 ﻿using System;
-using SSar.Contexts.Common.Results;
+using SSar.Contexts.Common.Notifications;
 
 namespace SSar.Contexts.Common.AbstractClasses
 {

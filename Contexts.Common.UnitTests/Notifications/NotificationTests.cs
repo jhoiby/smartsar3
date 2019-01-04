@@ -7,7 +7,7 @@ using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.Notifications
 {
-    public class NotificationForFieldTests
+    public class NotificationTests
     {
         [Fact]
         public void Constructor_sets_properties()
@@ -23,7 +23,7 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
         public void Throws_argument_null_exception_for_message()
         {
             var ex = Should.Throw<ArgumentNullException>(() => new Notification(null, "FieldName"));
-            ex.ParamName.ShouldBe("notification");
+            ex.ParamName.ShouldBe("message");
         }
 
         [Fact]

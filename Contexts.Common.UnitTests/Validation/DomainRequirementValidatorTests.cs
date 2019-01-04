@@ -49,7 +49,7 @@ namespace SSar.Contexts.Common.UnitTests.Validation
 
             var result = validator.Validate();
 
-            result.Notifications.ShouldBeEmpty();
+            result.ShouldBeEmpty();
         }
 
         [Fact]
@@ -70,11 +70,11 @@ namespace SSar.Contexts.Common.UnitTests.Validation
             var result = validator.Validate();
 
             result.ShouldSatisfyAllConditions(
-                () => result.Notifications.Count.ShouldBe(2),
-                () => result.Notifications
+                () => result.Count.ShouldBe(2),
+                () => result
                     .Where(n => n.Message == "You're not Bob Neighbor.")
                     .ShouldNotBeEmpty(),
-                () => result.Notifications
+                () => result
                     .Where(n => n.Message == "We only accept people whose name is 9 characters long.")
                     .ShouldNotBeEmpty());
         }
@@ -93,7 +93,7 @@ namespace SSar.Contexts.Common.UnitTests.Validation
 
             var result = validator.Validate();
 
-            result.Notifications.First().ForField.ShouldBe("");
+            result.First().ForField.ShouldBe("");
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace SSar.Contexts.Common.UnitTests.Validation
 
             var result = validator.Validate();
 
-            result.Notifications.First().ForField.ShouldBe("");
+            result.First().ForField.ShouldBe("");
         }
 
         [Fact]
@@ -128,7 +128,7 @@ namespace SSar.Contexts.Common.UnitTests.Validation
             var result = DomainRequirementValidator.CreateValidator()
                 .Validate();
 
-            result.Notifications.ShouldBeEmpty();
+            result.ShouldBeEmpty();
         }
 
         [Fact]
@@ -141,7 +141,7 @@ namespace SSar.Contexts.Common.UnitTests.Validation
                 .WithMessage("Name must at least 99 characters!")
                 .Validate();
 
-            result.Notifications.First().ForField.ShouldBe("");
+            result.First().ForField.ShouldBe("");
         }
 
         [Fact]

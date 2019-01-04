@@ -2,7 +2,7 @@
 using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 using Shouldly;
-using SSar.Contexts.Common.Results;
+using SSar.Contexts.Common.Notifications;
 
 namespace SSar.Contexts.Membership.UnitTests.Domain
 {

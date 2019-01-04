@@ -1,7 +1,7 @@
 ﻿using System;
 using SSar.Contexts.Common.AbstractClasses;
 using SSar.Contexts.Common.Helpers;
-using SSar.Contexts.Common.Results;
+using SSar.Contexts.Common.Notifications;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
@@ -33,7 +33,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _name = name;
 
-            return new OperationResult();
+            return OperationResult.CreateSuccessful();
         }
 
         public OperationResult SetEmailAddress(string emailAddress)
@@ -42,7 +42,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _emailAddress = emailAddress;
 
-            return new OperationResult();
+            return OperationResult.CreateSuccessful();
         }
     }
 }

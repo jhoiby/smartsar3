@@ -6,10 +6,10 @@ namespace SSar.Contexts.Common.Notifications
 {
     public struct Notification
     {
-        public Notification(string message, string forField = "")
+        public Notification(string message, string fieldKey = "")
         {
             Message = message ?? throw new ArgumentNullException(nameof(message));
-            ForField = forField ?? "";
+            ForField = fieldKey ?? "";
         }
 
         public string Message { get; }

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace SSar.Contexts.Common.Notifications
 {
-    public class NotificationList : List<Notification>
+    public enum OperationResultStatus
     {
+        Successful,
+        HasNotifications,
+        HasException
     }
 }
