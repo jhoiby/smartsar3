@@ -51,7 +51,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _emailAddress = emailAddress;
 
-            return OperationResult.CreateSuccessful();
+            return OperationResult.Successful();
         }
     }
 }

@@ -11,10 +11,36 @@ namespace SSar.Contexts.Common.UnitTests.Results
     public class OperationResultTests
     {
         [Fact]
-        public void CreateSuccessful_sets_status_to_successful()
+        public void Successful_sets_status_to_successful()
         {
-            var result = OperationResult.CreateSuccessful();
+            var result = OperationResult.Successful();
             result.Status.ShouldBe(OperationResultStatus.Successful);
+        }
+
+        [Fact]
+        public void Successful_sets_Data_property()
+        {
+            string data = "Hello world";
+
+            var result = OperationResult.Successful(data);
+
+            // Dynamic types require some gymnastics for extension methods
+            // and don't seem to work with ShouldSatisfyAllConditions()
+
+            Shouldly.ShouldBeStringTestExtensions.ShouldBe(result.Data, "Hello world");
+        }
+
+        [Fact]
+        public void Successful_Data_property_is_correct_type()
+        {
+            string data = "Hello world";
+
+            var result = OperationResult.Successful(data);
+
+            // Dynamic types require some gymnastics for extension methods
+            // and don't seem to work with ShouldSatisfyAllConditions()
+
+            Shouldly.ShouldBeTestExtensions.ShouldBeOfType<string>(result.Data);
         }
 
         [Fact]
