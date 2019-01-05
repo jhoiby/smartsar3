@@ -17,14 +17,14 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public string Name => _name;
         public string EmailAddress => _emailAddress;
 
-        public static ExamplePerson CreateFromData(string name, string emailAddress)
+        public static OperationResult CreateFromData(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
 
             aggregate.SetName(name);
             aggregate.SetEmailAddress(emailAddress);
 
-            return aggregate;
+            return OperationResult.Successful(aggregate);
         }
 
         public OperationResult SetName(string name)
