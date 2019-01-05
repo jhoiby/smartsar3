@@ -1,9 +1,10 @@
 ﻿using System;
 using MediatR;
+using SSar.Contexts.Common.Notifications;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateExamplePersonCommand : IRequest<Guid>
+    public class CreateExamplePersonCommand : IRequest<OperationResult>
     {
         public CreateExamplePersonCommand()
         {

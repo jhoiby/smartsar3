@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SSar.Contexts.Membership.Application.Commands;
@@ -16,7 +17,9 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await Mediator.Send(Data);
+            var result = await Mediator.Send(Data);
+
+            // Result.Data will contain the Guid of the just-created ExamplePerson
 
             return RedirectToPage("Index");
         }
