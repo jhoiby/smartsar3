@@ -7,13 +7,18 @@ namespace SSar.Contexts.Common.AbstractClasses
     // Much of this class is based on the examples there.
     // (See that article for implementing equality operators, hashes
 
-    public abstract class Entity
+    public abstract class Entity : IEntity
     {
         private Guid _id;
 
-        public Entity()
+        // TODO: Unit test the id property parameter
+
+        public Entity(Guid id = default(Guid))
         {
-            _id = Guid.NewGuid();
+            if (id == default(Guid))
+            {
+                _id = Guid.NewGuid();
+            }
         }
 
         public Guid Id => _id;

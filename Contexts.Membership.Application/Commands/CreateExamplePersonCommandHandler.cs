@@ -9,7 +9,7 @@ using SSar.Contexts.Membership.Domain.Entities;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateExamplePersonCommandHandler : AppRequestHandler<CreateExamplePersonCommand, OperationResult>
+    public class CreateExamplePersonCommandHandler : AppRequestHandler<CreateExamplePersonCommand, CommandResult>
     {
         private MembershipDbContext _dbContext;
 
@@ -18,16 +18,14 @@ namespace SSar.Contexts.Membership.Application.Commands
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        protected override async Task<OperationResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
+        protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            var test = ExamplePerson.CreateFromData(request.Name, request.EmailAddress);
-
-            var exPerson = Create<MembershipDbContext,ExamplePerson>(
+            var result = await Create<MembershipDbContext,ExamplePerson>(
                 _dbContext, 
                 Guid.NewGuid(), 
-                () => ExamplePerson.CreateFromData(request.Name, request.EmailAddress));
+                () => ExamplePerson.Create(request.Name, request.EmailAddress));
 
-            return OperationResult.Successful(exPerson.Id);
+            return result.ToCommandResult();
         }
     }
 }

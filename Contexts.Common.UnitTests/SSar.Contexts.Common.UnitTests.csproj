@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contexts.Common\SSar.Contexts.Common.csproj" />
+    <ProjectReference Include="..\Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,17 +17,17 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public string Name => _name;
         public string EmailAddress => _emailAddress;
 
-        public static OperationResult CreateFromData(string name, string emailAddress)
+        public static AggregateResult<ExamplePerson> Create(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
 
             aggregate.SetName(name);
             aggregate.SetEmailAddress(emailAddress);
 
-            return OperationResult.Successful(aggregate);
+            return AggregateResult<ExamplePerson>.Successful(aggregate);
         }
 
-        public OperationResult SetName(string name)
+        public AggregateResult<ExamplePerson> SetName(string name)
         {
             name.ThrowIfArgumentNull(nameof(name));
 
@@ -40,10 +40,10 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _name = name;
 
-            return OperationResult.FromNotificationList(notifications);
+            return AggregateResult<ExamplePerson>.FromNotificationList(notifications);
         }
 
-        public OperationResult SetEmailAddress(string emailAddress)
+        public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
             emailAddress.ThrowIfArgumentNull(nameof(emailAddress));
 
@@ -51,7 +51,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             _emailAddress = emailAddress;
 
-            return OperationResult.Successful();
+            return AggregateResult<ExamplePerson>.Successful();
         }
     }
 }

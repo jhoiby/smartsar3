@@ -14,7 +14,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         [Fact]
         public void CreateFromData_GivenValidName_SetsNameProperty()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             examplePerson.Name.ShouldBe(_name);
         }
@@ -22,7 +22,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         [Fact]
         public void CreateFromData_GivenValidEmail_SetsEmail()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             examplePerson.EmailAddress.ShouldBe(_email);
         }
@@ -30,27 +30,27 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         [Fact]
         public void SetName_returns_OperationResult()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
-            var result = examplePerson.SetName("Orville");
+            var result2 = examplePerson.SetName("Orville");
 
-            result.ShouldBeOfType<OperationResult>();
+            result2.ShouldBeOfType<AggregateResult<ExamplePerson>>();
         }
 
         [Fact]
         public void SetEmail_returns_OperationResult()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             var result = examplePerson.SetEmailAddress("orville@first.com");
 
-            result.ShouldBeOfType<OperationResult>();
+            result.ShouldBeOfType<AggregateResult<ExamplePerson>>();
         }
 
         [Fact]
         public void SetName_given_null_should_throw_ArgumentNullException_with_param()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetName(null));
             ex.ParamName.ShouldBe("name");
@@ -59,12 +59,13 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         [Fact]
         public void SetEmailAddress_given_null_should_throw_ArgumentNullException_with_param()
         {
-            var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetEmailAddress(null));
             ex.ParamName.ShouldBe("emailAddress");
         }
 
+        // TODO: Review these test for re-implementation
         //[Fact]
         //public void SetName_given_empty_name_should_return_error()
         //{

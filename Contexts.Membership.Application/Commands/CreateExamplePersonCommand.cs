@@ -1,10 +1,11 @@
 ﻿using System;
 using MediatR;
 using SSar.Contexts.Common.Notifications;
+using SSar.Contexts.Membership.Domain.Entities;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateExamplePersonCommand : IRequest<OperationResult>
+    public class CreateExamplePersonCommand : IRequest<CommandResult>
     {
         public CreateExamplePersonCommand()
         {

@@ -20,12 +20,12 @@ namespace SSar.Contexts.Common.AbstractClasses
 
         protected abstract Task<TResponse> HandleCore(TRequest request, CancellationToken cancellationToken);
 
-        protected async Task<OperationResult> Execute<TDbContext, TAggregate>(
-            TDbContext dbContext, Guid id, Func<TAggregate, OperationResult> func)
+        protected async Task<AggregateResult<TAggregate>> Execute<TDbContext, TAggregate>(
+            TDbContext dbContext, Guid id, Func<TAggregate, AggregateResult<TAggregate>> func)
             where TAggregate : AggregateRoot
             where TDbContext : DbContext
         {
-            OperationResult result;
+            AggregateResult<TAggregate> result;
 
             try
             {
@@ -35,28 +35,28 @@ namespace SSar.Contexts.Common.AbstractClasses
             }
             catch (Exception ex)
             {
-                result = OperationResult.FromException(ex, "An error occurred while executing a command.");
+                result = AggregateResult<TAggregate>.FromException(ex, "An error occurred while executing a command.");
             }
 
             return result;
         }
 
-        protected async Task<OperationResult> Create<TDbContext, TAggregate>(
-            TDbContext dbContext, Guid id, Func<OperationResult> func)
+        protected async Task<AggregateResult<TAggregate>> Create<TDbContext, TAggregate>(
+            TDbContext dbContext, Guid id, Func<AggregateResult<TAggregate>> func)
             where TAggregate : AggregateRoot
             where TDbContext : DbContext
         {
-            OperationResult result;
+            AggregateResult<TAggregate> result;
 
             try
             {
                 result = func();
-                dbContext.Set<TAggregate>().Add(result.Data);
+                dbContext.Set<TAggregate>().Add(result.Aggregate);
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
-                result = OperationResult.FromException(ex, "An error occurred while executing a command.");
+                result = AggregateResult<TAggregate>.FromException(ex, "An error occurred while executing a command.");
             }
 
             return result;

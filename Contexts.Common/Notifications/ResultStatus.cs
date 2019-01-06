@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SSar.Contexts.Common.Notifications
 {
-    public enum OperationResultStatus
+    public enum ResultStatus
     {
         Successful,
         HasNotifications,
