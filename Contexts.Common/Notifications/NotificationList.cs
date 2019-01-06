@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SSar.Contexts.Common.Notifications
@@ -12,5 +13,14 @@ namespace SSar.Contexts.Common.Notifications
 
             return this;
         }
+
+        public NotificationList AddFromResult(INotificationResult sourceResult)
+        {
+            this.AddRange(sourceResult.Notifications);
+
+            return this;
+        }
+
+        public bool Empty => !this.Any();
     }
 }

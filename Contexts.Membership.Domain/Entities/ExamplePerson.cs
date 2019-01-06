@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using SSar.Contexts.Common.AbstractClasses;
 using SSar.Contexts.Common.Helpers;
 using SSar.Contexts.Common.Notifications;
@@ -20,25 +21,30 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public static AggregateResult<ExamplePerson> Create(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
+            
+            var notifications = new NotificationList();
+            notifications.AddFromResult(aggregate.SetName(name));
+            notifications.AddFromResult(aggregate.SetEmailAddress(emailAddress));
 
-            aggregate.SetName(name);
-            aggregate.SetEmailAddress(emailAddress);
-
-            return AggregateResult<ExamplePerson>.Successful(aggregate);
+            return AggregateResult<ExamplePerson>.FromConstruction(notifications, aggregate);
         }
 
         public AggregateResult<ExamplePerson> SetName(string name)
         {
+
             name.ThrowIfArgumentNull(nameof(name));
 
             var notifications = new NotificationList();
 
             if (name.Length == 0)
             {
-                notifications.AddNotification("Name is required.", nameof(name));
+                notifications.AddNotification("Name is required.", nameof(Name));
             }
 
-            _name = name;
+            if (notifications.Empty)
+            {
+                _name = name;
+            }
 
             return AggregateResult<ExamplePerson>.FromNotificationList(notifications);
         }
@@ -49,9 +55,17 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             var notifications = new NotificationList();
 
-            _emailAddress = emailAddress;
+            if (emailAddress.Length == 0)
+            {
+                notifications.AddNotification("Email address is required.", nameof(EmailAddress));
+            }
 
-            return AggregateResult<ExamplePerson>.Successful();
+            if (notifications.Empty)
+            {
+                _emailAddress = emailAddress;
+            }
+
+            return AggregateResult<ExamplePerson>.FromNotificationList(notifications);
         }
     }
 }

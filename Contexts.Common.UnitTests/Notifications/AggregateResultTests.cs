@@ -13,22 +13,24 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
         {
         }
         
-        [Fact]
-        public void Successful_sets_status_to_successful()
-        {
-            var result = AggregateResult<TestAggregate>.Successful();
-            result.Status.ShouldBe(ResultStatus.Successful);
-        }
+        // METHOD NOT CURRENTLY IN USE
+        //
+        //[Fact]
+        //public void Successful_sets_status_to_successful()
+        //{
+        //    var result = AggregateResult<TestAggregate>.Successful();
+        //    result.Status.ShouldBe(ResultStatus.Successful);
+        //}
 
-        [Fact]
-        public void Successful_sets_Aggregate_property()
-        {
-            var agg = new TestAggregate();
+        //[Fact]
+        //public void Successful_sets_Aggregate_property()
+        //{
+        //    var agg = new TestAggregate();
 
-            var result = AggregateResult<TestAggregate>.Successful(agg);
+        //    var result = AggregateResult<TestAggregate>.Successful(agg);
 
-            result.Aggregate.ShouldBe(agg);
-        }
+        //    result.Aggregate.ShouldBe(agg);
+        //}
 
         [Fact]
         public void FromMessage_adds_notification_with_message()
@@ -50,8 +52,7 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
             result.ShouldSatisfyAllConditions(
                 () => result.Notifications.First().Message.ShouldBe("The programmer screwed up."),
                 () => result.Notifications.First().ForField.ShouldBe("ExceptionInfo"),
-                () => result.Exception.ShouldBe(exception)
-                );
+                () => result.Exception.ShouldBe(exception));
         }
 
         [Fact]
@@ -64,6 +65,7 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
             result.Notifications.ShouldBeEmpty();
         }
 
+        // TODO: Update this test for new conditional check in method
         [Fact]
         public void FromNotificationList_returns_notifications_and_status()
         {
@@ -74,8 +76,51 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
 
             result.ShouldSatisfyAllConditions(
                 () => result.Notifications.Count.ShouldBe(1),
-                () => result.Status.ShouldBe(ResultStatus.HasNotifications)
-                );
+                () => result.Status.ShouldBe(ResultStatus.HasNotifications));
+        }
+
+        [Fact]
+        public void FromNotificationList_throws_if_null_param()
+        {
+            var ex = Should.Throw<ArgumentNullException>(
+                () => AggregateResult<TestAggregate>.FromNotificationList(null));
+            ex.ParamName.ShouldBe("notificationList");
+        }
+
+        [Fact]
+        public void FromNotificationList_sets_status_Successful_if_no_notifications()
+        {
+            var notifications = new NotificationList();
+
+            var result = AggregateResult<TestAggregate>.FromNotificationList(notifications);
+
+            result.Status.ShouldBe(ResultStatus.Successful);
+        }
+
+        [Fact]
+        public void FromNotificationList_sets_status_HasNotification_if_notifications()
+        {
+            var notifications = new NotificationList();
+            notifications.AddNotification("message1", "param1");
+
+            var result = AggregateResult<TestAggregate>.FromNotificationList(notifications);
+
+            result.Status.ShouldBe(ResultStatus.HasNotifications);
+        }
+
+        [Fact]
+        public void FromConstruction_sets_parameters()
+        {
+            var notificationList = new NotificationList();
+            notificationList.AddNotification("message1", "param");
+
+            var aggregate = new TestAggregate();
+
+            var result = AggregateResult<TestAggregate>.FromConstruction(notificationList, aggregate);
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Notifications.Count.ShouldBe(1),
+                () => result.Aggregate.ShouldBeSameAs(aggregate));
         }
     }
 }

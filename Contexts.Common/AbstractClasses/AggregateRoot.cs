@@ -5,16 +5,14 @@ using SSar.Contexts.Common.Notifications;
 
 namespace SSar.Contexts.Common.AbstractClasses
 {
-    public abstract class AggregateRoot : IAggregateRoot
+    public abstract class AggregateRoot : Entity, IAggregateRoot
     {
         protected AggregateRoot()
         {
-           
         }
 
-        public Guid Id { get; set; }
-        //protected AggregateRoot(Guid id) : base(id)
-        //{
-        //}
+        protected AggregateRoot(Guid id) : base(id)
+        {
+        }
     }
 }

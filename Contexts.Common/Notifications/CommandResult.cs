@@ -5,7 +5,7 @@ using SSar.Contexts.Common.AbstractClasses;
 
 namespace SSar.Contexts.Common.Notifications
 {
-    public class CommandResult
+    public class CommandResult : INotificationResult
     {
         public CommandResult(
             ResultStatus status, 
