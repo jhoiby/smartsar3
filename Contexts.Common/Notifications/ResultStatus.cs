@@ -8,6 +8,6 @@ namespace SSar.Contexts.Common.Notifications
     {
         Successful,
         HasNotifications,
-        HasException
+        HasException // Implies HasNotifications
     }
 }

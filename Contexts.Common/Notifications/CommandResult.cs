@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using SSar.Contexts.Common.AbstractClasses;
 
@@ -24,23 +25,29 @@ namespace SSar.Contexts.Common.Notifications
         public Exception Exception { get; }
         // TODO: Consider returning List<Guid> to handle case where multiple aggregates operated on by one command
         public Guid AggregateId { get; }
+        
+        public static CommandResult FromAggregateResult<TAggregate>(
+            AggregateResult<TAggregate> aggregateResult) 
+            where TAggregate : IAggregateRoot
+        {
+            // TODO: RETHINK, REWRITE (IF NEEDED) AND UNIT TEST THIS
+            // TODO: VERIFY ALL CASES ARE COVERED
 
+            var aggregateId = aggregateResult == null 
+                ? default(Guid) 
+                : aggregateResult.Aggregate.Id;
 
-        // TODO: Learn why I can't take an IAggregateRoot here instead of a generic!
-        // I ended up creating the AggregateResult.ToCommandResult() method instead
+            var status = aggregateResult.Notifications.Count == 0
+                ? ResultStatus.Successful
+                : ResultStatus.HasNotifications;
 
-        //public static CommandResult FromAggregateResult(AggregateResult<IAggregateRoot> aggregateResult)
-        //{
-        //    Guid aggregateId = default(Guid);
+            status = aggregateResult.Exception == null
+                ? status
+                : ResultStatus.HasException; // HasException implies HasNotifications
 
-        //    if (aggregateResult != null)
-        //    {
-        //        aggregateId = aggregateResult.Aggregate.Id;
-        //    }
-
-        //    return new CommandResult
-        //        (aggregateResult.Status, aggregateResult.Notifications, 
-        //            aggregateResult.Exception, aggregateId);
-        //}
+            return new CommandResult
+                (status, aggregateResult.Notifications,
+                    aggregateResult.Exception, aggregateId);
+        }
     }
 }

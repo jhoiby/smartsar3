@@ -20,14 +20,12 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            var aggResult = await Create<MembershipDbContext,ExamplePerson>(
+            var aggregateResult = await Create<MembershipDbContext,ExamplePerson>(
                 _dbContext, 
                 Guid.NewGuid(), 
                 () => ExamplePerson.Create(request.Name, request.EmailAddress));
 
-            var cmdResult =  aggResult.ToCommandResult();
-
-            return cmdResult;
+            return CommandResult.FromAggregateResult(aggregateResult);
         }
     }
 }

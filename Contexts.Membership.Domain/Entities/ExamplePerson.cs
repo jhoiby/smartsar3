@@ -21,18 +21,17 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public static AggregateResult<ExamplePerson> Create(string name, string emailAddress)
         {
             var aggregate = new ExamplePerson();
-            
             var notifications = new NotificationList();
-            notifications.AddFromResult(aggregate.SetName(name));
-            notifications.AddFromResult(aggregate.SetEmailAddress(emailAddress));
+
+            aggregate.SetName(name).AddNotificationsTo(notifications);
+            aggregate.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
 
             return AggregateResult<ExamplePerson>.FromConstruction(notifications, aggregate);
         }
 
         public AggregateResult<ExamplePerson> SetName(string name)
         {
-
-            name.ThrowIfArgumentNull(nameof(name));
+            name = name ?? throw new ArgumentNullException(nameof(name));
 
             var notifications = new NotificationList();
 
@@ -51,7 +50,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
-            emailAddress.ThrowIfArgumentNull(nameof(emailAddress));
+            emailAddress = emailAddress ?? throw new ArgumentNullException();
 
             var notifications = new NotificationList();
 

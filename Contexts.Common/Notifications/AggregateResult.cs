@@ -58,6 +58,7 @@ namespace SSar.Contexts.Common.Notifications
             };
         }
 
+        // TODO: Is there a possible exception case we need to include here?
         public static AggregateResult<TAggregate> FromConstruction(
             NotificationList notificationList, TAggregate newAggregate = default(TAggregate))
         {
