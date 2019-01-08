@@ -50,7 +50,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
-            emailAddress = emailAddress ?? throw new ArgumentNullException();
+            emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
 
             var notifications = new NotificationList();
 
