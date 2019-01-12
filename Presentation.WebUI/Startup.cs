@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SSar.Contexts.Membership.Application.Commands;
 using SSar.Contexts.Membership.Data;
+using SSar.Presentation.WebUI.Areas.Identity.Models;
 using SSar.Presentation.WebUI.Data;
 
 namespace SSar.Presentation.WebUI
@@ -42,9 +43,10 @@ namespace SSar.Presentation.WebUI
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppIdentitySqlDbConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<AppIdentityDbContext>();
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
             {
@@ -61,12 +63,18 @@ namespace SSar.Presentation.WebUI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(
+            IApplicationBuilder app, 
+            IHostingEnvironment env, 
+            AppIdentityDbContext identityDbContext, 
+            RoleManager<ApplicationRole> roleManager, 
+            UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                DummyData.Initialize(identityDbContext, userManager, roleManager).Wait();
             }
             else
             {
