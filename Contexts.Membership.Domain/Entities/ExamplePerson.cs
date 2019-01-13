@@ -23,8 +23,8 @@ namespace SSar.Contexts.Membership.Domain.Entities
             var aggregate = new ExamplePerson();
             var notifications = new NotificationList();
 
-            aggregate.SetName(name).AddNotificationsTo(notifications);
-            aggregate.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
+            aggregate.SetName(name).CopyNotificationsTo(notifications);
+            aggregate.SetEmailAddress(emailAddress).CopyNotificationsTo(notifications);
 
             return AggregateResult<ExamplePerson>.FromConstruction(notifications, aggregate);
         }
@@ -37,7 +37,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             if (name.Length == 0)
             {
-                notifications.AddNotification("Name is required.", nameof(Name));
+                notifications.AddNotification("Aggregate: Name is required.", nameof(Name));
             }
 
             if (notifications.Empty)
@@ -56,7 +56,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             if (emailAddress.Length == 0)
             {
-                notifications.AddNotification("Email address is required.", nameof(EmailAddress));
+                notifications.AddNotification("Aggregate: Email address is required.", nameof(EmailAddress));
             }
 
             if (notifications.Empty)

@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -53,13 +54,18 @@ namespace SSar.Presentation.WebUI
                 microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                 microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
             });
-
-
+            
             services.AddHtmlTags();
-
+            
+ //           services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
+            
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation(fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<CreateExamplePersonCommandValidator>();
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

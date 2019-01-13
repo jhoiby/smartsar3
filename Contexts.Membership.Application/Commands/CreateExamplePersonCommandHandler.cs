@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -20,12 +21,14 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
+            Debug.WriteLine("\n\n*** Executing CreateExamplePersonCommandHandler.HandleCore()");
+
             var aggregateResult = await Create<MembershipDbContext,ExamplePerson>(
                 _dbContext, 
                 Guid.NewGuid(), 
                 () => ExamplePerson.Create(request.Name, request.EmailAddress));
 
-            return CommandResult.FromAggregateResult(aggregateResult);
+            return aggregateResult.ToCommandResult();
         }
     }
 }

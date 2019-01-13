@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SSar.Contexts.Common.Notifications;
@@ -10,7 +11,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
     public class CreateModel : CommandPageModel
     {
         [BindProperty]
-        public CreateExamplePersonCommand Data { get; set; }
+        public CreateExamplePersonCommand Command { get; set; }
 
         public void OnGet()
         {
@@ -18,11 +19,11 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
 
         public async Task<IActionResult> OnPostAsync()
         {
-            CommandResult result = await Mediator.Send(Data);
+            Debug.WriteLine("\n\nDisplaying page \n\n\n");
 
-            // Result.AggregateId will contain the Id of the just-created ExamplePerson
-
-            return RedirectToPage("Index");
+            return 
+                NotificationsToPageOrRedirectIfOk(
+                    await Mediator.Send(Command));
         }
     }
 }

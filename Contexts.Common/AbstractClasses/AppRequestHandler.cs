@@ -35,7 +35,7 @@ namespace SSar.Contexts.Common.AbstractClasses
             }
             catch (Exception ex)
             {
-                result = AggregateResult<TAggregate>.FromException(ex, "An error occurred while executing a command.");
+                result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Execute while executing a command.");
             }
 
             return result;
@@ -56,7 +56,7 @@ namespace SSar.Contexts.Common.AbstractClasses
             }
             catch (Exception ex)
             {
-                result = AggregateResult<TAggregate>.FromException(ex, "An error occurred while executing a command.");
+                result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Create while executing a command.");
             }
 
             return result;

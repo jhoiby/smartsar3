@@ -15,9 +15,9 @@
     <div asp-validation-summary="All"></div>
     <form method="POST">
 
-        @Html.ValidationDiv()
-        @Html.FormBlock(m => m.Data.Name)
-        @Html.FormBlock(m => m.Data.EmailAddress)
+        @*@Html.ValidationDiv()*@
+        @Html.FormBlock(m => m.Command.Name)
+        @Html.FormBlock(m => m.Command.EmailAddress)
 
         <input type="submit" value="Create" />
 

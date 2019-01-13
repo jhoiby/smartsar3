@@ -1,0 +1,2 @@
+1. Portions of this code are from the Northwind demo by Jason GT, https://github.com/JasonGT/NorthwindTraders, 
+    licensed under MIT license https://github.com/JasonGT/NorthwindTraders/blob/master/LICENSE.md (2019-01-12)

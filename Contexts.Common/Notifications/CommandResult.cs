@@ -23,31 +23,35 @@ namespace SSar.Contexts.Common.Notifications
         public ResultStatus Status { get; }
         public NotificationList Notifications { get; }
         public Exception Exception { get; }
+
         // TODO: Consider returning List<Guid> to handle case where multiple aggregates operated on by one command
         public Guid AggregateId { get; }
-        
-        public static CommandResult FromAggregateResult<TAggregate>(
-            AggregateResult<TAggregate> aggregateResult) 
-            where TAggregate : IAggregateRoot
-        {
-            // TODO: RETHINK, REWRITE (IF NEEDED) AND UNIT TEST THIS
-            // TODO: VERIFY ALL CASES ARE COVERED
+        public bool HasNotifications => Notifications.Count > 0;
 
-            var aggregateId = aggregateResult == null 
-                ? default(Guid) 
-                : aggregateResult.Aggregate.Id;
 
-            var status = aggregateResult.Notifications.Count == 0
-                ? ResultStatus.Successful
-                : ResultStatus.HasNotifications;
+        //// TODO: SEPARATE THIS OUT TO EXTENSION (AggregateResult.ToCommandResult())
+        //public static CommandResult FromAggregateResult<TAggregate>(
+        //    AggregateResult<TAggregate> aggregateResult)
+        //    where TAggregate : IAggregateRoot
+        //{
+        //    // TODO: RETHINK, REWRITE (IF NEEDED) AND UNIT TEST THIS
+        //    // TODO: VERIFY ALL CASES ARE COVERED
 
-            status = aggregateResult.Exception == null
-                ? status
-                : ResultStatus.HasException; // HasException implies HasNotifications
+        //    var aggregateId = aggregateResult == null
+        //        ? default(Guid)
+        //        : aggregateResult.Aggregate.Id;
 
-            return new CommandResult
-                (status, aggregateResult.Notifications,
-                    aggregateResult.Exception, aggregateId);
-        }
+        //    var status = aggregateResult.Notifications.Count == 0
+        //        ? ResultStatus.Successful
+        //        : ResultStatus.HasNotifications;
+
+        //    status = aggregateResult.Exception == null
+        //        ? status
+        //        : ResultStatus.HasException; // HasException implies HasNotifications
+
+        //    return new CommandResult
+        //        (status, aggregateResult.Notifications,
+        //            aggregateResult.Exception, aggregateId);
+        //}
     }
 }
