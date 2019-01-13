@@ -21,14 +21,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
         {
             Debug.WriteLine("\n\nDisplaying page \n\n\n");
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            return RedirectToPage("Index");
-
-
+            return Page();
         }
     }
 }
