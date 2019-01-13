@@ -25,4 +25,9 @@
     <ProjectReference Include="..\Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\Helpers\" />
+  </ItemGroup>
+
 </Project>

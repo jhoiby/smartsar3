@@ -21,9 +21,14 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
         {
             Debug.WriteLine("\n\nDisplaying page \n\n\n");
 
-            return 
-                NotificationsToPageOrRedirectIfOk(
-                    await Mediator.Send(Command));
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            return RedirectToPage("Index");
+
+
         }
     }
 }

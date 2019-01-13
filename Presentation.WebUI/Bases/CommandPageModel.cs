@@ -14,19 +14,19 @@ namespace SSar.Presentation.WebUI.Bases
 
         protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
         
-        public IActionResult NotificationsToPageOrRedirectIfOk(CommandResult cmdResult, string page = "Index")
-        {
-            if (cmdResult.HasNotifications)
-            {
-                foreach (var notification in cmdResult.Notifications)
-                {
-                    ModelState.AddModelError(notification.ForField, notification.Message);
-                }
+        //public IActionResult NotificationsToPageOrRedirectIfOk(CommandResult cmdResult, string page = "Index")
+        //{
+        //    if (cmdResult.HasNotifications)
+        //    {
+        //        foreach (var notification in cmdResult.Notifications)
+        //        {
+        //            ModelState.AddModelError(notification.ForField, notification.Message);
+        //        }
 
-                return Page();
-            }
+        //        return Page();
+        //    }
 
-            return RedirectToPage(page);
-        }
+        //    return RedirectToPage(page);
+        //}
     }
 }

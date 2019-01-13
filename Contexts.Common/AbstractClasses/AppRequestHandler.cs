@@ -20,46 +20,46 @@ namespace SSar.Contexts.Common.AbstractClasses
 
         protected abstract Task<TResponse> HandleCore(TRequest request, CancellationToken cancellationToken);
 
-        protected async Task<AggregateResult<TAggregate>> Execute<TDbContext, TAggregate>(
-            TDbContext dbContext, Guid id, Func<TAggregate, AggregateResult<TAggregate>> func)
-            where TAggregate : AggregateRoot
-            where TDbContext : DbContext
-        {
-            AggregateResult<TAggregate> result;
+        //protected async Task<AggregateResult<TAggregate>> Execute<TDbContext, TAggregate>(
+        //    TDbContext dbContext, Guid id, Func<TAggregate, AggregateResult<TAggregate>> func)
+        //    where TAggregate : AggregateRoot
+        //    where TDbContext : DbContext
+        //{
+        //    AggregateResult<TAggregate> result;
 
-            try
-            {
-                var aggregate = await dbContext.Set<TAggregate>().FindAsync(id);
-                result = func(aggregate);
-                await dbContext.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Execute while executing a command.");
-            }
+        //    try
+        //    {
+        //        var aggregate = await dbContext.Set<TAggregate>().FindAsync(id);
+        //        result = func(aggregate);
+        //        await dbContext.SaveChangesAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Execute while executing a command.");
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
-        protected async Task<AggregateResult<TAggregate>> Create<TDbContext, TAggregate>(
-            TDbContext dbContext, Guid id, Func<AggregateResult<TAggregate>> func)
-            where TAggregate : AggregateRoot
-            where TDbContext : DbContext
-        {
-            AggregateResult<TAggregate> result;
+        //protected async Task<AggregateResult<TAggregate>> Create<TDbContext, TAggregate>(
+        //    TDbContext dbContext, Guid id, Func<AggregateResult<TAggregate>> func)
+        //    where TAggregate : AggregateRoot
+        //    where TDbContext : DbContext
+        //{
+        //    AggregateResult<TAggregate> result;
 
-            try
-            {
-                result = func();
-                dbContext.Set<TAggregate>().Add(result.Aggregate);
-                await dbContext.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Create while executing a command.");
-            }
+        //    try
+        //    {
+        //        result = func();
+        //        dbContext.Set<TAggregate>().Add(result.Aggregate);
+        //        await dbContext.SaveChangesAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        result = AggregateResult<TAggregate>.FromException(ex, "An exception occurred in HandleCore.Create while executing a command.");
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validation\" />
+  </ItemGroup>
+
 </Project>

@@ -23,12 +23,12 @@ namespace SSar.Contexts.Membership.Application.Commands
         {
             Debug.WriteLine("\n\n*** Executing CreateExamplePersonCommandHandler.HandleCore()");
 
-            var aggregateResult = await Create<MembershipDbContext,ExamplePerson>(
-                _dbContext, 
-                Guid.NewGuid(), 
-                () => ExamplePerson.Create(request.Name, request.EmailAddress));
+            //var aggregateResult = await Create<MembershipDbContext,ExamplePerson>(
+            //    _dbContext, 
+            //    Guid.NewGuid(), 
+            //    () => ExamplePerson.Create(request.Name, request.EmailAddress));
 
-            return aggregateResult.ToCommandResult();
+            return new CommandResult();
         }
     }
 }
