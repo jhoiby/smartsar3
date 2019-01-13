@@ -21,7 +21,12 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var person = ExamplePerson.Create(request.Name, request.EmailAddress);
+
+            await _dbContext.ExamplePersons.AddAsync(person.Aggregate);
+            await _dbContext.SaveChangesAsync();
+
+            return new CommandResult();
         }
     }
 }

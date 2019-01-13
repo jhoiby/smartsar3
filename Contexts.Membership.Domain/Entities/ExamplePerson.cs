@@ -20,17 +20,26 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public static AggregateResult<ExamplePerson> Create(string name, string emailAddress)
         {
-            throw new NotImplementedException();
+            var person = new ExamplePerson();
+
+            person.SetName(name);
+            person.SetEmailAddress(emailAddress);
+
+            return AggregateResult<ExamplePerson>.FromAggregate(person);
         }
 
         public AggregateResult<ExamplePerson> SetName(string name)
         {
-            throw new NotImplementedException();
+            _name = name;
+
+            return AggregateResult<ExamplePerson>.FromAggregate(this);
         }
 
         public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
-            throw new NotImplementedException();
+            _emailAddress = emailAddress;
+
+            return AggregateResult<ExamplePerson>.FromAggregate(this);
         }
     }
 }

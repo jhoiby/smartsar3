@@ -19,7 +19,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
 
         public async Task<IActionResult> OnPostAsync()
         {
-            Debug.WriteLine("\n\nDisplaying page \n\n\n");
+            var result = await Mediator.Send(Command);
 
             return Page();
         }

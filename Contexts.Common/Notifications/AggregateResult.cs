@@ -7,6 +7,18 @@ namespace SSar.Contexts.Common.Notifications
 {
     public class AggregateResult<TAggregate> where TAggregate : IAggregateRoot
     {
-        public TAggregate Aggregate => throw new NotImplementedException();
+        private readonly TAggregate _aggregate;
+
+        private AggregateResult(TAggregate aggregate)
+        {
+            _aggregate = aggregate;
+        }
+
+        public TAggregate Aggregate => _aggregate;
+
+        public static AggregateResult<TAggregate> FromAggregate(TAggregate aggregate)
+        {
+            return new AggregateResult<TAggregate>(aggregate);
+        }
     }
 }

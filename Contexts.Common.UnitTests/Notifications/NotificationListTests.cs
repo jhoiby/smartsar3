@@ -12,5 +12,24 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
 {
     public class NotificationListTests
     {
+        [Fact]
+        public void FromNotification_returns__type_NotificationList()
+        {
+            var message = new Notification("hello1");
+
+            var notificationList = NotificationList.FromNotification("param", message);
+
+            notificationList.ShouldBeOfType<NotificationList>();
+        }
+
+        [Fact]
+        public void FromNotification_add_message()
+        {
+            var message = new Notification("hello1");
+
+            var notificationList = NotificationList.FromNotification("param", message);
+
+            notificationList.Notifications["param"].First().ShouldBe(message);
+        }
     }
 }

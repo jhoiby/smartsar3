@@ -12,5 +12,17 @@ namespace SSar.Contexts.Common.UnitTests.Notifications
         private class TestAggregate : AggregateRoot
         {
         }
+
+        [Fact]
+        public void WithAggregate_returns_AggregateResult_with_aggregate()
+        {
+            var agg = new TestAggregate();
+
+            var result = AggregateResult<TestAggregate>.FromAggregate(agg);
+
+            result.ShouldSatisfyAllConditions(
+                () => result.ShouldBeOfType<AggregateResult<TestAggregate>>(),
+                () => result.Aggregate.ShouldBeSameAs(agg));
+        }
     }
 }

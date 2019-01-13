@@ -28,7 +28,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         }
 
         [Fact]
-        public void SetName_returns_OperationResult()
+        public void SetName_returns_AggregateResult()
         {
             var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
@@ -38,7 +38,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         }
 
         [Fact]
-        public void SetEmail_returns_OperationResult()
+        public void SetEmail_returns_AggregateResult()
         {
             var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
