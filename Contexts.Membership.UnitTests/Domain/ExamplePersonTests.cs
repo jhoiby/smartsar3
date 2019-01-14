@@ -96,52 +96,22 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
             examplePerson.Name.ShouldBe(_name);
         }
 
-        // TODO: Review these test for re-implementation
-        //[Fact]
-        //public void SetName_given_empty_name_should_return_error()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
-        //    var result = examplePerson.SetName("");
+        [Theory]
+        [InlineData(" Fred")]
+        [InlineData("   Nelson   ")]
+        public void SetName_trims_padded_name(string paddedName)
+        {
+            throw new NotImplementedException();
+        }
 
-        //    result.Errors["Name"].ShouldBe("Name is required.");
-        //}
+        [Fact]
+        public void James_Hoiby_is_verbotten()
+        {
+            var aggregate = ExamplePerson.Create("Bob", "james@hoiby.com").Aggregate;
 
-        //[Fact]
-        //public void SetEmailAddres_given_empty_string_should_return_correct_error()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
+            var result = aggregate.SetName("James Hoiby");
 
-        //    var result = examplePerson.SetEmailAddress("");
-
-        //    result.Errors["EmailAddress"].ShouldBe("Email address is required.");
-        //}
-
-        //[Fact]
-        //public void SetEmailAddress_given_populated_string_returns_successful_result()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
-
-        //    var result = examplePerson.SetEmailAddress("James.Kirk@starfleet.un");
-
-        //    result.Successful.ShouldBeTrue();
-        //}
-
-        //[Fact]
-        //public void Notifications_should_be_cleared_between_calls()
-        //{
-        //    var examplePerson = ExamplePerson.CreateFromData(_name, _email);
-
-        //    var result1 = examplePerson.SetName("");
-        //    result1.Successful.ShouldBe(false);
-
-        //    var result2 = examplePerson.SetName("Bugs");
-        //    result2.Successful.ShouldBe(true);
-
-        //    var result3 = examplePerson.SetEmailAddress("");
-        //    result3.Successful.ShouldBe(false);
-
-        //    var result4 = examplePerson.SetEmailAddress("xyz@abc.com");
-        //    result4.Successful.ShouldBe(true);
-        //}
+            result.Notifications["Name"].First().Message.ShouldBe("(Test) James Hoiby is not wanted here!");
+        }
     }
 }
