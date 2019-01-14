@@ -24,13 +24,13 @@ namespace SSar.Contexts.Membership.Domain.Entities
         public static AggregateResult<ExamplePerson> Create(string name, string emailAddress)
         {
             var person = new ExamplePerson();
+            var notifications = new NotificationList();
 
-            var constructionNotifications = new NotificationList();
+            person.SetName(name).AddNotificationsTo(notifications);
+            person.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
 
-            person.SetName(name).AddNotificationsTo(constructionNotifications);
-            person.SetEmailAddress(emailAddress).AddNotificationsTo(constructionNotifications);
-
-            return AggregateResult<ExamplePerson>.FromAggregate(person);
+            return AggregateResult<ExamplePerson>
+                .FromAggregateOrNotifications(person, notifications);
         }
 
         public AggregateResult<ExamplePerson> SetName(string name)
@@ -38,26 +38,37 @@ namespace SSar.Contexts.Membership.Domain.Entities
             name = name?.Trim();
 
             var requirements = RequirementsList.Create()
-                .AddRequirement( () => !String.IsNullOrEmpty(name), "Name", "Name is required.")
-                .AddRequirement( () => name != "James Hoiby", "Name", "(Test) James Hoiby is not wanted here!"); // Temp test
+                .AddRequirement( 
+                    () => !string.IsNullOrEmpty(name), "Name", "Name is required.")
+                .AddRequirement( 
+                    () => name != "James Hoiby", "Name", "James Hoiby is not wanted here!"); // Temp fun test
 
-            return ExecuteAction( () => _name = name, requirements);
+            return ExecuteAction( 
+                () => _name = name, 
+                requirements);
         }
 
         public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
-            // Incomplete
+            emailAddress = emailAddress?.Trim();
 
-            _emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
+            var requirements = RequirementsList.Create()
+                .AddRequirement(
+                    () => !string.IsNullOrEmpty(emailAddress), "EmailAddress", "Email address is required.");
 
-            return AggregateResult<ExamplePerson>.FromAggregate(this);
+            return ExecuteAction(
+                () => _emailAddress = emailAddress, 
+                requirements);
         }
 
 
-        // TODO: BELOW THIS LINE IS STUFF TO REFACTOR TO OTHER CLASSES
 
-        // Also consider better names and code cleanup
 
+
+        // TODO: BELOW THIS LINE IS STUFF TO REFACTOR AND MOVE TO OTHER CLASSES
+        //
+        // This was quick and dirty, consider better names and code cleanup
+        //
         private NotificationList ExecuteRequirementSet(List<RequirementSet> requirements)
         {
             var notifications = new NotificationList();
