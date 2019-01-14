@@ -30,14 +30,27 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
         public AggregateResult<ExamplePerson> SetName(string name)
         {
-            _name = name;
+            name = name?.Trim();
+            
+            var notifications = new NotificationList();
 
-            return AggregateResult<ExamplePerson>.FromAggregate(this);
+            if (String.IsNullOrEmpty(name))
+            {
+                notifications.AddNotification("Name", "Name is required.");
+            }
+
+            if (!notifications.HasNotifications)
+            {
+                _name = name;
+            }
+
+            return AggregateResult<ExamplePerson>.
+                    FromAggregateOrNotifications(this, notifications);
         }
 
         public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
-            _emailAddress = emailAddress;
+            _emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
 
             return AggregateResult<ExamplePerson>.FromAggregate(this);
         }

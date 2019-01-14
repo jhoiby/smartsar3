@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 using Shouldly;
@@ -48,21 +49,51 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         }
 
         [Fact]
-        public void SetName_given_null_should_throw_ArgumentNullException_with_param()
-        {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
-
-            var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetName(null));
-            ex.ParamName.ShouldBe("name");
-        }
-
-        [Fact]
         public void SetEmailAddress_given_null_should_throw_ArgumentNullException_with_param()
         {
             var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
             var ex = Should.Throw<ArgumentNullException>(() => examplePerson.SetEmailAddress(null));
             ex.ParamName.ShouldBe("emailAddress");
+        }
+
+        [Fact]
+        public void SetName_given_null_should_return_notification()
+        {
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+
+            var result = examplePerson.SetName(null);
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Notifications["Name"].Count.ShouldBe(1),
+                () => result.Notifications["Name"].First().Message.ShouldBe("Name is required."));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData("      ")]
+        public void SetName_given_empty_should_return_notification(string emptyName)
+        {
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+
+            var result = examplePerson.SetName("");
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Notifications["Name"].Count.ShouldBe(1),
+                () => result.Notifications["Name"].First().Message.ShouldBe("Name is required."));
+        }
+
+
+        [Theory]
+        [InlineData("")]
+        [InlineData("      ")]
+        public void SetName_given_empty_should_not_set_name(string emptyName)
+        {
+            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+
+            examplePerson.SetName("");
+
+            examplePerson.Name.ShouldBe(_name);
         }
 
         // TODO: Review these test for re-implementation
