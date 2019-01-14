@@ -19,9 +19,14 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             var result = await Mediator.Send(Command);
 
-            return Page();
+            return RedirectToPage("Index");
         }
     }
 }
