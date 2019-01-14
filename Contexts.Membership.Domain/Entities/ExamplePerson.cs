@@ -25,8 +25,10 @@ namespace SSar.Contexts.Membership.Domain.Entities
         {
             var person = new ExamplePerson();
 
-            person.SetName(name);
-            person.SetEmailAddress(emailAddress);
+            var constructionNotifications = new NotificationList();
+
+            person.SetName(name).AddNotificationsTo(constructionNotifications);
+            person.SetEmailAddress(emailAddress).AddNotificationsTo(constructionNotifications);
 
             return AggregateResult<ExamplePerson>.FromAggregate(person);
         }

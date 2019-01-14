@@ -41,11 +41,41 @@ namespace SSar.Contexts.Common.Notifications
         public NotificationList AddNotification(string paramName, string paramMessage)
         {
             var notification = new Notification(paramMessage);
-            this.Add(paramName, AddToNotificationsFromKey(paramName, notification));
+
+            AddOrAppend(paramName, new List<Notification>(){ notification });
 
             return this;
         }
 
+        private NotificationList AddOrAppend(string key, List<Notification> notifications)
+        {
+            var valueToSave = new List<Notification>();
+
+            valueToSave.AddRange(notifications);
+            
+            // The "Append" part, preserves existing notifications instead of overwriting
+            if (this.TryGetValue(key, out List<Notification> existingTargetValue))
+            {
+                valueToSave.AddRange(this[key]);
+            }
+
+            this[key] = valueToSave;
+
+            return this;
+        }
+
+        public NotificationList AddOrAppend(NotificationList sourceNotifications)
+        {
+            foreach (var sourceDictionaryPair in sourceNotifications)
+            {
+                string currentKey = sourceDictionaryPair.Key;
+
+                AddOrAppend(currentKey, sourceDictionaryPair.Value);
+            }
+
+            return this;
+        }
+        
         private List<Notification> AddToNotificationsFromKey(
             string paramName, Notification notification)
         {

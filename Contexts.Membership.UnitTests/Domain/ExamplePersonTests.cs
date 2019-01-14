@@ -76,7 +76,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         {
             var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
-            var result = examplePerson.SetName("");
+            var result = examplePerson.SetName(emptyName);
 
             result.ShouldSatisfyAllConditions(
                 () => result.Notifications["Name"].Count.ShouldBe(1),
@@ -91,7 +91,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         {
             var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
 
-            examplePerson.SetName("");
+            examplePerson.SetName(emptyName);
 
             examplePerson.Name.ShouldBe(_name);
         }
@@ -99,11 +99,12 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
         [Theory]
         [InlineData(" Fred")]
         [InlineData("   Nelson   ")]
-        public void SetName_trims_padded_name(string paddedName)
+        public void SetName_trims_padded_name(string  paddedName)
         {
             throw new NotImplementedException();
         }
 
+        // A temporary test for fun
         [Fact]
         public void James_Hoiby_is_verbotten()
         {
