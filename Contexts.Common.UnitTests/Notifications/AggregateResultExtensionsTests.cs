@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Shouldly;
-using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Entities;
 using SSar.Contexts.Common.Notifications;
 using Xunit;
 

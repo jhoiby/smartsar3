@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Shouldly;
-using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Entities;
 using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.AbstractClasses

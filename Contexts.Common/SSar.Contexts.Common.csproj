@@ -16,9 +16,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="RequestBehaviors\" />
-    <Folder Include="Validation\" />
-  </ItemGroup>
-
 </Project>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SSar.Contexts.Common.Enums;
 using SSar.Contexts.Common.Helpers;
+using SSar.Contexts.Common.Helpers.Enums;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {

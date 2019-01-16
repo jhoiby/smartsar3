@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Shouldly;
-using SSar.Contexts.Common.Enums;
+using SSar.Contexts.Common.Helpers.Enums;
 using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 

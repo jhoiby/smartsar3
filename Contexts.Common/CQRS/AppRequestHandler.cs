@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using SSar.Contexts.Common.Notifications;
 
-namespace SSar.Contexts.Common.AbstractClasses
+namespace SSar.Contexts.Common.CQRS
 {
     public abstract class AppRequestHandler<TRequest, TResponse>
         : IRequestHandler<TRequest, TResponse> where TRequest : IRequest<TResponse>

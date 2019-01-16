@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SSar.Contexts.Common.Notifications;
 
-namespace SSar.Contexts.Common.AbstractClasses
+namespace SSar.Contexts.Common.Entities
 {
     public abstract class AggregateRoot : Entity, IAggregateRoot
     {

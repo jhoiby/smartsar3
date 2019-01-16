@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Entities;
 using SSar.Contexts.Common.Helpers;
 using SSar.Contexts.Common.Notifications;
 

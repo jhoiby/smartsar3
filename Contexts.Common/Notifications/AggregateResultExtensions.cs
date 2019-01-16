@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using SSar.Contexts.Common.AbstractClasses;
+using SSar.Contexts.Common.Entities;
 
 namespace SSar.Contexts.Common.Notifications
 {
