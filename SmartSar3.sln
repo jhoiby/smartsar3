@@ -14,21 +14,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContexts", "BoundedC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Membership", "Membership", "{92D668F7-51B8-439F-A381-EF789138ADC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common", "Contexts.Common\SSar.Contexts.Common.csproj", "{B526D1BD-43B3-40BF-9FC2-B47474D10291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common", "SSar.Contexts.Common\SSar.Contexts.Common.csproj", "{B526D1BD-43B3-40BF-9FC2-B47474D10291}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EE508FF5-D568-4402-8EC3-97178B220753}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Presentation.WebUI", "Presentation.WebUI\SSar.Presentation.WebUI.csproj", "{F544E3B0-8E87-4729-A4F5-BF31EB78E143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Presentation.WebUI", "SSar.Presentation.WebUI\SSar.Presentation.WebUI.csproj", "{F544E3B0-8E87-4729-A4F5-BF31EB78E143}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Domain", "Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj", "{77825D8D-D6C0-44C7-A6AE-FBA59CA5F8D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Domain", "SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj", "{77825D8D-D6C0-44C7-A6AE-FBA59CA5F8D6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Application", "Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj", "{1A103929-EE0D-4649-A231-9C0B654A8719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Application", "SSar.Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj", "{1A103929-EE0D-4649-A231-9C0B654A8719}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Data", "Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj", "{8CC62B67-B470-4DB4-A4F5-039EF8EEB170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Data", "SSar.Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj", "{8CC62B67-B470-4DB4-A4F5-039EF8EEB170}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.UnitTests", "Contexts.Membership.UnitTests\SSar.Contexts.Membership.UnitTests.csproj", "{B7CFEE79-1458-4496-AF90-0C62393B98EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.UnitTests", "SSar.Contexts.Membership.UnitTests\SSar.Contexts.Membership.UnitTests.csproj", "{B7CFEE79-1458-4496-AF90-0C62393B98EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common.UnitTests", "Contexts.Common.UnitTests\SSar.Contexts.Common.UnitTests.csproj", "{8ABF812B-07F7-43B3-BE5D-79E0F1A98750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common.UnitTests", "SSar.Contexts.Common.UnitTests\SSar.Contexts.Common.UnitTests.csproj", "{8ABF812B-07F7-43B3-BE5D-79E0F1A98750}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.IntegrationTests", "SSar.IntegrationTests\SSar.IntegrationTests.csproj", "{ED123741-577D-4A75-8D0B-C58866CAE7E7}"
 EndProject

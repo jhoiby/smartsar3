@@ -15,12 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj" />
-    <ProjectReference Include="..\Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.Common\SSar.Contexts.Common.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Entities\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Validation\" />
   </ItemGroup>
 
 </Project>

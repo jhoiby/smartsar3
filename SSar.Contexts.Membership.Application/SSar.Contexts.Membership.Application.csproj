@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj" />
   </ItemGroup>
 
 </Project>
