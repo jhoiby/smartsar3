@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SSar.Contexts.Membership.Application.Commands;
 using SSar.Contexts.Membership.Data;
+using SSar.Contexts.Membership.Domain.DomainEvents;
 using SSar.Presentation.WebUI.Areas.Identity.Models;
 using SSar.Presentation.WebUI.Data;
 

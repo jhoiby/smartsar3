@@ -1,0 +1,12 @@
+ARCHITECTURE OVERVIEW
+
+DOMAIN EVENTS
+
+Domain events are used to communicate between aggregates within a bounded context. They are propogated
+using Jimmy Bogard's MediatR package and execute synchronously with each command to maintain immediate
+consistency within the bounded context.
+
+INTEGRATION EVENTS
+
+Integration events are published on an event bus and executed asynchronously, therefore communication
+between bounded contexts is done with "eventual consistency". This system is still under design.

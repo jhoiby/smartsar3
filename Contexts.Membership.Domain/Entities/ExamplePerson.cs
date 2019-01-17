@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using SSar.Contexts.Common.Entities;
 using SSar.Contexts.Common.Helpers;
 using SSar.Contexts.Common.Notifications;
+using SSar.Contexts.Membership.Domain.DomainEvents;
 
 namespace SSar.Contexts.Membership.Domain.Entities
 {
@@ -28,6 +29,8 @@ namespace SSar.Contexts.Membership.Domain.Entities
 
             person.SetName(name).AddNotificationsTo(notifications);
             person.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
+
+            person.AddEvent(new ExamplePersonCreated(person));
 
             return AggregateResult<ExamplePerson>
                 .FromAggregateOrNotifications(person, notifications);

@@ -4,6 +4,7 @@ using SSar.Contexts.Membership.Domain.Entities;
 using Xunit;
 using Shouldly;
 using SSar.Contexts.Common.Notifications;
+using SSar.Contexts.Membership.Domain.DomainEvents;
 
 namespace SSar.Contexts.Membership.UnitTests.Domain
 {
@@ -46,6 +47,20 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
             result.ShouldSatisfyAllConditions(
                 () => result.Notifications.Count.ShouldBe(1),
                 () => result.Notifications["Name"].First().Message.ShouldBe("Name is required."));
+        }
+
+
+
+        [Fact]
+        public void CreateFromNameAndEmail_adds_ExamplePersonCreated_event()
+        {
+            var aggregate = ExamplePerson.Create("Elmer Fudd", "elmer@wascallywabbit.com").Aggregate;
+
+            var createdEvent = aggregate.Events.OfType<ExamplePersonCreated>().SingleOrDefault();
+
+            createdEvent.ShouldSatisfyAllConditions(
+                () => createdEvent.ShouldNotBeNull(),
+                () => createdEvent.ExamplePerson.ShouldBe(aggregate));
         }
 
         [Fact]
