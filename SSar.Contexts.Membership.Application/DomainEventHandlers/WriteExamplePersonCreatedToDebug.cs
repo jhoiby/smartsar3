@@ -13,7 +13,7 @@ namespace SSar.Contexts.Membership.Application.DomainEventHandlers
     {
         public async Task Handle(ExamplePersonCreated notification, CancellationToken cancellationToken)
         {
-            Debug.WriteLine("\n*** ExamplePersonCreated event received\n");
+            Debug.WriteLine("*** Domain event handler fired: WriteExamplePersonCreatedToDebug (ExamplePersonCreated)");
         }
     }
 }

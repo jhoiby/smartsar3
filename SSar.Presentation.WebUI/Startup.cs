@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,9 +59,13 @@ namespace SSar.Presentation.WebUI
             
             services.AddHtmlTags();
             
- //           services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
-            
+
+            services.AddTransient<IQueueClient, QueueClient>((ctx) => 
+                new QueueClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
+                    Configuration["AzureServiceBus:QueueName"])
+            );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv =>
