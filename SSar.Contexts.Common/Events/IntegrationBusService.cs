@@ -30,8 +30,9 @@ namespace SSar.Contexts.Common.Events
                 ContentType = "application/json",
                 Label = @event.Label,
                 MessageId = @event.EventId.ToString(),
-                TimeToLive = TimeSpan.FromDays(14)
             };
+
+            message.UserProperties.Add("Publisher", @event.Publisher);
 
             await _topicClient.SendAsync(message);
         }

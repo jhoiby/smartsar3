@@ -4,7 +4,7 @@ using SSar.Contexts.Common.Events;
 namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
 {
     [Serializable]
-    public class ExamplePersonCreated : DomainEvent
+    public class ExamplePersonCreated : MembershipDomainEvent
     {
         public ExamplePersonCreated(Guid id, string name, string emailAddress)
         {
@@ -13,7 +13,7 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
             EmailAddress = emailAddress;
         }
 
-        public override string Label => "ExamplePerson.Created";
+        public override string Label => "ExamplePersonCreated";
         public Guid Id { get; }
         public string Name { get; }
         public string EmailAddress { get; }

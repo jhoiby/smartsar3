@@ -7,6 +7,9 @@ using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
 namespace SSar.Contexts.Membership.Application.EventHandlers
 {
+    // TODO: Replace this with simplified system that published domain events to the 
+    // TODO: integration bus just after the aggregate root's database commit
+
     public class PublishExamplePersonCreatedToIntegrationBus : INotificationHandler<ExamplePersonCreated>
     {
         private IIntegrationBusService _integrationBus;
