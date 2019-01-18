@@ -11,9 +11,9 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SSar.Contexts.Common.Events;
 using SSar.Contexts.Membership.Application.Commands;
 using SSar.Contexts.Membership.Data;
-using SSar.Contexts.Membership.Domain.DomainEvents;
 using SSar.Presentation.WebUI.Areas.Identity.Models;
 using SSar.Presentation.WebUI.Data;
 
@@ -61,11 +61,11 @@ namespace SSar.Presentation.WebUI
             
             // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
-
-            services.AddTransient<IQueueClient, QueueClient>((ctx) => 
-                new QueueClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
-                    Configuration["AzureServiceBus:QueueName"])
-            );
+            
+            services.AddTransient<IIntegrationBusService, IntegrationBusService>((ctx) =>
+                new IntegrationBusService(
+                    new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
+                        Configuration["AzureServiceBus:Topic"])));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv =>

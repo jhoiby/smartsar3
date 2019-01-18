@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using SSar.Contexts.Common.Entities;
-using SSar.Contexts.Membership.Domain.Entities;
 using MediatR;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
 namespace SSar.Contexts.Membership.Data
 {
@@ -46,6 +46,10 @@ namespace SSar.Contexts.Membership.Data
                 entity.Events.Clear();
                 foreach (var domainEvent in events)
                 {
+                    // TODO: !!! Currently this will send events over integration bus prior
+                    // TODO: to db commit. Setup queuing flow and dispatch integration events
+                    // TODO: only after successful db commit.
+
                     await _dispatcher.Publish(domainEvent);
                 }
             }

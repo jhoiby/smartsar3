@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SSar.Contexts.Entities.DomainEvents;
+using SSar.Contexts.Common.Events;
 
 namespace SSar.Contexts.Common.Entities
 {

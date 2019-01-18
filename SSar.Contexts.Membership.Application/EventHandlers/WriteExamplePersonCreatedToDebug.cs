@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using SSar.Contexts.Membership.Domain.DomainEvents;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
-namespace SSar.Contexts.Membership.Application.DomainEventHandlers
+namespace SSar.Contexts.Membership.Application.EventHandlers
 {
     public class WriteExamplePersonCreatedToDebug : INotificationHandler<ExamplePersonCreated>
     {

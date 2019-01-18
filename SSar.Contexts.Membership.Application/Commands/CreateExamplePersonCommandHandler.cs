@@ -6,7 +6,7 @@ using MediatR;
 using SSar.Contexts.Common.CQRS;
 using SSar.Contexts.Common.Notifications;
 using SSar.Contexts.Membership.Data;
-using SSar.Contexts.Membership.Domain.Entities;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {

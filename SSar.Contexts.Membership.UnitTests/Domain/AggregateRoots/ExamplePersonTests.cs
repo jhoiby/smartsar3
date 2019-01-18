@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
-using SSar.Contexts.Membership.Domain.Entities;
-using Xunit;
+﻿using System.Linq;
 using Shouldly;
 using SSar.Contexts.Common.Notifications;
-using SSar.Contexts.Membership.Domain.DomainEvents;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
+using Xunit;
 
-namespace SSar.Contexts.Membership.UnitTests.Domain
+namespace SSar.Contexts.Membership.UnitTests.Domain.AggregateRoots
 {
     public class ExamplePersonTests
     {
@@ -60,7 +58,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain
 
             createdEvent.ShouldSatisfyAllConditions(
                 () => createdEvent.ShouldNotBeNull(),
-                () => createdEvent.ExamplePerson.ShouldBe(aggregate));
+                () => createdEvent.Name.ShouldBe("Elmer Fudd"));
         }
 
         [Fact]

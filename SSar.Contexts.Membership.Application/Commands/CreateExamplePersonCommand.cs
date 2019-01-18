@@ -1,7 +1,6 @@
 ﻿using System;
 using MediatR;
 using SSar.Contexts.Common.Notifications;
-using SSar.Contexts.Membership.Domain.Entities;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {

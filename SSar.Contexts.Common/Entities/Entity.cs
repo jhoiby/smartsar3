@@ -7,6 +7,8 @@ namespace SSar.Contexts.Common.Entities
     // Much of this class is based on the examples there.
     // (See that article for implementing equality operators, hashes
 
+    // TODO: Implement Equals and GetHashCode
+
     public abstract class Entity : IEntity
     {
         private Guid _id;

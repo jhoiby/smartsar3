@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using SSar.Contexts.Common.Entities;
-using SSar.Contexts.Common.Helpers;
 using SSar.Contexts.Common.Notifications;
-using SSar.Contexts.Membership.Domain.DomainEvents;
 
-namespace SSar.Contexts.Membership.Domain.Entities
+namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
 {
     public class ExamplePerson : AggregateRoot
     {
@@ -30,7 +25,7 @@ namespace SSar.Contexts.Membership.Domain.Entities
             person.SetName(name).AddNotificationsTo(notifications);
             person.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
 
-            person.AddEvent(new ExamplePersonCreated(person));
+            person.AddEvent(new ExamplePersonCreated(person.Id, person.Name, person.EmailAddress));
 
             return AggregateResult<ExamplePerson>
                 .FromAggregateOrNotifications(person, notifications);
@@ -46,6 +41,8 @@ namespace SSar.Contexts.Membership.Domain.Entities
                 .AddRequirement( 
                     () => name != "James Hoiby", "Name", "James Hoiby is not wanted here!"); // Temp fun test
 
+            // TODO: Event publish
+
             return ExecuteAction( 
                 () => _name = name, 
                 requirements);
@@ -58,6 +55,8 @@ namespace SSar.Contexts.Membership.Domain.Entities
             var requirements = RequirementsList.Create()
                 .AddRequirement(
                     () => !string.IsNullOrEmpty(emailAddress), "EmailAddress", "Email address is required.");
+
+            // TODO: Event publish
 
             return ExecuteAction(
                 () => _emailAddress = emailAddress, 
