@@ -9,5 +9,10 @@ namespace SSar.Contexts.Common.Events
         DateTime OccurredAtUtc { get; }
         string Label { get; }
         string Publisher { get; }
+        string SourceAggregate { get; }
+
+        // The last two are leaky abstractions but are useful for message bus subscription filtering.
+        // Using other grouping/filtering methods would add another layer of complexity which
+        // isn't desired right now.
     }
 }

@@ -30,7 +30,9 @@ namespace SSar.Contexts.Common.Events
                 MessageId = Guid.NewGuid().ToString()
             };
 
+            // Expose properties for use with subscription message filtering
             message.UserProperties.Add("Publisher", @event.Publisher);
+            message.UserProperties.Add("SourceAggregate", @event.SourceAggregate);
 
             await _topicClient.SendAsync(message);
         }
