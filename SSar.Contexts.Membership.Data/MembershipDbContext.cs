@@ -7,17 +7,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using SSar.Contexts.Common.Entities;
 using MediatR;
+using SSar.Contexts.Common.Events;
+using SSar.Contexts.Membership.Data.TypeConfigurations;
 using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
 namespace SSar.Contexts.Membership.Data
 {
+    // CREDIT: Thanks to Jimmy Bogard for this simple dispatcher method, refactored but used here.
+    // CREDIT: https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern/ 
+
     public class MembershipDbContext : DbContext
     {
-        private IMediator _dispatcher;
+        private IEventDispatcher _dispatcher;
 
-        public MembershipDbContext(DbContextOptions<MembershipDbContext> options, IMediator dispatcher) : base (options)
+        public MembershipDbContext(DbContextOptions<MembershipDbContext> options, IEventDispatcher dispatcher) : base (options)
         {
-            _dispatcher = dispatcher ?? throw new ArgumentNullException();
+            _dispatcher = dispatcher ?? throw new ArgumentNullException(nameof(dispatcher));
         }
 
         public DbSet<ExamplePerson> ExamplePersons { get; set; }
@@ -27,46 +32,40 @@ namespace SSar.Contexts.Membership.Data
             throw new NotImplementedException("Only SaveChangesAsync is implemented in this application.");
         }
 
-        // TODO: DEEP STUDYING ON UNWRAPPING ASYNC EXCEPTIONS!!!
-        // TODO: Testing of this method and its side effects, and exceptions at various points
-        // CREDIT: Thanks to Jimmy Bogard for this simple dispatcher method.
-        // CREDIT: https://lostechies.com/jimmybogard/2014/05/13/a-better-domain-events-pattern/ 
-        //
         public override async Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            var domainEventEntities = ChangeTracker.Entries<IAggregateRoot>()
-                .Select(po => po.Entity)
-                .Where(po => po.Events.Any())
+            // TODO: What exception handling/unwrapping that needs to take place?
+
+            // TODO: Concerned about single responsibility. Consider pulling the
+            // TODO: event dispatching out and handling elsewhere.
+
+            var aggregatesWithDomainEvents = ChangeTracker.Entries<IAggregateRoot>()
+                .Select(e => e.Entity)
+                .Where(e => e.Events.Any())
                 .ToArray();
+            
+            await _dispatcher
+                .DispatchInternalBoundedContextEventsAsync(aggregatesWithDomainEvents);
 
-            foreach (var entity in domainEventEntities)
-            {
-                var events = entity.Events.ToArray();
-                entity.Events.Clear();
-                foreach (var domainEvent in events)
-                {
-                    // TODO: !!! Currently this will send events over integration bus prior
-                    // TODO: to db commit. Setup queuing flow and dispatch integration events
-                    // TODO: only after successful db commit.
+            // Transaction closing includes side-effects of dispatched events
+            var saveResult = 
+                await base.SaveChangesAsync(cancellationToken);
 
-                    await _dispatcher.Publish(domainEvent);
-                }
-            }
+            await _dispatcher
+                .PublishToIntegrationBusAsync(aggregatesWithDomainEvents); 
 
-            return await base.SaveChangesAsync(cancellationToken);
+            _dispatcher
+                .ClearEventEntities(aggregatesWithDomainEvents);
+            
+            return saveResult;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ExamplePerson>()
-                .HasKey("_id");
-            modelBuilder.Entity<ExamplePerson>()
-                .Property(b => b.Name)
-                .HasField("_name");
-            modelBuilder.Entity<ExamplePerson>()
-                .Property(b => b.EmailAddress)
-                .HasField("_emailAddress");
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new ExamplePersonTypeConfiguration());
         }
     }
 }

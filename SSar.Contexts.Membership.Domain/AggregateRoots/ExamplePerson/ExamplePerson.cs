@@ -26,10 +26,14 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
             person.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
 
             person.AddEvent(new ExamplePersonCreated(person.Id, person.Name, person.EmailAddress));
+            person.AddEvent(new TestEvent1());
+            person.AddEvent(new TestEvent2());
 
             return AggregateResult<ExamplePerson>
                 .FromAggregateOrNotifications(person, notifications);
         }
+
+        // TODO: Make these private property accessors then create public change methods
 
         public AggregateResult<ExamplePerson> SetName(string name)
         {
@@ -39,7 +43,7 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
                 .AddRequirement( 
                     () => !string.IsNullOrEmpty(name), "Name", "Name is required.")
                 .AddRequirement( 
-                    () => name != "James Hoiby", "Name", "James Hoiby is not wanted here!"); // Temp fun test
+                    () => name != "James Hoiby", "Name", "James Hoiby is not wanted here!"); // TODO: Remove. Here for fun test
 
             // TODO: Event publish
 

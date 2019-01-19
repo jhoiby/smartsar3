@@ -2,7 +2,7 @@
 
 namespace SSar.Contexts.Common.Events
 {
-    public interface IIntegrationBusService
+    public interface IBusSender
     {
         Task SendAsync(IDomainEvent @event);
     }

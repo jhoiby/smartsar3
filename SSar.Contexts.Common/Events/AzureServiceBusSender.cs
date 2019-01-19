@@ -10,13 +10,13 @@ namespace SSar.Contexts.Common.Events
 {
     // TODO: Currently this will send events over integration bus prior
     // TODO: to db commit! Setup queuing flow and dispatch integration events
-    // TODO: only after successful db commit.
+    // TODO: only after successful db commit. (See the DbContext class to fix)
 
-    public class IntegrationBusService : IIntegrationBusService
+    public class AzureServiceBusSender : IBusSender
     {
         private readonly ITopicClient _topicClient;
 
-        public IntegrationBusService(ITopicClient topicClient)
+        public AzureServiceBusSender(ITopicClient topicClient)
         {
             _topicClient = topicClient ?? throw new ArgumentNullException(nameof(topicClient));
         }
@@ -25,11 +25,9 @@ namespace SSar.Contexts.Common.Events
         {
             var message = new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
             {
-                // TODO: IS THIS THE RIGHT LABEL? HOW DO I RECONSTRUCT EXAMPLEPERSON?
-
                 ContentType = "application/json",
                 Label = @event.Label,
-                MessageId = @event.EventId.ToString(),
+                MessageId = Guid.NewGuid().ToString()
             };
 
             message.UserProperties.Add("Publisher", @event.Publisher);
