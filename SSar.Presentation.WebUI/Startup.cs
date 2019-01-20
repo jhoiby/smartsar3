@@ -65,7 +65,7 @@ namespace SSar.Presentation.WebUI
 
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
             
-            services.AddTransient<IBusSender, AzureServiceBusSender>((ctx) =>
+            services.AddTransient<IServiceBusSender, AzureServiceBusSender>((ctx) =>
                 new AzureServiceBusSender(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"])));
@@ -76,7 +76,7 @@ namespace SSar.Presentation.WebUI
                     fv.RegisterValidatorsFromAssemblyContaining<CreateExamplePersonCommandValidator>();
                 });
 
-            services.AddTransient<IEventDispatcher, EventDispatcher>();
+            services.AddTransient<IDomainEventDispatcher, DomainEventDispatcher>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

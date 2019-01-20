@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E98FBFBB-A28C-4675-A074-A75BC146C58E}"
 	ProjectSection(SolutionItems) = preProject
 		Credits.txt = Credits.txt
+		IntegrationEvents task outline.txt = IntegrationEvents task outline.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{A0A8F723-6C2E-44D2-9E72-FBD0B243B51F}"

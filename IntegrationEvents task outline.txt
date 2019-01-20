@@ -1,0 +1,24 @@
+Integration Event Outbox process
+----------------
+
+1. DbContext.Save gets called in CommandHandler
+
+2. Db context collects pending DomainEvents from entities and dispatches them
+    - DomainEvent handlers get fired
+    - Aggregates in each bounded context update state
+    - DomainEvent handlers may put IntegrationEvents into IntegrationEventService.Queue
+
+3. Db context copies IntegrationEvents from queue to database table IntegrationEventOutbox and marks them as PENDING
+
+4. DbContext commits changes, transaction ends
+
+5. DbContext calls IntegrationEventService.PublishQueue
+
+6. As each IntegrationEvent is processed, it gets marked in the outbox as SENT
+    - Optionally, track retry count, etc.
+
+Need:
+    - IIntegrationEventService, IntegrationEventService
+    - IEventOutboxService, EventOutboxService
+	- EventOutBox class to persist
+    - IServiceBus, ServiceBusAzure

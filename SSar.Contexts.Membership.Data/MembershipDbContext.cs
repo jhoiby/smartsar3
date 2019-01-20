@@ -18,9 +18,9 @@ namespace SSar.Contexts.Membership.Data
 
     public class MembershipDbContext : DbContext
     {
-        private IEventDispatcher _dispatcher;
+        private IDomainEventDispatcher _dispatcher;
 
-        public MembershipDbContext(DbContextOptions<MembershipDbContext> options, IEventDispatcher dispatcher) : base (options)
+        public MembershipDbContext(DbContextOptions<MembershipDbContext> options, IDomainEventDispatcher dispatcher) : base (options)
         {
             _dispatcher = dispatcher ?? throw new ArgumentNullException(nameof(dispatcher));
         }

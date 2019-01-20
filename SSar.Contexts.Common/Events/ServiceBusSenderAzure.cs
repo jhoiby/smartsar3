@@ -12,7 +12,7 @@ namespace SSar.Contexts.Common.Events
     // TODO: to db commit! Setup queuing flow and dispatch integration events
     // TODO: only after successful db commit. (See the DbContext class to fix)
 
-    public class AzureServiceBusSender : IBusSender
+    public class ServiceBusSenderAzure : IServiceBusSender
     {
         private readonly ITopicClient _topicClient;
 

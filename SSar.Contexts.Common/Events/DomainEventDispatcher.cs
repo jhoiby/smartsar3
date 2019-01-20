@@ -8,12 +8,12 @@ using SSar.Contexts.Common.Entities;
 
 namespace SSar.Contexts.Common.Events
 {
-    public class EventDispatcher : IEventDispatcher
+    public class DomainEventDispatcher : IDomainEventDispatcher
     {
         private readonly IMediator _mediator;
-        private readonly IBusSender _integrationBus;
+        private readonly IServiceBusSender _integrationBus;
 
-        public EventDispatcher(IMediator mediator, IBusSender integrationBus)
+        public DomainEventDispatcher(IMediator mediator, IServiceBusSender integrationBus)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _integrationBus = integrationBus ?? throw new ArgumentNullException(nameof(integrationBus));

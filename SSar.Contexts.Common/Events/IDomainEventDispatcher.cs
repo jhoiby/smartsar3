@@ -6,7 +6,7 @@ using SSar.Contexts.Common.Entities;
 
 namespace SSar.Contexts.Common.Events
 {
-    public interface IEventDispatcher
+    public interface IDomainEventDispatcher
     {
         Task<IAggregateRoot[]> DispatchInternalBoundedContextEventsAsync(IAggregateRoot[] aggregates);
         IAggregateRoot[] ClearEventEntities(IAggregateRoot[] aggregates);
