@@ -65,8 +65,8 @@ namespace SSar.Presentation.WebUI
 
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
             
-            services.AddTransient<IServiceBusSender, AzureServiceBusSender>((ctx) =>
-                new AzureServiceBusSender(
+            services.AddTransient<IServiceBusSender, ServiceBusSenderAzure>((ctx) =>
+                new ServiceBusSenderAzure(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"])));
 

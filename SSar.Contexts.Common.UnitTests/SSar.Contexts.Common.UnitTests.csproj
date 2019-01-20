@@ -19,9 +19,4 @@
     <ProjectReference Include="..\SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Validation\" />
-  </ItemGroup>
-
 </Project>

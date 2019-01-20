@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Shouldly;
 using SSar.Contexts.Common.Entities;
 using Xunit;
 
-namespace SSar.Contexts.Common.UnitTests.AbstractClasses
+namespace SSar.Contexts.Common.UnitTests.Entities
 {
     public class EntityTests
     {
@@ -15,7 +13,7 @@ namespace SSar.Contexts.Common.UnitTests.AbstractClasses
         }
 
         [Fact]
-        public void Id_property_is_set_to_non_default_on_construction()
+        public void Id_property_should_be_set_to_non_default_on_construction()
         {
             var concreteEntity = new ConcreteEntity();
 

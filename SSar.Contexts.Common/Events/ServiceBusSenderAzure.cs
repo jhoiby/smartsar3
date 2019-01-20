@@ -16,7 +16,7 @@ namespace SSar.Contexts.Common.Events
     {
         private readonly ITopicClient _topicClient;
 
-        public AzureServiceBusSender(ITopicClient topicClient)
+        public ServiceBusSenderAzure(ITopicClient topicClient)
         {
             _topicClient = topicClient ?? throw new ArgumentNullException(nameof(topicClient));
         }
