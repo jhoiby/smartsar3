@@ -33,21 +33,6 @@ namespace SSar.Contexts.Common.Events
             return aggregates;
         }
 
-        public async Task<IAggregateRoot[]> PublishToIntegrationBusAsync(IAggregateRoot[] aggregates)
-        {
-            foreach (var aggregate in aggregates)
-            {
-                var events = aggregate.Events.ToArray();
-                aggregate.Events.Clear();
-                foreach (var domainEvent in events)
-                {
-                    await _integrationBus.SendAsync(domainEvent);
-                }
-            }
-
-            return aggregates;
-        }
-
         public IAggregateRoot[] ClearEventEntities(IAggregateRoot[] aggregates)
         {
             foreach (var aggregate in aggregates)

@@ -4,7 +4,7 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson
 {
     public class TestEvent1 : DomainEvent
     {
-        public TestEvent1() : base(BoundedContextInfo.Name, nameof(ExamplePerson), nameof(TestEvent1))
+        public TestEvent1()
         {
         }
 

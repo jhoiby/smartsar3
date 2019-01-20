@@ -17,8 +17,7 @@ namespace SSar.Contexts.Membership.UnitTests.Domain.AggregateRoots
             @event.ShouldSatisfyAllConditions(
                 () => @event.EventId.ShouldNotBe(Guid.Empty),
                 () => @event.Name.ShouldBe(person.Name),
-                () => @event.EmailAddress.ShouldBe(person.EmailAddress),
-                () => @event.Label.ShouldBe("ExamplePerson.Created"));
+                () => @event.EmailAddress.ShouldBe(person.EmailAddress));
         }
     }
 }

@@ -21,18 +21,18 @@ namespace SSar.Contexts.Common.Events
             _topicClient = topicClient ?? throw new ArgumentNullException(nameof(topicClient));
         }
 
-        public async Task SendAsync(IDomainEvent @event)
+        public async Task SendAsync(IIntegrationEvent @event)
         {
-            var message = new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
-            {
-                ContentType = "application/json",
-                Label = @event.Label,
-                MessageId = Guid.NewGuid().ToString()
-            };
+            var message =
+                new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
+                {
+                    ContentType = "application/json",
+                    Label = @event.Label,
+                    MessageId = Guid.NewGuid().ToString()
+                };
 
-            // Expose properties for use with subscription message filtering
-            message.UserProperties.Add("Publisher", @event.Publisher);
-            message.UserProperties.Add("SourceAggregate", @event.SourceAggregate);
+            // Additional properties for use with subscription message filtering
+            message.UserProperties.Add("Publisher", @event.Publisher); // E.g. "SSar.Membership"
 
             await _topicClient.SendAsync(message);
         }

@@ -48,15 +48,12 @@ namespace SSar.Contexts.Membership.Data
             await _dispatcher
                 .DispatchInternalBoundedContextEventsAsync(aggregatesWithDomainEvents);
 
+            _dispatcher
+                .ClearEventEntities(aggregatesWithDomainEvents);
+
             // Transaction closing includes side-effects of dispatched events
             var saveResult = 
                 await base.SaveChangesAsync(cancellationToken);
-
-            await _dispatcher
-                .PublishToIntegrationBusAsync(aggregatesWithDomainEvents); 
-
-            _dispatcher
-                .ClearEventEntities(aggregatesWithDomainEvents);
             
             return saveResult;
         }

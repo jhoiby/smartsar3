@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
 
-namespace SSar.Contexts.Membership.Application.EventHandlers
+namespace SSar.Contexts.Membership.Application.DomainEventHandlers
 {
     public class WriteExamplePersonCreatedToDebug : INotificationHandler<ExamplePersonCreated>
     {
