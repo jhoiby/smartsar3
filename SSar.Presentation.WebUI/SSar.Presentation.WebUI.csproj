@@ -22,13 +22,13 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\SSar.Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj" />
-    <ProjectReference Include="..\SSar.Contexts.Membership.Data\SSar.Contexts.Membership.Data.csproj" />
+    <Folder Include="Infrastructure\Helpers\" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Helpers\" />
+    <ProjectReference Include="..\SSar.Application\SSar.Application.csproj" />
+    <ProjectReference Include="..\SSar.Data\SSar.Data.csproj" />
   </ItemGroup>
 
 </Project>

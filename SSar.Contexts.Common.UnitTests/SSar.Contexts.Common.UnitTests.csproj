@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SSar.Contexts.Common\SSar.Contexts.Common.csproj" />
-    <ProjectReference Include="..\SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
+    <ProjectReference Include="..\SSar.Domain\SSar.Domain.csproj" />
+    <ProjectReference Include="..\SSar.Infrastructure\SSar.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

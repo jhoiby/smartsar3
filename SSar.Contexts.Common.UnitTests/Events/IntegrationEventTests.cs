@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using Shouldly;
-using SSar.Contexts.Common.Events;
+using SSar.Infrastructure.IntegrationEvents;
 using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.Events

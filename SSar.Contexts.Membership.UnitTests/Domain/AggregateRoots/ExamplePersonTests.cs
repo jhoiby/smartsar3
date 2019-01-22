@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using Shouldly;
-using SSar.Contexts.Common.Notifications;
-using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePerson;
+using SSar.Domain.Infrastructure;
+using SSar.Domain.IdentityAuth.Entities;
+using SSar.Domain.Membership.ExamplePersons;
 using Xunit;
 
 namespace SSar.Contexts.Membership.UnitTests.Domain.AggregateRoots

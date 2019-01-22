@@ -11,10 +11,11 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SSar.Contexts.Common.Events;
-using SSar.Contexts.Membership.Application.Commands;
-using SSar.Contexts.Membership.Data;
-using SSar.Presentation.WebUI.Areas.Identity.Models;
+using SSar.Application.Commands;
+using SSar.Application.Commands.Membership;
+using SSar.Data;
+using SSar.Domain.IdentityAuth.Entities;
+using SSar.Infrastructure.ServiceBus;
 using SSar.Presentation.WebUI.Data;
 
 namespace SSar.Presentation.WebUI
@@ -40,17 +41,13 @@ namespace SSar.Presentation.WebUI
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<MembershipDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("MembershipSqlDbConnection")));
-
-            services.AddDbContext<AppIdentityDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("AppIdentitySqlDbConnection")));
+                    Configuration.GetConnectionString("ApplicationSqlDbConnection")));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
@@ -66,7 +63,7 @@ namespace SSar.Presentation.WebUI
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
             
             services.AddTransient<IServiceBusSender, ServiceBusSenderAzure>((ctx) =>
-                new ServiceBusSenderAzure(
+                new SSar.Infrastructure.ServiceBus.ServiceBusSenderAzure(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"])));
 
@@ -83,7 +80,7 @@ namespace SSar.Presentation.WebUI
         public void Configure(
             IApplicationBuilder app, 
             IHostingEnvironment env, 
-            AppIdentityDbContext identityDbContext, 
+            AppDbContext identityDbContext, 
             RoleManager<ApplicationRole> roleManager, 
             UserManager<ApplicationUser> userManager)
         {

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SSar.Contexts.Common.Helpers;
+﻿using SSar.Infrastructure.Helpers;
+using System;
 using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.Helpers
