@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using SSar.Data;
 using SSar.Domain.IdentityAuth.Entities;
 
-namespace SSar.Presentation.WebUI.Data
+namespace SSar.Data
 {
     public class DummyData
     {

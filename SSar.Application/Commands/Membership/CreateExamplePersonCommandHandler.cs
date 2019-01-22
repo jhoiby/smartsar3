@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using SSar.Application.Commands.Infrastructure;
 using SSar.Data;
 using SSar.Domain.Membership.ExamplePersons;
+using SSar.Infrastructure.Commands;
 
 namespace SSar.Application.Commands.Membership
 {

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SSar.Infrastructure.DomainEvents;
 
-namespace SSar.Domain.Infrastructure
+namespace SSar.Infrastructure.Entities
 {
     public abstract class AggregateRoot : Entity, IAggregateRoot
     {

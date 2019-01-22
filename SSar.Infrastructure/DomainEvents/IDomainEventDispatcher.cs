@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.Entities;
 
-namespace SSar.Data
+namespace SSar.Infrastructure.DomainEvents
 {
     public interface IDomainEventDispatcher
     {
-        Task<IAggregateRoot[]> DispatchInternalBoundedContextEventsAsync(IAggregateRoot[] aggregates);
+        Task<IAggregateRoot[]> DispatchDomainEventsAsync(IAggregateRoot[] aggregates);
         IAggregateRoot[] ClearEventEntities(IAggregateRoot[] aggregates);
     }
 }

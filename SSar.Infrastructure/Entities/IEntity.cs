@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SSar.Domain.Infrastructure
+namespace SSar.Infrastructure.Entities
 {
     public interface IEntity
     {

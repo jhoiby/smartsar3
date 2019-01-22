@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.Entities;
 using SSar.Infrastructure.Notifications;
 using Xunit;
 

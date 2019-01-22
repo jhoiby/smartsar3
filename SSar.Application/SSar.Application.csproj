@@ -15,4 +15,8 @@
     <ProjectReference Include="..\SSar.Domain\SSar.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="IntegrationEventHandlers\" />
+  </ItemGroup>
+
 </Project>

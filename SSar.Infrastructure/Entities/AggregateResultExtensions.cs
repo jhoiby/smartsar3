@@ -1,6 +1,6 @@
 ﻿using SSar.Infrastructure.Notifications;
 
-namespace SSar.Domain.Infrastructure
+namespace SSar.Infrastructure.Entities
 {
     public static class AggregateResultExtensions
     {

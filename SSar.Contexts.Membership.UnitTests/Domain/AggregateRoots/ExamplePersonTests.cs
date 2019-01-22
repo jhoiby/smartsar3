@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using Shouldly;
-using SSar.Domain.Infrastructure;
 using SSar.Domain.IdentityAuth.Entities;
 using SSar.Domain.Membership.ExamplePersons;
+using SSar.Infrastructure.Entities;
 using Xunit;
 
 namespace SSar.Contexts.Membership.UnitTests.Domain.AggregateRoots

@@ -15,8 +15,8 @@ using SSar.Application.Commands;
 using SSar.Application.Commands.Membership;
 using SSar.Data;
 using SSar.Domain.IdentityAuth.Entities;
+using SSar.Infrastructure.DomainEvents;
 using SSar.Infrastructure.ServiceBus;
-using SSar.Presentation.WebUI.Data;
 
 namespace SSar.Presentation.WebUI
 {

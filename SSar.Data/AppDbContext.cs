@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SSar.Domain.IdentityAuth.Entities;
 using SSar.Data.TypeConfigurations;
-using SSar.Domain.Infrastructure;
 using SSar.Domain.Membership.ExamplePersons;
+using SSar.Infrastructure.DomainEvents;
+using SSar.Infrastructure.Entities;
 
 namespace SSar.Data
 {
@@ -44,7 +45,7 @@ namespace SSar.Data
                 .ToArray();
             
             await _dispatcher
-                .DispatchInternalBoundedContextEventsAsync(aggregatesWithDomainEvents);
+                .DispatchDomainEventsAsync(aggregatesWithDomainEvents);
 
             _dispatcher
                 .ClearEventEntities(aggregatesWithDomainEvents);

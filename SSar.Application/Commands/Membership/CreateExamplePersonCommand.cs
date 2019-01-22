@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SSar.Application.Commands.Infrastructure;
+using SSar.Infrastructure.Commands;
 
 namespace SSar.Application.Commands.Membership
 {

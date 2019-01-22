@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 
-namespace SSar.Application.Commands.Infrastructure
+namespace SSar.Infrastructure.Commands
 {
     public abstract class AppRequestHandler<TRequest, TResponse>
         : IRequestHandler<TRequest, TResponse> where TRequest : IRequest<TResponse>

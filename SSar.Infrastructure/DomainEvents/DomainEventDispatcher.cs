@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.Entities;
 using SSar.Infrastructure.ServiceBus;
 
-namespace SSar.Data
+namespace SSar.Infrastructure.DomainEvents
 {
     public class DomainEventDispatcher : IDomainEventDispatcher
     {
@@ -18,7 +18,7 @@ namespace SSar.Data
             _integrationBus = integrationBus ?? throw new ArgumentNullException(nameof(integrationBus));
         }
 
-        public async Task<IAggregateRoot[]> DispatchInternalBoundedContextEventsAsync(IAggregateRoot[] aggregates)
+        public async Task<IAggregateRoot[]> DispatchDomainEventsAsync(IAggregateRoot[] aggregates)
         {
             foreach (var aggregate in aggregates)
             {

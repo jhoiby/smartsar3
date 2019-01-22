@@ -1,7 +1,7 @@
 ﻿using System;
 using SSar.Infrastructure.Notifications;
 
-namespace SSar.Domain.Infrastructure
+namespace SSar.Infrastructure.Entities
 {
     public class AggregateResult<TAggregate> where TAggregate : IAggregateRoot
     {

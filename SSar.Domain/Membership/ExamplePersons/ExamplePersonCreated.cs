@@ -1,5 +1,5 @@
 ﻿using System;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.DomainEvents;
 
 namespace SSar.Domain.Membership.ExamplePersons
 {

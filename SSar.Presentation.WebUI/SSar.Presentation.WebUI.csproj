@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SSar.Application\SSar.Application.csproj" />
     <ProjectReference Include="..\SSar.Data\SSar.Data.csproj" />
+    <ProjectReference Include="..\SSar.Infrastructure\SSar.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

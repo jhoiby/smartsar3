@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.Entities;
 using SSar.Infrastructure.Notifications;
 
 namespace SSar.Domain.Membership.ExamplePersons

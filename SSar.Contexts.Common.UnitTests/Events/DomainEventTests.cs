@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Domain.Infrastructure;
+using SSar.Infrastructure.DomainEvents;
 using Xunit;
 
 namespace SSar.Contexts.Common.UnitTests.Events
