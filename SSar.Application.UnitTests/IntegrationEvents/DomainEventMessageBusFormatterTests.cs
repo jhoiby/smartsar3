@@ -7,6 +7,7 @@ using Shouldly;
 using SSar.Infrastructure;
 using SSar.Infrastructure.DomainEvents;
 using SSar.Infrastructure.IntegrationEvents;
+using SSar.Infrastructure.ServiceBus;
 using Xunit;
 
 namespace SSar.Application.UnitTests.IntegrationEvents
@@ -54,7 +55,7 @@ namespace SSar.Application.UnitTests.IntegrationEvents
 
             var @return = builder.WithObject(_integrationEvent);
 
-            @return.ShouldBe<AzureIntegrationMessageBuilder>(builder);
+            @return.ShouldBe<IBusMessageBuilder<IIntegrationEvent,Message>>(builder);
         }
 
         [Fact]

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SSar.Application.Commands.Membership;
+using SSar.Application.IntegrationEvents;
 using SSar.Data;
 using SSar.Data.Outbox;
 using SSar.Domain.IdentityAuth.Entities;
@@ -70,7 +71,8 @@ namespace SSar.Presentation.WebUI
             services.AddTransient<IServiceBusSender, ServiceBusSenderAzure>((ctx) =>
                 new ServiceBusSenderAzure(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
-                        Configuration["AzureServiceBus:Topic"])));
+                        Configuration["AzureServiceBus:Topic"]),
+                    new AzureIntegrationMessageBuilder()));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv =>

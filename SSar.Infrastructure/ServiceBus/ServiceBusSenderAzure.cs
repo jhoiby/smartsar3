@@ -14,25 +14,31 @@ namespace SSar.Infrastructure.ServiceBus
     public class ServiceBusSenderAzure : IServiceBusSender
     {
         private readonly ITopicClient _topicClient;
+        private readonly IBusMessageBuilder<IIntegrationEvent, Message> _messageBuilder;
 
-        public ServiceBusSenderAzure(ITopicClient topicClient)
+        public ServiceBusSenderAzure(
+            ITopicClient topicClient, 
+            IBusMessageBuilder<IIntegrationEvent, Message> messageBuilder)
         {
             _topicClient = topicClient ?? throw new ArgumentNullException(nameof(topicClient));
+            _messageBuilder = messageBuilder ?? throw new ArgumentNullException(nameof(messageBuilder));
         }
 
         public async Task SendAsync(IIntegrationEvent @event)
         {
-            var message =
-                new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
-                {
-                    ContentType = "hi", //"application/json",
-                    Label = "labe",// @event.Label,
-                    MessageId = default(Guid).ToString() //Guid.NewGuid().ToString()
-                    // TODO: Implement expiration date
-                };
+            var message = _messageBuilder.WithObject(@event).Build();
 
-            // Additional properties for use with subscription message filtering
-            message.UserProperties.Add("Publisher", @event.Publisher); // E.g. "SSar.Membership"
+            //var message =
+            //    new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
+            //    {
+            //        ContentType = "hi", //"application/json",
+            //        Label = "labe",// @event.Label,
+            //        MessageId = default(Guid).ToString() //Guid.NewGuid().ToString()
+            //        // TODO: Implement expiration date
+            //    };
+
+            //// Additional properties for use with subscription message filtering
+            //message.UserProperties.Add("Publisher", @event.Publisher); // E.g. "SSar.Membership"
 
             await _topicClient.SendAsync(message);
         }
