@@ -11,6 +11,7 @@ using SSar.Domain.Membership.ExamplePersons;
 using SSar.Infrastructure.DomainEvents;
 using SSar.Infrastructure.Entities;
 using SSar.Infrastructure.IntegrationEvents;
+using SSar.Infrastructure.Outbox;
 using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Data

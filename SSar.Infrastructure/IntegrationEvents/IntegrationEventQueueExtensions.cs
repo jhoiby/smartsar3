@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SSar.Data.Outbox;
+using SSar.Infrastructure.Outbox;
 using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Infrastructure.IntegrationEvents

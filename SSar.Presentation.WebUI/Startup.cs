@@ -18,6 +18,7 @@ using SSar.Data.Outbox;
 using SSar.Domain.IdentityAuth.Entities;
 using SSar.Infrastructure.DomainEvents;
 using SSar.Infrastructure.IntegrationEvents;
+using SSar.Infrastructure.Outbox;
 using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Presentation.WebUI

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using System.Threading.Tasks;
-using SSar.Infrastructure.Outbox;
 
-namespace SSar.Data.Outbox
+namespace SSar.Infrastructure.Outbox
 {
     public interface IOutboxService
     {
