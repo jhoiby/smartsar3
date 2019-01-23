@@ -65,6 +65,21 @@ namespace SSar.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OutboxPackages",
+                columns: table => new
+                {
+                    PackageId = table.Column<Guid>(nullable: false),
+                    ObjectType = table.Column<string>(nullable: true),
+                    SerializedObject = table.Column<string>(nullable: true),
+                    Created = table.Column<DateTime>(nullable: false),
+                    ValidUntil = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OutboxPackages", x => x.PackageId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -229,6 +244,9 @@ namespace SSar.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "ExamplePersons");
+
+            migrationBuilder.DropTable(
+                name: "OutboxPackages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

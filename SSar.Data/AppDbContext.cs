@@ -4,11 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SSar.Data.Outbox;
 using SSar.Domain.IdentityAuth.Entities;
 using SSar.Data.TypeConfigurations;
 using SSar.Domain.Membership.ExamplePersons;
 using SSar.Infrastructure.DomainEvents;
 using SSar.Infrastructure.Entities;
+using SSar.Infrastructure.IntegrationEvents;
+using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Data
 {
@@ -18,18 +21,25 @@ namespace SSar.Data
     public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         private IDomainEventDispatcher _dispatcher;
+        private IIntegrationEventQueue _integrationEvents;
+        private IOutboxService _outboxService;
+        private IServiceBusSender _busSender;
 
-        public AppDbContext(DbContextOptions<AppDbContext> options, IDomainEventDispatcher dispatcher) : base (options)
+        public AppDbContext(
+            DbContextOptions<AppDbContext> options, 
+            IDomainEventDispatcher dispatcher, 
+            IIntegrationEventQueue integrationEvents,
+            IServiceBusSender busSender) : base (options)
         {
             _dispatcher = dispatcher ?? throw new ArgumentNullException(nameof(dispatcher));
+            _integrationEvents = integrationEvents ?? throw new ArgumentNullException(nameof(integrationEvents));
+            _busSender = busSender ?? throw new ArgumentNullException(nameof(busSender));
+
+            _outboxService = new OutboxService(this); // ?? throw new ArgumentNullException(nameof(outboxService));
         }
 
         public DbSet<ExamplePerson> ExamplePersons { get; set; }
-        
-        public override int SaveChanges()
-        {
-            throw new NotImplementedException("Only SaveChangesAsync is implemented in this application.");
-        }
+        public DbSet<OutboxPackage> OutboxPackages { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default(CancellationToken))
@@ -45,16 +55,27 @@ namespace SSar.Data
                 .ToArray();
             
             await _dispatcher
-                .DispatchDomainEventsAsync(aggregatesWithDomainEvents);
-
-            _dispatcher
-                .ClearEventEntities(aggregatesWithDomainEvents);
-
-            // Transaction closing includes side-effects of dispatched events
+                .DispatchAndClearDomainEventsAsync(aggregatesWithDomainEvents);
+            
+            // TODO: Get time span from configuration
+            _integrationEvents.CopyToOutbox(_outboxService, TimeSpan.FromDays(7));
+            
             var saveResult = 
-                await base.SaveChangesAsync(cancellationToken);
+                await base.SaveChangesAsync(cancellationToken); // Aggregate and outbox changes
+
+            var publishedEvents = await _integrationEvents
+                .PublishToBus(_busSender);
+            
+            publishedEvents.RemoveFromOutbox(_outboxService);
+
+            await base.SaveChangesAsync(cancellationToken); // Outbox changes
             
             return saveResult;
+        }
+
+        public override int SaveChanges()
+        {
+            throw new NotImplementedException("Only SaveChangesAsync is implemented in this application.");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -62,6 +83,7 @@ namespace SSar.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new ExamplePersonTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OutboxPackageTypeConfiguration());
         }
     }
 }

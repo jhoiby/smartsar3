@@ -28,6 +28,7 @@ namespace SSar.Infrastructure.ServiceBus
                     ContentType = "application/json",
                     Label = @event.Label,
                     MessageId = Guid.NewGuid().ToString()
+                    // TODO: Implement expiration date
                 };
 
             // Additional properties for use with subscription message filtering

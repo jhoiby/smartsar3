@@ -18,7 +18,7 @@ namespace SSar.Infrastructure.DomainEvents
             _integrationBus = integrationBus ?? throw new ArgumentNullException(nameof(integrationBus));
         }
 
-        public async Task<IAggregateRoot[]> DispatchDomainEventsAsync(IAggregateRoot[] aggregates)
+        public async Task<IAggregateRoot[]> DispatchAndClearDomainEventsAsync(IAggregateRoot[] aggregates)
         {
             foreach (var aggregate in aggregates)
             {
@@ -27,15 +27,7 @@ namespace SSar.Infrastructure.DomainEvents
                 {
                     await _mediator.Publish(domainEvent);
                 }
-            }
 
-            return aggregates;
-        }
-
-        public IAggregateRoot[] ClearEventEntities(IAggregateRoot[] aggregates)
-        {
-            foreach (var aggregate in aggregates)
-            {
                 aggregate.Events.Clear();
             }
 

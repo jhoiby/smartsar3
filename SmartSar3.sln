@@ -26,13 +26,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AFC38F52
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Identity.UnitTests", "SSar.Contexts.Identity.UnitTests\SSar.Contexts.Identity.UnitTests.csproj", "{DC54F8A3-54F1-48CF-9DF8-0A2DA5759158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Domain", "SSar.Domain\SSar.Domain.csproj", "{ECAAF21A-CBDA-4DD2-9D49-4FD19CE2955B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Domain", "SSar.Domain\SSar.Domain.csproj", "{ECAAF21A-CBDA-4DD2-9D49-4FD19CE2955B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Data", "SSar.Data\SSar.Data.csproj", "{2E2A7EE1-AA3F-4F57-8F6C-B7AA11EC1C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Data", "SSar.Data\SSar.Data.csproj", "{2E2A7EE1-AA3F-4F57-8F6C-B7AA11EC1C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Application", "SSar.Application\SSar.Application.csproj", "{9C526075-5D2B-4225-948C-8DAFACD8F5C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Application", "SSar.Application\SSar.Application.csproj", "{9C526075-5D2B-4225-948C-8DAFACD8F5C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Infrastructure", "SSar.Infrastructure\SSar.Infrastructure.csproj", "{7D6019F5-3DB1-4B98-B950-C38889B5EB5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Infrastructure", "SSar.Infrastructure\SSar.Infrastructure.csproj", "{7D6019F5-3DB1-4B98-B950-C38889B5EB5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Infrastructure.UnitTests", "SSar.Infrastructure.UnitTests\SSar.Infrastructure.UnitTests.csproj", "{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Data.UnitTests", "SSar.Data.UnitTests\SSar.Data.UnitTests.csproj", "{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +80,14 @@ Global
 		{7D6019F5-3DB1-4B98-B950-C38889B5EB5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D6019F5-3DB1-4B98-B950-C38889B5EB5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D6019F5-3DB1-4B98-B950-C38889B5EB5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +102,8 @@ Global
 		{2E2A7EE1-AA3F-4F57-8F6C-B7AA11EC1C40} = {A0A8F723-6C2E-44D2-9E72-FBD0B243B51F}
 		{9C526075-5D2B-4225-948C-8DAFACD8F5C5} = {A0A8F723-6C2E-44D2-9E72-FBD0B243B51F}
 		{7D6019F5-3DB1-4B98-B950-C38889B5EB5D} = {A0A8F723-6C2E-44D2-9E72-FBD0B243B51F}
+		{AA0E0395-3837-47E0-8DA1-B3533B1C1BBB} = {AFC38F52-CFAB-4961-BAC7-26EE715567CB}
+		{B77AFE7D-1F85-4A6C-AECA-EF9394A30C3B} = {AFC38F52-CFAB-4961-BAC7-26EE715567CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AF3E6B0-4BA5-4899-96A0-520BF7B59FEC}

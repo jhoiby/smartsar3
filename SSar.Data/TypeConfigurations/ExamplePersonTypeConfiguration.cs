@@ -5,7 +5,7 @@ using SSar.Domain.Membership.ExamplePersons;
 
 namespace SSar.Data.TypeConfigurations
 {
-    class ExamplePersonTypeConfiguration : IEntityTypeConfiguration<ExamplePerson>
+    public class ExamplePersonTypeConfiguration : IEntityTypeConfiguration<ExamplePerson>
     {
         public void Configure(EntityTypeBuilder<ExamplePerson> builder)
         {

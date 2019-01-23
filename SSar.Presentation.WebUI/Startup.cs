@@ -11,11 +11,12 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SSar.Application.Commands;
 using SSar.Application.Commands.Membership;
 using SSar.Data;
+using SSar.Data.Outbox;
 using SSar.Domain.IdentityAuth.Entities;
 using SSar.Infrastructure.DomainEvents;
+using SSar.Infrastructure.IntegrationEvents;
 using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Presentation.WebUI
@@ -61,9 +62,13 @@ namespace SSar.Presentation.WebUI
             // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
 
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
-            
+
+            services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();
+
+            services.AddTransient<IOutboxService, OutboxService>();
+
             services.AddTransient<IServiceBusSender, ServiceBusSenderAzure>((ctx) =>
-                new SSar.Infrastructure.ServiceBus.ServiceBusSenderAzure(
+                new ServiceBusSenderAzure(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"])));
 
@@ -79,8 +84,8 @@ namespace SSar.Presentation.WebUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
             IApplicationBuilder app, 
-            IHostingEnvironment env, 
-            AppDbContext identityDbContext, 
+            IHostingEnvironment env,
+            AppDbContext appDbContext, 
             RoleManager<ApplicationRole> roleManager, 
             UserManager<ApplicationUser> userManager)
         {
@@ -88,7 +93,7 @@ namespace SSar.Presentation.WebUI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                DummyData.Initialize(identityDbContext, userManager, roleManager).Wait();
+                DummyData.Initialize(appDbContext, userManager, roleManager).Wait();
             }
             else
             {

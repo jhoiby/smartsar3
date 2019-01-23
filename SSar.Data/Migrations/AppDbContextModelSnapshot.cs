@@ -102,6 +102,24 @@ namespace SSar.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SSar.Data.Outbox.OutboxPackage", b =>
+                {
+                    b.Property<Guid>("PackageId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<string>("ObjectType");
+
+                    b.Property<string>("SerializedObject");
+
+                    b.Property<DateTime>("ValidUntil");
+
+                    b.HasKey("PackageId");
+
+                    b.ToTable("OutboxPackages");
+                });
+
             modelBuilder.Entity("SSar.Domain.IdentityAuth.Entities.ApplicationRole", b =>
                 {
                     b.Property<Guid>("Id")

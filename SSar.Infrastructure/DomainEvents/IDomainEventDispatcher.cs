@@ -5,7 +5,6 @@ namespace SSar.Infrastructure.DomainEvents
 {
     public interface IDomainEventDispatcher
     {
-        Task<IAggregateRoot[]> DispatchDomainEventsAsync(IAggregateRoot[] aggregates);
-        IAggregateRoot[] ClearEventEntities(IAggregateRoot[] aggregates);
+        Task<IAggregateRoot[]> DispatchAndClearDomainEventsAsync(IAggregateRoot[] aggregates);
     }
 }

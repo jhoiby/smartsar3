@@ -10,7 +10,7 @@ using SSar.Data;
 namespace SSar.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190122054631_Initial")]
+    [Migration("20190123042756_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,6 +102,24 @@ namespace SSar.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("SSar.Data.Outbox.OutboxPackage", b =>
+                {
+                    b.Property<Guid>("PackageId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<string>("ObjectType");
+
+                    b.Property<string>("SerializedObject");
+
+                    b.Property<DateTime>("ValidUntil");
+
+                    b.HasKey("PackageId");
+
+                    b.ToTable("OutboxPackages");
                 });
 
             modelBuilder.Entity("SSar.Domain.IdentityAuth.Entities.ApplicationRole", b =>
