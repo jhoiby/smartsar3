@@ -25,9 +25,9 @@ namespace SSar.Infrastructure.ServiceBus
             var message =
                 new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
                 {
-                    ContentType = "application/json",
-                    Label = @event.Label,
-                    MessageId = Guid.NewGuid().ToString()
+                    ContentType = "hi", //"application/json",
+                    Label = "labe",// @event.Label,
+                    MessageId = default(Guid).ToString() //Guid.NewGuid().ToString()
                     // TODO: Implement expiration date
                 };
 

@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.Azure.ServiceBus;
+using SSar.Infrastructure.IntegrationEvents;
+
+namespace SSar.Infrastructure.ServiceBus
+{
+    public interface IBusMessageBuilder<TObject, TMessage>
+    {
+        IBusMessageBuilder<TMessage, TObject> WithObject(TObject @event);
+        TMessage Build();
+    }
+}
