@@ -6,9 +6,11 @@ using SSar.Infrastructure.IntegrationEvents;
 
 namespace SSar.Infrastructure.ServiceBus
 {
-    public interface IBusMessageBuilder<TObject, TMessage>
+    public interface IBusMessageBuilder<TObject, out TMessage>
+        where TObject : IIntegrationEvent
+        where TMessage : Message
     {
-        IBusMessageBuilder<TMessage, TObject> WithObject(TObject @event);
+        IBusMessageBuilder<TObject, TMessage> WithObject(TObject @event);
         TMessage Build();
     }
 }
