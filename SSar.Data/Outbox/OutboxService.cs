@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace SSar.Data.Outbox
@@ -22,20 +20,10 @@ namespace SSar.Data.Outbox
             _dbContext.Remove(_dbContext.OutboxPackages.Single(p => p.PackageId == id));
         }
 
-        public void Delete(Guid[] idArray)
+        public void DeleteRange(Guid[] idArray)
         {
             _dbContext.RemoveRange(
                 _dbContext.OutboxPackages.Where(p => idArray.Contains(p.PackageId)));
-        }
-
-        public int FlushExpired()
-        {
-            throw new NotImplementedException();
-        }
-
-        public dynamic GetNext()
-        {
-            throw new NotImplementedException();
         }
 
         public void AddObject(Guid objectId, string objectType, object @object, DateTime validUntil)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using SSar.Infrastructure.Outbox;
 
 namespace SSar.Data.Outbox
 {
@@ -16,12 +17,6 @@ namespace SSar.Data.Outbox
         void AddObject(Guid objectId, string objectType, object @object, DateTime validUntil);
 
         /// <summary>
-        /// Fetches next item from the outbox without deleting it.
-        /// </summary>
-        /// <returns>Dynamic type containing the deserialized original object retrieved from the outbox.</returns>
-        dynamic GetNext();
-
-        /// <summary>
         /// Delete outbox item matching the provided id.
         /// </summary>
         /// <param name="id">Id of OutboxPackage to delete.</param>
@@ -33,13 +28,21 @@ namespace SSar.Data.Outbox
         /// </summary>
         /// <param name="idArray">Array containing ids of OutboxPackages to delete.</param>
         /// <returns>True if item deleted. False if no item found.</returns>
-        void Delete(Guid[] idArray);
+        void DeleteRange(Guid[] idArray);
 
-        /// <summary>
-        /// Deletes all outbox items with a passed expiration date.
-        /// </summary>
-        /// <returns></returns>
-        int FlushExpired();
+        // TODO: Below classes need to be implemented as part of scheduled outbox cleaning
+
+        ///// <summary>
+        ///// Fetches next item from the outbox without deleting it.
+        ///// </summary>
+        ///// <returns>Dynamic type containing the deserialized original object retrieved from the outbox.</returns>
+        //IOutboxPackage GetNext();
+
+        ///// <summary>
+        ///// Deletes all outbox items with a passed expiration date.
+        ///// </summary>
+        ///// <returns></returns>
+        //int DeleteExpired();
 
 
 

@@ -45,7 +45,7 @@ namespace SSar.Infrastructure.IntegrationEvents
         public static void RemoveFromOutbox(this List<IIntegrationEvent> integrationEvents,
             IOutboxService outboxService)
         {
-            outboxService.Delete(
+            outboxService.DeleteRange(
                 integrationEvents.Select(e => e.EventId).ToArray());
         }
     }

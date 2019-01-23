@@ -66,6 +66,7 @@ namespace SSar.Data
             var publishedEvents = await _integrationEvents
                 .PublishToBus(_busSender);
             
+            // TODO: Add scheduled retries for packages left in outbox
             publishedEvents.RemoveFromOutbox(_outboxService);
 
             await base.SaveChangesAsync(cancellationToken); // Outbox changes
