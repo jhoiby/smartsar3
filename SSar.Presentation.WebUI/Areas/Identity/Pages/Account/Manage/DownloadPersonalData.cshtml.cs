@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SSar.Domain.IdentityAuth.Entities;
+using SSar.Contexts.IdentityAuth.Domain.Entities;
 
 namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account.Manage
 {

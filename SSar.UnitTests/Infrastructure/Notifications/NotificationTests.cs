@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Infrastructure.Notifications;
+using SSar.Contexts.Common.Domain.Notifications;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.Notifications

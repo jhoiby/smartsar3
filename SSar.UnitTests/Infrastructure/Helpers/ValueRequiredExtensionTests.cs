@@ -1,5 +1,5 @@
 ﻿using System;
-using SSar.Infrastructure.Helpers;
+using SSar.Contexts.Common.Helpers;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.Helpers

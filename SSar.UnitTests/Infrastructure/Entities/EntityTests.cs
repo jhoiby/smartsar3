@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Infrastructure.Entities;
+using SSar.Contexts.Common.Domain.Entities;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.Entities

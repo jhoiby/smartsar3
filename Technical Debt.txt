@@ -1,0 +1,4 @@
+Infrastructure in the SSar.Context.Common project
+
+Domain events
+- ? Make a factory available for DI and then put Domain Events back into infrastructure

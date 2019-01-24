@@ -1,5 +1,0 @@
-First, I need to make operation result immutable. Next, I need to reconsider
-how I'm creating it and merging results in the Aggregate base class.
-
-I've got a solution that works well for now, but am going to start work on
-something else for awhile and come back to it later to see it in a new light.

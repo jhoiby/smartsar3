@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SSar.Domain.IdentityAuth.Entities;
+using SSar.Contexts.IdentityAuth.Domain.Entities;
 
 namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account.Manage
 {

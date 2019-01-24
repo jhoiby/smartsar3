@@ -1,9 +1,6 @@
-using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SSar.Application.Commands;
-using SSar.Application.Commands.Membership;
+using SSar.Contexts.Membership.Application.Commands;
 using SSar.Presentation.WebUI.Bases;
 
 namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson

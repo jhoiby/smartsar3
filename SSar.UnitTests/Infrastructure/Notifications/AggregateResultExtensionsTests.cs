@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Shouldly;
-using SSar.Infrastructure.Entities;
-using SSar.Infrastructure.Notifications;
+using SSar.Contexts.Common.Domain.Entities;
+using SSar.Contexts.Common.Domain.Notifications;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.Notifications

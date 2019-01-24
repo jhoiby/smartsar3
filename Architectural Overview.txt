@@ -1,0 +1,10 @@
+Variances from standard DDD/BC patterns
+
+- Contexts.Common project
+    - Saves developer overhead by sharing code common to all contexts.
+
+- Uses single database for all contexts
+	- Allows for integration to be synchronously handled by internal domain events and saves a layer of
+	    implementation complexity by avoiding guaranteed asynchronous integration message handling
+		for each bounded context, which would add a huge amount of database transaction overhead
+		for a single-server based application.

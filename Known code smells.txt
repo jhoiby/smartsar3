@@ -1,0 +1,35 @@
+KNOWN CODE SMELLS
+
+----------
+SSar.Contexts.XXX.Application projects reference SSar.Contexts.Common.Data
+
+These references are required because we are injecting dbContexts (AppDbContext) into the command 
+handlers but Microsoft does not make interfaces available for the contexts. Therefore, I have
+to inject the concrete AppDbContext which is in the Data project.
+
+A future workaround would be to create a facade interface for AppDbContext and use that for DI.
+
+Right now I'm sticking with the concrete class as the only thing it's really costing me is that
+I can't combine the Application and Domain projects into one project for each BC. Doing so would
+get me a circular reference. And, having separate projects enforces proper uncoupling of the domain
+layer so it's no real loss anyway.
+
+
+-----------
+OperationResult
+
+First, I need to make operation result immutable. Next, I need to reconsider
+how I'm creating it and merging results in the Aggregate base class.
+
+I've got a solution that works well for now, but am going to start work on
+something else for awhile and come back to it later to see it in a new light.
+
+
+-------------
+Newing up OutboxService in AppDbContext constructor
+
+Injecting an IOutboxService, the implementation of which contains an AppDbContext, results
+in a circular reference. 
+
+Newing up an OutboxService in the AppDb constructor and passing it 'this' works. The main
+issue is that it requires a direct reference to the infrastructure project.

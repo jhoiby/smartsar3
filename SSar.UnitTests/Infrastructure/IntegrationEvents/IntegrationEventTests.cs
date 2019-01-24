@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Infrastructure.IntegrationEvents;
+using SSar.Contexts.Common.Application.IntegrationEvents;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.IntegrationEvents

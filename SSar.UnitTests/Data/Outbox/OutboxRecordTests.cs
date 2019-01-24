@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Data.Outbox;
+using SSar.Infrastructure.Outbox;
 using Xunit;
 
 namespace SSar.UnitTests.Data.Outbox

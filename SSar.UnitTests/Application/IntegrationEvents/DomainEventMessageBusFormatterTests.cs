@@ -3,9 +3,9 @@ using System.Text;
 using Microsoft.Azure.ServiceBus;
 using Newtonsoft.Json;
 using Shouldly;
-using SSar.Application.IntegrationEvents;
+using SSar.Contexts.Common.Application.IntegrationEvents;
+using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Infrastructure;
-using SSar.Infrastructure.IntegrationEvents;
 using SSar.Infrastructure.ServiceBus;
 using Xunit;
 

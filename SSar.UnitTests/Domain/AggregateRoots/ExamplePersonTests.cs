@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Shouldly;
-using SSar.Domain.Membership.ExamplePersons;
-using SSar.Infrastructure.Entities;
+using SSar.Contexts.Common.Domain.Entities;
+using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
 namespace SSar.UnitTests.Domain.AggregateRoots

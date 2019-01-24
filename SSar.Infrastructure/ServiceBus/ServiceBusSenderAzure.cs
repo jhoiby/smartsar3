@@ -3,7 +3,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.ServiceBus;
 using Newtonsoft.Json;
-using SSar.Infrastructure.IntegrationEvents;
+using SSar.Contexts.Common.Application.IntegrationEvents;
+using SSar.Contexts.Common.Data.ServiceInterfaces;
 
 namespace SSar.Infrastructure.ServiceBus
 {
