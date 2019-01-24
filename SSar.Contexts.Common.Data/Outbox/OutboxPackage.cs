@@ -1,9 +1,9 @@
 ﻿using System;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 
-namespace SSar.Infrastructure.Outbox
+namespace SSar.Contexts.Common.Data.Outbox
 {
-    public class OutboxPackage : IOutboxPackage
+    public class OutboxPackage
     {
         public OutboxPackage(
             Guid packageId,

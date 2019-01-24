@@ -14,6 +14,17 @@ namespace SSar.Contexts.Common.Data.ServiceInterfaces
         void AddObject(Guid objectId, string objectType, object @object, DateTime validUntil);
 
         /// <summary>
+        /// Add the database provider to be used for the outbox.
+        /// </summary>
+        /// <param name="dbContext"></param>
+        void AddProvider(AppDbContext dbContext);
+
+        /// <summary>
+        /// Returns true if provider has been set.
+        /// </summary>
+        bool ProviderIsSet { get; }
+
+        /// <summary>
         /// Delete outbox item matching the provided id.
         /// </summary>
         /// <param name="id">Id of OutboxPackage to delete.</param>

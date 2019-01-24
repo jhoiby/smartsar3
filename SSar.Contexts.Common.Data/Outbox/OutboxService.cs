@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json;
-using SSar.Contexts.Common.Data;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 
-namespace SSar.Infrastructure.Outbox
+namespace SSar.Contexts.Common.Data.Outbox
 {
     public class OutboxService : IOutboxService
     {
-        private readonly AppDbContext _dbContext;
+        private AppDbContext _dbContext;
 
-        public OutboxService(AppDbContext dbContext)
+        public void AddProvider(AppDbContext provider)
         {
-            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            if (_dbContext != null)
+            {
+                throw new InvalidOperationException("OutboxService provider is already set.");
+            }
+
+            _dbContext = provider ?? throw new ArgumentNullException(nameof(provider));
         }
+
+        public bool ProviderIsSet => _dbContext != null;
 
         public void Delete(Guid id)
         {

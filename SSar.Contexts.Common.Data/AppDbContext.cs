@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Common.Data.Extensions;
+using SSar.Contexts.Common.Data.Outbox;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Data.TypeConfigurations;
 using SSar.Contexts.Common.Domain.Entities;
@@ -36,11 +38,12 @@ namespace SSar.Contexts.Common.Data
             _integrationEvents = integrationEvents ?? throw new ArgumentNullException(nameof(integrationEvents));
             _busSender = busSender ?? throw new ArgumentNullException(nameof(busSender));
 
-            _outboxService = outboxService; // TODO: Figure out way around circular dependency issue when injecting IOutboxService
+            _outboxService = outboxService ?? throw new ArgumentNullException(nameof(outboxService));
+            _outboxService.AddProvider(this);
         }
 
         public DbSet<ExamplePerson> ExamplePersons { get; set; }
-        public DbSet<IOutboxPackage> OutboxPackages { get; set; }
+        public DbSet<OutboxPackage> OutboxPackages { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default(CancellationToken))

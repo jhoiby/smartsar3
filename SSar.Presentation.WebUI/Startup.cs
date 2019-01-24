@@ -13,13 +13,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Common.Data;
+using SSar.Contexts.Common.Data.Outbox;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
 using SSar.Contexts.IdentityAuth.Domain.Entities;
 using SSar.Contexts.Membership.Application.Commands;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
-using SSar.Infrastructure.Outbox;
 using SSar.Infrastructure.ServiceBus;
 
 namespace SSar.Presentation.WebUI
