@@ -1,11 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
+using System.Threading.Tasks;
+using Microsoft.Azure.Amqp;
+using SSar.Contexts.Common.Application;
 using SSar.Contexts.Common.Application.IntegrationEvents;
 
 namespace SSar.Contexts.Common.Data.ServiceInterfaces
 {
-    public interface IServiceBusSender
+    public interface IServiceBusSender<TObject> where TObject : IBusPublishable
     {
-        // TODO: Return completion status of send
-        Task SendAsync(IIntegrationEvent @event);
+        Task SendAsync(TObject @event);
     }
 }

@@ -12,17 +12,20 @@ namespace SSar.Contexts.Common.Data.Extensions
     {
         // TODO: Unit test these methods
 
-        public static IIntegrationEventQueue CopyToOutbox(this IIntegrationEventQueue eventQueue, IOutboxService outboxService, TimeSpan validitySpan)
+        public static IIntegrationEventQueue CopyToOutbox(
+            this IIntegrationEventQueue eventQueue, IOutboxService outboxService, TimeSpan validitySpan)
         {
             foreach (var @event in eventQueue)
             {
-                outboxService.AddObject(@event.EventId, @event.GetType().ToString(), @event, DateTime.Now + validitySpan);
+                outboxService.AddObject(
+                    @event.EventId, @event.GetType().ToString(), @event, DateTime.Now + validitySpan);
             }
 
             return eventQueue;
         }
 
-        public static async Task<List<IIntegrationEvent>> PublishToBus(this IIntegrationEventQueue eventQueue, IServiceBusSender busSender)
+        public static async Task<List<IIntegrationEvent>> PublishToBus(
+            this IIntegrationEventQueue eventQueue, IServiceBusSender<IIntegrationEvent> busSender)
         {
             List<IIntegrationEvent> publishedEvents = new List<IIntegrationEvent>();
 

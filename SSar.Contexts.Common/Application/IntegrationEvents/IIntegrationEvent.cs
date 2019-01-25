@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace SSar.Contexts.Common.Application.IntegrationEvents
 {
-    public interface IIntegrationEvent
+    public interface IIntegrationEvent : IBusPublishable
     {
         Guid EventId { get; }
         int EventVersion { get; }

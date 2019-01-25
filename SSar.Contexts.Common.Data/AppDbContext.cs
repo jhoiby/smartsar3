@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SSar.Contexts.Common.Application.IntegrationEvents;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Common.Data.Extensions;
 using SSar.Contexts.Common.Data.Outbox;
@@ -25,13 +26,13 @@ namespace SSar.Contexts.Common.Data
         private IDomainEventDispatcher _dispatcher;
         private IIntegrationEventQueue _integrationEvents;
         private IOutboxService _outboxService;
-        private IServiceBusSender _busSender;
+        private IServiceBusSender<IIntegrationEvent> _busSender;
 
         public AppDbContext(
             DbContextOptions<AppDbContext> options, 
             IDomainEventDispatcher dispatcher, 
             IIntegrationEventQueue integrationEvents,
-            IServiceBusSender busSender,
+            IServiceBusSender<IIntegrationEvent> busSender,
             IOutboxService outboxService) : base (options)
         {
             _dispatcher = dispatcher ?? throw new ArgumentNullException(nameof(dispatcher));

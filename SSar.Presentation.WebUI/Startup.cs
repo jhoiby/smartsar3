@@ -1,3 +1,4 @@
+using System.Runtime.Serialization;
 using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
@@ -11,6 +12,7 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SSar.Contexts.Common.Application.IntegrationEvents;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Common.Data;
 using SSar.Contexts.Common.Data.Outbox;
@@ -70,8 +72,8 @@ namespace SSar.Presentation.WebUI
 
             services.AddTransient<IOutboxService, OutboxService>();
 
-            services.AddTransient<IServiceBusSender, ServiceBusSenderAzure>((ctx) =>
-                new ServiceBusSenderAzure(
+            services.AddTransient<IServiceBusSender<IIntegrationEvent>, ServiceBusSenderAzure<IIntegrationEvent>>((ctx) =>
+                new ServiceBusSenderAzure<IIntegrationEvent>(
                     new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"]),
                     new AzureIntegrationMessageBuilder()));
