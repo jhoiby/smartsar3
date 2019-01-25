@@ -50,8 +50,11 @@ namespace SSar.Contexts.Common.Data
         {
             // TODO: What exception handling/unwrapping that needs to take place?
 
-            // TODO: Concerned about single responsibility. Consider pulling the
-            // TODO: event dispatching out and handling elsewhere.
+            // TODO: Concerned about single responsibility. This has two:
+            // TODO:     1. Persisting data to DB
+            // TODO:     2. Publishing events to propagate side-effects
+            // TODO: Consider pulling the event dispatching out 
+            // TODO: and handling elsewhere.
 
             var aggregatesWithDomainEvents = ChangeTracker.Entries<IAggregateRoot>()
                 .Select(e => e.Entity)
