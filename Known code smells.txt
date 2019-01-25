@@ -23,13 +23,3 @@ how I'm creating it and merging results in the Aggregate base class.
 
 I've got a solution that works well for now, but am going to start work on
 something else for awhile and come back to it later to see it in a new light.
-
-
--------------
-Newing up OutboxService in AppDbContext constructor
-
-Injecting an IOutboxService, the implementation of which contains an AppDbContext, results
-in a circular reference. 
-
-Newing up an OutboxService in the AppDb constructor and passing it 'this' works. The main
-issue is that it requires a direct reference to the infrastructure project.
