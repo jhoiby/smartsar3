@@ -29,18 +29,6 @@ namespace SSar.Infrastructure.ServiceBus
         {
             var message = _messageBuilder.WithObject(@event).Build();
 
-            //var message =
-            //    new Message(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(@event)))
-            //    {
-            //        ContentType = "hi", //"application/json",
-            //        Label = "labe",// @event.Label,
-            //        MessageId = default(Guid).ToString() //Guid.NewGuid().ToString()
-            //        // TODO: Implement expiration date
-            //    };
-
-            //// Additional properties for use with subscription message filtering
-            //message.UserProperties.Add("Publisher", @event.Publisher); // E.g. "SSar.Membership"
-
             await _topicClient.SendAsync(message);
         }
     }

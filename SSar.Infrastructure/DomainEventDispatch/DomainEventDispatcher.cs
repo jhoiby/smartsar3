@@ -11,12 +11,10 @@ namespace SSar.Infrastructure.DomainEventDispatch
     public class DomainEventDispatcher : IDomainEventDispatcher
     {
         private readonly IMediator _mediator;
-        private readonly IServiceBusSender _integrationBus;
 
-        public DomainEventDispatcher(IMediator mediator, IServiceBusSender integrationBus)
+        public DomainEventDispatcher(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _integrationBus = integrationBus ?? throw new ArgumentNullException(nameof(integrationBus));
         }
 
         public async Task<IAggregateRoot[]> DispatchAndClearDomainEventsAsync(IAggregateRoot[] aggregates)
