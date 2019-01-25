@@ -13,7 +13,7 @@ namespace SSar.Contexts.Common.Data.Outbox
         {
             if (_dbContext != null)
             {
-                throw new InvalidOperationException("OutboxService provider is already set.");
+                throw new InvalidOperationException("OutboxService provider is set and cannot be changed.");
             }
 
             _dbContext = provider ?? throw new ArgumentNullException(nameof(provider));
@@ -24,12 +24,14 @@ namespace SSar.Contexts.Common.Data.Outbox
         public void Delete(Guid id)
         {   
             ThrowIfNoProvider();
+
             _dbContext.Remove(_dbContext.OutboxPackages.Single(p => p.PackageId == id));
         }
 
         public void DeleteRange(Guid[] idArray)
         {
             ThrowIfNoProvider();
+
             _dbContext.RemoveRange(
                 _dbContext.OutboxPackages.Where(p => idArray.Contains(p.PackageId)));
         }
