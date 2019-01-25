@@ -1,7 +1,9 @@
 using System.Runtime.Serialization;
+using System.Security.Claims;
 using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -56,12 +58,26 @@ namespace SSar.Presentation.WebUI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
-            {
-                microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
-                microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
-            });
-            
+            services.AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
+                })
+                .AddGoogle(o =>
+                {
+                    o.ClientId = Configuration["Authentication:Google:ClientId"];
+                    o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    o.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                    o.ClaimActions.Clear();
+                    o.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
+                    o.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                    o.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
+                    o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                    o.ClaimActions.MapJsonKey("urn:google:profile", "link");
+                    o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                });
+
             services.AddHtmlTags();
             
             // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
