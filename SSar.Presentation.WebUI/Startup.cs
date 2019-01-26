@@ -3,6 +3,7 @@ using System.Security.Claims;
 using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SSar.Contexts.Common.Application.IntegrationEvents;
+using SSar.Contexts.Common.Application.RequestPipelineBehaviors;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Common.Data;
 using SSar.Contexts.Common.Data.Outbox;
@@ -79,9 +81,9 @@ namespace SSar.Presentation.WebUI
                 });
 
             services.AddHtmlTags();
-            
-            // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
-
+            services.AddTransient(typeof(IRequestPreProcessor<>), typeof(DomainEventLoggerBehavior<>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggerBehavior<,>));
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
             
             services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();

@@ -10,3 +10,16 @@
 2019-01-25 22:18:56.339 -07:00 [WRN] User null validation failed: DuplicateUserName.
 2019-01-25 22:19:10.484 -07:00 [DBG] ExamplePerson created: Name = Ninja Turtle , Email = ninja@turtles.com
 2019-01-25 22:19:29.316 -07:00 [DBG] ExamplePerson created: Name = Ophelia Bumps , Email = ophelia@bumps.com
+2019-01-25 22:35:38.996 -07:00 [INF] Starting web host
+2019-01-25 22:35:41.216 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:35:41.229 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:35:41.232 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:35:41.236 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:36:01.572 -07:00 [DBG] ExamplePerson created: Name = Roger Rabbit , Email = roger@test.com
+2019-01-25 22:47:31.830 -07:00 [INF] Starting web host
+2019-01-25 22:47:33.943 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:47:33.956 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:47:33.959 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:47:33.963 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:47:50.293 -07:00 [INF] Request: CreateExamplePersonCommand {"Name":"Yosemite Sam","EmailAddress":"sam@succotash.com","$type":"CreateExamplePersonCommand"}
+2019-01-25 22:47:50.362 -07:00 [DBG] ExamplePerson created: Name = Yosemite Sam , Email = sam@succotash.com
