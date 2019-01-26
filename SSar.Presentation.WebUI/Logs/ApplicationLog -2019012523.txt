@@ -32,3 +32,8 @@
 2019-01-25 23:24:17.412 -07:00 [INF] NEW REQUEST: CreateExamplePersonCommand {"Name":"Darryl","EmailAddress":"darryl@otherbrothers.com","$type":"CreateExamplePersonCommand"}
 2019-01-25 23:24:17.412 -07:00 [INF] NEW DOMAIN EVENT: CreateExamplePersonCommand {"Name":"Darryl","EmailAddress":"darryl@otherbrothers.com","$type":"CreateExamplePersonCommand"}
 2019-01-25 23:24:17.475 -07:00 [DBG] ExamplePerson created: Name = Darryl , Email = darryl@otherbrothers.com
+2019-01-25 23:57:21.286 -07:00 [INF] Starting web host
+2019-01-25 23:57:23.596 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 23:57:23.610 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 23:57:23.614 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 23:57:23.617 -07:00 [WRN] User null validation failed: DuplicateUserName.
