@@ -23,7 +23,7 @@ namespace SSar.Contexts.Membership.Application.DomainEventHandlers
         {
             await Task.Run(() =>
                 _logger.LogDebug(
-                    "ExamplePerson created: Name = {notification.Name} , Email = {notification.EmailAddress}")
+                    $"ExamplePerson created: Name = {notification.Name} , Email = {notification.EmailAddress}")
             );
         }
     }

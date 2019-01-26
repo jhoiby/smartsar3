@@ -83,7 +83,7 @@ namespace SSar.Presentation.WebUI
             // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>)); // Not currently in use
 
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
-
+            
             services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();
 
             services.AddTransient<IOutboxService, OutboxService>();

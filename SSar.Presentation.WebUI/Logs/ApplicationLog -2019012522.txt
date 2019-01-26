@@ -1,0 +1,12 @@
+2019-01-25 22:04:32.510 -07:00 [INF] Starting web host
+2019-01-25 22:04:34.844 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:04:34.856 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:04:34.859 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:04:34.863 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:18:54.117 -07:00 [INF] Starting web host
+2019-01-25 22:18:56.319 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:18:56.332 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:18:56.335 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:18:56.339 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-01-25 22:19:10.484 -07:00 [DBG] ExamplePerson created: Name = Ninja Turtle , Email = ninja@turtles.com
+2019-01-25 22:19:29.316 -07:00 [DBG] ExamplePerson created: Name = Ophelia Bumps , Email = ophelia@bumps.com
