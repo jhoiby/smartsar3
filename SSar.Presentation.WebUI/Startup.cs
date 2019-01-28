@@ -15,6 +15,7 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SSar.Contexts.Common.Application.Authorization;
 using SSar.Contexts.Common.Application.IntegrationEvents;
 using SSar.Contexts.Common.Application.RequestPipelineBehaviors;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
@@ -24,6 +25,7 @@ using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
 using SSar.Contexts.IdentityAuth.Domain.Entities;
 using SSar.Contexts.Membership.Application.Commands;
+using SSar.Infrastructure.Authorization;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
@@ -84,11 +86,17 @@ namespace SSar.Presentation.WebUI
             services.AddTransient(typeof(IRequestPreProcessor<>), typeof(DomainEventLoggerBehavior<>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggerBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestAuthorizationBehavior<,>));
             services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
-            
+
+
             services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();
 
+            services.AddTransient<IDomainEventDispatcher, DomainEventDispatcher>();
+
             services.AddTransient<IOutboxService, OutboxService>();
+
+            services.AddScoped<IAuthorizationService, SimpleAuthorizationService>();
 
             services.AddTransient<IServiceBusSender<IIntegrationEvent>, ServiceBusSenderAzure<IIntegrationEvent>>((ctx) =>
                 new ServiceBusSenderAzure<IIntegrationEvent>(
@@ -101,8 +109,6 @@ namespace SSar.Presentation.WebUI
                 {
                     fv.RegisterValidatorsFromAssemblyContaining<CreateExamplePersonCommandValidator>();
                 });
-
-            services.AddTransient<IDomainEventDispatcher, DomainEventDispatcher>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
