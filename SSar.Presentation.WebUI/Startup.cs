@@ -23,6 +23,7 @@ using SSar.Contexts.Common.Data;
 using SSar.Contexts.Common.Data.Outbox;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
+using SSar.Contexts.IdentityAuth.Application.Commands;
 using SSar.Contexts.IdentityAuth.Domain.Entities;
 using SSar.Contexts.Membership.Application.Commands;
 using SSar.Infrastructure.Authorization;
@@ -93,6 +94,7 @@ namespace SSar.Presentation.WebUI
                 typeof(RequestLoggerBehavior<,>));
             services.AddMediatR(
                 typeof(CreateExamplePersonCommandHandler).Assembly,
+                typeof(CreateRoleCommandHandler).Assembly,
                 typeof(Areas.Identity.Pages.Roles.IndexModel).Assembly);
 
             services.AddTransient<IQueryService, SqlDbQueryService>(ctx =>

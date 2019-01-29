@@ -28,12 +28,14 @@
         {
             foreach (var role in Model.Data.Roles)
              {
-                 <td>@role.Name</td>
-                 <td>@role.Description</td>
-                 <td>
-                     <a asp-page="Edit" asp-route-personId="@role.Id">Edit</a> |
-                     <a asp-page="Delete" asp-route-personId="@role.Id">Delete</a>
-                 </td>
+                 <tr>
+                     <td>@role.Name</td>
+                     <td>@role.Description</td>
+                     <td>
+                         <a asp-page="Edit" asp-route-personId="@role.Id">Edit</a> |
+                         <a asp-page="Delete" asp-route-personId="@role.Id">Delete</a>
+                     </td>
+                </tr>
              }
             
         }

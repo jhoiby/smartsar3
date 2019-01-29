@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SSar.Contexts.Common.Data\SSar.Contexts.Common.Data.csproj" />
     <ProjectReference Include="..\SSar.Contexts.Common\SSar.Contexts.Common.csproj" />
   </ItemGroup>
 
