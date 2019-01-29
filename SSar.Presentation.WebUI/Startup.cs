@@ -84,14 +84,13 @@ namespace SSar.Presentation.WebUI
                 });
 
             services.AddHtmlTags();
-            services.AddTransient(typeof(IRequestPreProcessor<>), 
-                typeof(DomainEventLoggerBehavior<>));
+            
+            services.AddTransient(typeof(RequestPreProcessorBehavior<,>),
+                typeof(RequestAuthorizationBehavior<>));
             services.AddTransient(typeof(IPipelineBehavior<,>), 
                 typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), 
                 typeof(RequestLoggerBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), 
-                typeof(RequestAuthorizationBehavior<,>));
             services.AddMediatR(
                 typeof(CreateExamplePersonCommandHandler).Assembly,
                 typeof(Areas.Identity.Pages.Roles.IndexModel).Assembly);

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using SSar.Contexts.Common.Application.Authorization;
 
 namespace SSar.Contexts.Common.Application.RequestPipelineBehaviors
 {
-    public class RequestAuthorizationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class RequestAuthorizationBehavior<TRequest> : IRequestPreProcessor<TRequest>
     {
         private readonly IAuthorizationService _authorizationService;
         private readonly ILogger _logger;
@@ -20,13 +21,17 @@ namespace SSar.Contexts.Common.Application.RequestPipelineBehaviors
                 _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             }
 
-            public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+            public async Task Handle(TRequest request, CancellationToken cancellationToken)
             {
-                var authResult = _authorizationService.Authorize();
-
-                _logger.LogDebug("AuthorizationResult: {authResult}", authResult);
-
-                return await next();
             }
+
+        public Task Process(TRequest request, CancellationToken cancellationToken)
+        {
+            var authResult = _authorizationService.Authorize();
+
+            _logger.LogDebug("AuthorizationResult: {authResult}", authResult);
+
+            return Task.CompletedTask;
+        }
     }
 }
