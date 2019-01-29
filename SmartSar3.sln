@@ -27,17 +27,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.UnitTests", "SSar.Unit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContexts", "BoundedContexts", "{FDBB44DF-5B92-443B-996D-E1C3AD3B754F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.IdentityAuth.Application", "SSar.Contexts.IdentityAuth.Application\SSar.Contexts.IdentityAuth.Application.csproj", "{26F30951-1B0C-484A-A512-7DD0ADD7CC93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.IdentityAuth.Application", "SSar.Contexts.IdentityAuth.Application\SSar.Contexts.IdentityAuth.Application.csproj", "{26F30951-1B0C-484A-A512-7DD0ADD7CC93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.Common", "SSar.Contexts.Common\SSar.Contexts.Common.csproj", "{B460A83C-6F28-4AAF-9CCB-A15BD10B0EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common", "SSar.Contexts.Common\SSar.Contexts.Common.csproj", "{B460A83C-6F28-4AAF-9CCB-A15BD10B0EC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.IdentityAuth.Domain", "SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAuth.Domain.csproj", "{EFF40AA7-DB29-46A4-8354-EAF86B5DCC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.IdentityAuth.Domain", "SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAuth.Domain.csproj", "{EFF40AA7-DB29-46A4-8354-EAF86B5DCC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.Membership.Application", "SSar.Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj", "{F207008D-871C-4BD8-BEB9-CCA88B935985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Application", "SSar.Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj", "{F207008D-871C-4BD8-BEB9-CCA88B935985}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.Common.Data", "SSar.Contexts.Common.Data\SSar.Contexts.Common.Data.csproj", "{899DA5FE-418D-4994-9D5C-B90A2B0793D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Common.Data", "SSar.Contexts.Common.Data\SSar.Contexts.Common.Data.csproj", "{899DA5FE-418D-4994-9D5C-B90A2B0793D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSar.Contexts.Membership.Domain", "SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj", "{1DD5D221-3FCE-4217-B75F-A4BCC35758A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSar.Contexts.Membership.Domain", "SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj", "{1DD5D221-3FCE-4217-B75F-A4BCC35758A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

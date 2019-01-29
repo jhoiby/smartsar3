@@ -22,7 +22,7 @@ namespace SSar.Contexts.Common.Data
             string role2 = "Member";
             string desc2 = "This is the members role";
 
-            string password = "P@$$w0rd";
+            string password = "Abc!123@";
 
             if (await roleManager.FindByNameAsync(role1) == null)
             {

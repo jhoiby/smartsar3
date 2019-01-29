@@ -29,6 +29,7 @@ using SSar.Infrastructure.Authorization;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
+using SSar.Presentation.WebUI.Services;
 
 namespace SSar.Presentation.WebUI
 {
@@ -83,24 +84,35 @@ namespace SSar.Presentation.WebUI
                 });
 
             services.AddHtmlTags();
-            services.AddTransient(typeof(IRequestPreProcessor<>), typeof(DomainEventLoggerBehavior<>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggerBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestAuthorizationBehavior<,>));
-            services.AddMediatR(typeof(CreateExamplePersonCommandHandler).Assembly);
+            services.AddTransient(typeof(IRequestPreProcessor<>), 
+                typeof(DomainEventLoggerBehavior<>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), 
+                typeof(RequestPreProcessorBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), 
+                typeof(RequestLoggerBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), 
+                typeof(RequestAuthorizationBehavior<,>));
+            services.AddMediatR(
+                typeof(CreateExamplePersonCommandHandler).Assembly,
+                typeof(Areas.Identity.Pages.Roles.IndexModel).Assembly);
 
+            services.AddTransient<IQueryService, SqlDbQueryService>(ctx =>
+                new SqlDbQueryService(
+                    Configuration.GetConnectionString("ApplicationSqlDbConnection")));
 
             services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();
 
             services.AddTransient<IDomainEventDispatcher, DomainEventDispatcher>();
 
             services.AddTransient<IOutboxService, OutboxService>();
-
+            
             services.AddScoped<IAuthorizationService, SimpleAuthorizationService>();
 
-            services.AddTransient<IServiceBusSender<IIntegrationEvent>, ServiceBusSenderAzure<IIntegrationEvent>>((ctx) =>
+            services.AddTransient<IServiceBusSender<IIntegrationEvent>, 
+                ServiceBusSenderAzure<IIntegrationEvent>>((ctx) =>
                 new ServiceBusSenderAzure<IIntegrationEvent>(
-                    new TopicClient(Configuration["AzureServiceBus:ServiceBusConnectionString"],
+                    new TopicClient(
+                        Configuration["AzureServiceBus:ServiceBusConnectionString"],
                         Configuration["AzureServiceBus:Topic"]),
                     new AzureIntegrationMessageBuilder()));
 

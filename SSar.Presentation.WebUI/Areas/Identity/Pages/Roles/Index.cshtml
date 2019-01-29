@@ -1,0 +1,42 @@
+﻿@page
+@model SSar.Presentation.WebUI.Areas.Identity.Pages.Roles.IndexModel
+@{
+    Layout = "_Layout";
+}
+
+<h2>Roles</h2>
+
+<div class="pb-4">
+    <a asp-area="Identity" asp-page="/Roles/Create">Add role</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        @if (Model?.Data?.Roles == null)
+        {
+            <td>No roles were found. Click 'Add role' to add a new role.</td>
+        }
+        else
+        {
+            foreach (var role in Model.Data.Roles)
+             {
+                 <td>@role.Name</td>
+                 <td>@role.Description</td>
+                 <td>
+                     <a asp-page="Edit" asp-route-personId="@role.Id">Edit</a> |
+                     <a asp-page="Delete" asp-route-personId="@role.Id">Delete</a>
+                 </td>
+             }
+            
+        }
+    </tr>
+    </tbody>
+</table>
