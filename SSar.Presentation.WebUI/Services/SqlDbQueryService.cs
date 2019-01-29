@@ -31,27 +31,11 @@ namespace SSar.Presentation.WebUI.Services
         {
             // TODO: Research using parameterized queries with Dappe
 
-            List<T> result = new List<T>();
-
-            try
+            using (var connection = new SqlConnection(_connectionString))
             {
-                using (var connection = new SqlConnection(_connectionString))
-                {
-                    result = (await connection.QueryAsync<T>(sqlQuery)).ToList();
-                }
-
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine("DAPPER EXCEPTION CAUGHT");
-
-                throw new QueryException($"Exception executing SQL query: '{sqlQuery}'", ex);
-
-                // TODO: Getting HTTP 500 at UI instead of developer exception screen, even though
-                // TODO: exceptions bubbling up to UI in other cases!
+                return (await connection.QueryAsync<T>(sqlQuery)).ToList();
             }
 
-            return result;
         }
     }
 }

@@ -37,7 +37,7 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Roles
 
             public class Role
             {
-                public string Id { get; set; }
+                public Guid Id { get; set; }
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
@@ -53,22 +53,8 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Roles
             }
 
             public async Task<Result> Handle(Query request, CancellationToken cancellationToken)
-            {
-                try
-                {
-                    return
-                        new Result
-                        {
-                            Roles = await _queryService.ListQuery<Result.Role>(
-                                "SELECT Id, Name, Description FROM AspNetRoles")
-                        };
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            }
+                => new Result { Roles = await _queryService.ListQuery<Result.Role>(
+                    "SELECT Id, Name, Description FROM AspNetRoles")};
         }
     }
 }
