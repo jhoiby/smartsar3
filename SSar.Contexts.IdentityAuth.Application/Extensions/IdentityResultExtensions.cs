@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using SSar.Contexts.Common.Application.Commands;
+using SSar.Contexts.Common.Domain.Notifications;
 
 namespace SSar.Contexts.IdentityAuth.Application.Extensions
 {
@@ -10,7 +11,14 @@ namespace SSar.Contexts.IdentityAuth.Application.Extensions
     {
         public static CommandResult ToCommandResult(this IdentityResult identityResult)
         {
-            return new CommandResult();
+            var notifications = new NotificationList();
+
+            foreach (var error in identityResult.Errors)
+            {
+                notifications.AddNotification(error.Code, error.Description);
+            }
+
+            return CommandResult.Fail(notifications);
         }
     }
 }
