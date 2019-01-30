@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using Shouldly;
 using SSar.Contexts.Common.Application.Commands;
 using SSar.Contexts.Common.Domain.Notifications;
@@ -34,7 +31,7 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
         [Fact]
         public void Failed_given_null_notifications_should_return_empty_list()
         {
-            var result = CommandResult.Failed(CommandResult.StatusCode.Succeeded, null);
+            var result = CommandResult.Failed(CommandResult.StatusCode.DomainValidationError, null);
 
             result.Notifications.ShouldSatisfyAllConditions(
                 () => result.Notifications.ShouldNotBeNull(),
@@ -42,7 +39,7 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
         }
 
         [Fact]
-        public void Failed_should_set_params()
+        public void Failed_should_set_properties()
         {
             var notificationList = new NotificationList("key1", "Hello world");
             var exception = new Exception("Oopsie!");
