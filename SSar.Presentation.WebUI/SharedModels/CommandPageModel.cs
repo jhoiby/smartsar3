@@ -13,7 +13,7 @@ namespace SSar.Presentation.WebUI.Bases
 
         protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
 
-        public IActionResult ReturnErrorsOrRedirectIfOk(CommandResult commandResult, string pageName = "Index")
+        public IActionResult ReturnNotificationsOrRedirectToPage(CommandResult commandResult, string pageName = "Index")
         {
             IActionResult pageAction = RedirectToPage(pageName);
 

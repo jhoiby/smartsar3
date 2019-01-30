@@ -18,7 +18,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
         public async Task<IActionResult> OnPostAsync()
         {
             return 
-                ReturnErrorsOrRedirectIfOk(
+                ReturnNotificationsOrRedirectToPage(
                     await Mediator.Send(Command), 
                     "Index");
         }
