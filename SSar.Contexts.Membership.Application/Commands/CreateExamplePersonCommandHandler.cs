@@ -3,6 +3,7 @@ using SSar.Contexts.Common.Data;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using SSar.Contexts.Common.Data.Extensions;
 using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 
 namespace SSar.Contexts.Membership.Application.Commands
@@ -18,12 +19,9 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            var person = ExamplePerson.Create(request.Name, request.EmailAddress);
-
-            await _dbContext.ExamplePersons.AddAsync(person.NewAggregate);
-            await _dbContext.SaveChangesAsync();
-
-            return new CommandResult();
+            return await ExamplePerson
+                .Create(request.Name, request.EmailAddress)
+                .SaveIfSucceededAndReturnCommandResult(_dbContext);
         }
     }
 }

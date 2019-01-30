@@ -40,12 +40,12 @@ namespace SSar.Contexts.Common.Domain.Notifications
         {
             var notification = new Notification(paramMessage);
 
-            AddOrAppend(paramName, new List<Notification>(){ notification });
+            AddNotifications(paramName, new List<Notification>(){ notification });
 
             return this;
         }
 
-        private NotificationList AddOrAppend(string key, List<Notification> notifications)
+        private NotificationList AddNotifications(string key, List<Notification> notifications)
         {
             var valueToSave = new List<Notification>();
 
@@ -62,13 +62,13 @@ namespace SSar.Contexts.Common.Domain.Notifications
             return this;
         }
 
-        public NotificationList AddOrAppend(NotificationList sourceNotifications)
+        public NotificationList AddNotifications(NotificationList sourceNotifications)
         {
             foreach (var sourceDictionaryPair in sourceNotifications)
             {
                 string currentKey = sourceDictionaryPair.Key;
 
-                AddOrAppend(currentKey, sourceDictionaryPair.Value);
+                AddNotifications(currentKey, sourceDictionaryPair.Value);
             }
 
             return this;

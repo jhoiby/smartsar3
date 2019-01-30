@@ -110,7 +110,7 @@ namespace SSar.UnitTests.Infrastructure.Notifications
                 .AddNotification("param2", "message2 for param2")
                 .AddNotification("param4", "message1 for param4");
 
-            targetNotificationList.AddOrAppend(sourceNotificationList);
+            targetNotificationList.AddNotifications(sourceNotificationList);
 
             targetNotificationList.ShouldSatisfyAllConditions(
                 () => targetNotificationList["param1"].Count.ShouldBe(5),

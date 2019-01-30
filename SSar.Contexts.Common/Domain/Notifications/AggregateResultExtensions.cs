@@ -8,7 +8,7 @@ namespace SSar.Contexts.Common.Domain.Notifications
             this AggregateResult<TAggregate> sourceResult, NotificationList targetList)
             where TAggregate : IAggregateRoot
         {
-            return targetList.AddOrAppend(sourceResult.Notifications);
+            return targetList.AddNotifications(sourceResult.Notifications);
         }
     }
 }
