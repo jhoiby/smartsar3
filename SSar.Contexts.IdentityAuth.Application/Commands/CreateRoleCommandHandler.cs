@@ -25,6 +25,8 @@ namespace SSar.Contexts.IdentityAuth.Application.Commands
 
         public async Task<CommandResult> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
+            IdentityResult x;
+
             var identityResult = await _roleManager.CreateAsync(
                 new ApplicationRole(request.Name, request.Description, DateTime.UtcNow));
 
