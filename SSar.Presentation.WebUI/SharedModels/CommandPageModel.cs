@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
+using SSar.Contexts.Common.Application.Commands;
+using SSar.Contexts.Common.Domain.Notifications;
 
 namespace SSar.Presentation.WebUI.Bases
 {
@@ -11,20 +12,37 @@ namespace SSar.Presentation.WebUI.Bases
         private IMediator _mediator;
 
         protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
+
+        public IActionResult ReturnErrorsOrRedirectIfOk(CommandResult commandResult, string pageName = "Index")
+        {
+            IActionResult pageAction = RedirectToPage(pageName);
+
+            if (!ModelState.IsValid)
+            {
+                pageAction = Page();
+            }
+
+            if (!commandResult.Succeeded)
+            {
+                // TODO: Handle case of returned exception
+                AddNotificationsToModelErrors(commandResult.Notifications);
+                pageAction = Page();
+            }
+
+            return pageAction;
+        }
         
-        //public IActionResult NotificationsToPageOrRedirectIfOk(CommandResult cmdResult, string page = "Index")
-        //{
-        //    if (cmdResult.HasNotifications)
-        //    {
-        //        foreach (var notification in cmdResult.Notifications)
-        //        {
-        //            ModelState.AddModelError(notification.ForField, notification.Message);
-        //        }
-
-        //        return Page();
-        //    }
-
-        //    return RedirectToPage(page);
-        //}
+        // TODO: **** REMOVE DEPENDENCY on Contexts.Common.Domain (i.e. NotificationList) ?
+        private void AddNotificationsToModelErrors(NotificationList notifications)
+        {
+            foreach (var key in notifications)
+            {
+                var notificationList = key.Value;
+                foreach (var notification in notificationList)
+                {
+                    ModelState.AddModelError(key.ToString(), notification.Message);
+                }
+            }
+        }
     }
 }

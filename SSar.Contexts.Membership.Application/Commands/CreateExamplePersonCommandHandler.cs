@@ -19,9 +19,18 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            return await ExamplePerson
-                .Create(request.Name, request.EmailAddress)
-                .SaveIfSucceededAndReturnCommandResult(_dbContext);
+            var personResult = ExamplePerson.Create(request.Name, request.EmailAddress);
+            var saveResult = await personResult.AddIfSucceeded(_dbContext);
+            var commandResult = saveResult.ToCommandResult();
+
+            return commandResult;
+
+            //return 
+            //    ( await 
+            //        ExamplePerson
+            //            .Create(request.Name, request.EmailAddress)
+            //            .AddIfSucceeded(_dbContext))
+            //    .ToCommandResult();
         }
     }
 }

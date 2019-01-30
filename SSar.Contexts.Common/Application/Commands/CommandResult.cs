@@ -21,12 +21,7 @@ namespace SSar.Contexts.Common.Application.Commands
 
         public static CommandResult Fail(NotificationList notifications, Exception exception)
         {
-            if (notifications == null)
-            {
-                notifications = new NotificationList();
-            }
-
-            return new CommandResult
+            var result = new CommandResult
                 {
                     Succeeded = false,
                     Status = exception == null
@@ -35,6 +30,8 @@ namespace SSar.Contexts.Common.Application.Commands
                     Notifications = notifications ?? new NotificationList(),
                     Exception = exception
                 };
+
+            return result;
         }
 
         public static CommandResult Fail(NotificationList notifications)

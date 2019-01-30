@@ -2,6 +2,8 @@
 
 namespace SSar.Contexts.Common.Domain.Notifications
 {
+    // TODO: Why is this class here? Why not just use a string?
+
     public class Notification
     {
         private readonly string _message;
