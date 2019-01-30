@@ -22,7 +22,10 @@ namespace SSar.Contexts.Membership.Domain.Entities.ExamplePersons
             var person = new ExamplePerson();
             var notifications = new NotificationList();
 
-            person.SetName(name).AddNotificationsTo(notifications);
+            var result = person.SetName(name);
+            result.AddNotificationsTo(notifications);
+
+
             person.SetEmailAddress(emailAddress).AddNotificationsTo(notifications);
 
             person.AddEvent(new ExamplePersonCreated(person.Id, person.Name, person.EmailAddress));

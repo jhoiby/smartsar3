@@ -7,47 +7,44 @@ namespace SSar.Contexts.Common.Application.Commands
 {
     public class CommandResult
     {
-        public enum StatusCode
-        {
-            Succeeded,
-            DomainValidationError,
-            ArgumentValidationError,
-            Exception
-        }
-
         public bool Succeeded { get; private set; }
         public NotificationList Notifications { get; private set; }
         public Exception Exception { get; private set; }
-        public StatusCode Status { get; private set; }
+        public CommandResultStatus Status { get; private set; }
         
         public static CommandResult Success => new CommandResult
         {
             Succeeded = true,
-            Status = StatusCode.Succeeded,
+            Status = CommandResultStatus.Succeeded,
             Notifications = new NotificationList()
         };
 
-        public static CommandResult Failed(
-            StatusCode reason, NotificationList notifications, Exception exception = null)
+        public static CommandResult Fail(NotificationList notifications, Exception exception)
         {
-            if (reason == StatusCode.Succeeded)
+            if (notifications == null)
             {
-                throw new InvalidOperationException("A failed CommandResult cannot have a status code of 'Succeeded'.");
+                notifications = new NotificationList();
             }
 
             return new CommandResult
                 {
                     Succeeded = false,
-                    Status = reason,
+                    Status = exception == null
+                        ? CommandResultStatus.ValidationError
+                        : CommandResultStatus.Exception,
                     Notifications = notifications ?? new NotificationList(),
                     Exception = exception
                 };
         }
 
-        public static CommandResult Failed(Exception exception)
+        public static CommandResult Fail(NotificationList notifications)
         {
-            return CommandResult.Failed(
-                StatusCode.Exception, new NotificationList(), exception);
+            return CommandResult.Fail(notifications, null);
+        }
+
+        public static CommandResult Fail(Exception exception)
+        {
+            return CommandResult.Fail(new NotificationList(), exception);
         }
     }
 }

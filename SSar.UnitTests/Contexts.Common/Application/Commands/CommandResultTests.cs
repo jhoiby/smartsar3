@@ -15,7 +15,7 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
 
             result.ShouldSatisfyAllConditions(
                 () => result.Succeeded.ShouldBeTrue(),
-                () => result.Status.ShouldBe(CommandResult.StatusCode.Succeeded));
+                () => result.Status.ShouldBe(CommandResultStatus.Succeeded));
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
         [Fact]
         public void Failed_given_null_notifications_should_return_empty_list()
         {
-            var result = CommandResult.Failed(CommandResult.StatusCode.DomainValidationError, null);
+            var result = CommandResult.Fail(notifications: null);
 
             result.Notifications.ShouldSatisfyAllConditions(
                 () => result.Notifications.ShouldNotBeNull(),
@@ -44,12 +44,11 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
             var notificationList = new NotificationList("key1", "Hello world");
             var exception = new Exception("Oopsie!");
 
-            var result = CommandResult.Failed(
-                CommandResult.StatusCode.DomainValidationError, notificationList, exception);
+            var result = CommandResult.Fail(notificationList, exception);
 
             result.ShouldSatisfyAllConditions(
                 () => result.Succeeded.ShouldBeFalse(),
-                () => result.Status.ShouldBe(CommandResult.StatusCode.DomainValidationError),
+                () => result.Status.ShouldBe(CommandResultStatus.Exception),
                 () => result.Notifications.ShouldBe(notificationList),
                 () => result.Exception.ShouldBe(exception));
         }
@@ -60,21 +59,9 @@ namespace SSar.UnitTests.Contexts.Common.Application.Commands
 
             var notificationList = new NotificationList("key1", "Hello world");
 
-            var result = CommandResult.Failed(
-                CommandResult.StatusCode.DomainValidationError, notificationList);
+            var result = CommandResult.Fail(notificationList);
 
             result.Exception.ShouldBeNull();
-        }
-
-        [Fact]
-        public void Failed_given_succeeded_status_should_throw_invalid_operation_exception()
-        {
-
-            var notificationList = new NotificationList("key1", "Hello world");
-
-            Should.Throw<InvalidOperationException>( () => 
-                CommandResult.Failed(
-                    CommandResult.StatusCode.Succeeded, notificationList));
         }
     }
 }
