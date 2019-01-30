@@ -20,7 +20,7 @@ namespace SSar.Contexts.Membership.Application.Commands
         {
             var person = ExamplePerson.Create(request.Name, request.EmailAddress);
 
-            await _dbContext.ExamplePersons.AddAsync(person.Aggregate);
+            await _dbContext.ExamplePersons.AddAsync(person.NewAggregate);
             await _dbContext.SaveChangesAsync();
 
             return new CommandResult();

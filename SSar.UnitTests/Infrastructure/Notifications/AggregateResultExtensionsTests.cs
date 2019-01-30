@@ -2,6 +2,7 @@
 using Shouldly;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
+using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
 namespace SSar.UnitTests.Infrastructure.Notifications
@@ -15,7 +16,6 @@ namespace SSar.UnitTests.Infrastructure.Notifications
         [Fact]
         public void AddNotificationsTo_updates_target_list()
         {
-
             var aggregateNotificationList = new NotificationList()
                 .AddNotification("param1", "message1 for param1")
                 .AddNotification("param1", "message2 for param1")
@@ -28,9 +28,10 @@ namespace SSar.UnitTests.Infrastructure.Notifications
                 .AddNotification("param2", "message2 for param2")
                 .AddNotification("param4", "message1 for param4");
 
-            var aggregate = AggregateResult<TestAggregate>.FromNotifications(aggregateNotificationList);
+            var aggregateResult = AggregateResult<TestAggregate>
+                .Fail(aggregateNotificationList);
 
-            aggregate.AddNotificationsTo(targetNotificationList);
+            aggregateResult.AddNotificationsTo(targetNotificationList);
 
             targetNotificationList.ShouldSatisfyAllConditions(
                 () => targetNotificationList["param1"].Count.ShouldBe(4),

@@ -1,6 +1,6 @@
-﻿using SSar.Contexts.Common.Domain.Notifications;
+﻿using SSar.Contexts.Common.Domain.Entities;
 
-namespace SSar.Contexts.Common.Domain.Entities
+namespace SSar.Contexts.Common.Domain.Notifications
 {
     public static class AggregateResultExtensions
     {

@@ -29,8 +29,8 @@ namespace SSar.Contexts.Membership.Domain.Entities.ExamplePersons
             person.AddEvent(new TestEvent1());
             person.AddEvent(new TestEvent2());
 
-            return AggregateResult<ExamplePerson>
-                .FromAggregateOrNotifications(person, notifications);
+            return person.OrNotifications(notifications)
+                .AsResult<ExamplePerson>();
         }
 
         // TODO: Make these private property accessors then create public change methods
@@ -115,8 +115,8 @@ namespace SSar.Contexts.Membership.Domain.Entities.ExamplePersons
                 action.Invoke();
             }
 
-            return AggregateResult<ExamplePerson>.
-                FromAggregateOrNotifications(this, notifications);
+            return this.OrNotifications(notifications)
+                .AsResult<ExamplePerson>();
         }
 
         private class RequirementsList : List<RequirementSet>

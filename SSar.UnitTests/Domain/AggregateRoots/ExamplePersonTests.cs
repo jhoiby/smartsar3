@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using Shouldly;
 using SSar.Contexts.Common.Domain.Entities;
+using SSar.Contexts.Common.Domain.Notifications;
 using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
-namespace SSar.UnitTests.Domain.AggregateRoots
+namespace SSar.UnitTests.Domain.NewAggregateRoots
 {
     public class ExamplePersonTests
     {
@@ -14,7 +15,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void CreateFromNameAndEmail_GivenValidName_SetsNameProperty()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.Name.ShouldBe(_name);
         }
@@ -22,7 +23,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void CreateFromNameAndEmail_GivenValidEmail_SetsEmail()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.EmailAddress.ShouldBe(_email);
         }
@@ -33,8 +34,8 @@ namespace SSar.UnitTests.Domain.AggregateRoots
             var result = ExamplePerson.Create(_name, _email);
 
             result.ShouldSatisfyAllConditions(
-                () => result.Aggregate.ShouldNotBeNull(),
-                () => result.Aggregate.ShouldBeOfType<ExamplePerson>());
+                () => result.NewAggregate.ShouldNotBeNull(),
+                () => result.NewAggregate.ShouldBeOfType<ExamplePerson>());
         }
 
         [Fact]
@@ -52,7 +53,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void CreateFromNameAndEmail_adds_ExamplePersonCreated_event()
         {
-            var aggregate = ExamplePerson.Create("Elmer Fudd", "elmer@wascallywabbit.com").Aggregate;
+            var aggregate = ExamplePerson.Create("Elmer Fudd", "elmer@wascallywabbit.com").NewAggregate;
 
             var createdEvent = aggregate.Events.OfType<ExamplePersonCreated>().SingleOrDefault();
 
@@ -64,33 +65,33 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void SetName_returns_AggregateResult_with_name()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetName("Orville");
 
             result.ShouldSatisfyAllConditions(
                 () => result.ShouldBeOfType<AggregateResult<ExamplePerson>>(),
-                () => result.Aggregate.Name.ShouldBe("Orville")
+                () => result.NewAggregate.Name.ShouldBe("Orville")
                 );
         }
 
         [Fact]
         public void SetEmailAddress_returns_AggregateResult_with_email()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetEmailAddress("orville@first.com");
 
             result.ShouldSatisfyAllConditions(
                 () => result.ShouldBeOfType<AggregateResult<ExamplePerson>>(),
-                () => result.Aggregate.EmailAddress.ShouldBe("orville@first.com")
+                () => result.NewAggregate.EmailAddress.ShouldBe("orville@first.com")
             );
         }
 
         [Fact]
         public void SetEmailAddress_given_null_should_return_notification()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetEmailAddress(null);
 
@@ -104,7 +105,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("      ")]
         public void SetEmailAddress_given_empty_should_return_notification(string emptyEmail)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetEmailAddress(emptyEmail);
 
@@ -118,7 +119,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("      ")]
         public void SetEmailAddress_given_empty_should_not_change_email(string emptyEmail)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.SetName(emptyEmail);
 
@@ -130,7 +131,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("   fred@flintstones.com   ")]
         public void SetEmailAddress_trims_padded_email(string paddedEmail)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.SetEmailAddress(paddedEmail);
 
@@ -140,7 +141,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void SetName_given_null_should_return_notification()
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetName(null);
 
@@ -154,7 +155,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("      ")]
         public void SetName_given_empty_should_return_notification(string emptyName)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             var result = examplePerson.SetName(emptyName);
 
@@ -168,7 +169,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("      ")]
         public void SetName_given_empty_should_not_change_name(string emptyName)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.SetName(emptyName);
 
@@ -180,7 +181,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [InlineData("   Nelson   ")]
         public void SetName_trims_padded_name(string paddedName)
         {
-            var examplePerson = ExamplePerson.Create(_name, _email).Aggregate;
+            var examplePerson = ExamplePerson.Create(_name, _email).NewAggregate;
 
             examplePerson.SetName(paddedName);
 
@@ -191,7 +192,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void James_Hoiby_is_verbotten()
         {
-            var aggregate = ExamplePerson.Create("Bob", "james@hoiby.com").Aggregate;
+            var aggregate = ExamplePerson.Create("Bob", "james@hoiby.com").NewAggregate;
 
             var result = aggregate.SetName("James Hoiby");
 

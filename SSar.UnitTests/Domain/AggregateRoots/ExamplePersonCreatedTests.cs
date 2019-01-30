@@ -10,7 +10,7 @@ namespace SSar.UnitTests.Domain.AggregateRoots
         [Fact]
         public void Constructor_sets_properties()
         {
-            var person = ExamplePerson.Create("bob", "bob@email.com").Aggregate;
+            var person = ExamplePerson.Create("bob", "bob@email.com").NewAggregate;
 
             var @event = new ExamplePersonCreated(person.Id, person.Name, person.EmailAddress);
 
