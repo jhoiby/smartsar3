@@ -7,8 +7,8 @@ namespace SSar.Contexts.Common.Domain.AggregateRoots
         public AggregateRequirement(Func<bool> test, string paramName, string failureMessage, Exception exception = null)
         {
             Test = test;
-            ParamName = paramName;
-            FailureMessage = failureMessage;
+            ParamName = paramName ?? "";
+            FailureMessage = failureMessage ?? "";
             Exception = exception;
         }
 

@@ -29,9 +29,14 @@ namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
         }
 
         [Fact]
-        public void CreateFromNameAndEmail_GivenInvalidEmail_ReturnsNotifications()
+        public void CreateFromNameAndEmail_GivenInvalidNonEmptyEmail_ReturnsNotifications()
         {
-            throw new NotImplementedException();
+
+            var result = ExamplePerson.Create(_name, "bugbunnyattest.com");
+
+            result.ShouldSatisfyAllConditions(
+                () => result.Notifications["EmailAddress"].ShouldContain(
+                    n => n.Message.Contains("A valid email address is required.")));
         }
 
         [Fact]
@@ -59,13 +64,17 @@ namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
         [Fact]
         public void CreateFromNameAndEmail_GivenNullName_ThrowsException()
         {
-            throw new NotImplementedException();
+            var ex = Should.Throw<ArgumentNullException>(
+                () => ExamplePerson.Create(null, _email));
+            ex.ParamName.ShouldBe("name");
         }
 
         [Fact]
         public void CreateFromNameAndEmail_GivenNullEmailAddress_ThrowsException()
         {
-            throw new NotImplementedException();
+            var ex = Should.Throw<ArgumentNullException>(
+                () => ExamplePerson.Create(_name, null));
+            ex.ParamName.ShouldBe("emailAddress");
         }
 
         [Fact]

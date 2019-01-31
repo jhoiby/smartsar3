@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using SSar.Contexts.Common.Domain.AggregateRoots;
-using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
 using SSar.Contexts.Common.Helpers;
 
@@ -30,8 +28,6 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
             if (!notifications.HasNotifications)
             {
                 person.AddEvent(new ExamplePersonCreated(person.Id, person.Name, person.EmailAddress));
-                person.AddEvent(new TestEvent1());
-                person.AddEvent(new TestEvent2());
             }
             
             return person.OrNotifications(notifications)
@@ -43,10 +39,20 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
             Action action = () => _name = name.Trim();
 
             var requirements = RequirementList.Create()
+
+                .AddExceptionRequirement(
+                    () => name != null,
+                    new ArgumentNullException(nameof(name)))
+
                 .AddNotificationRequirement( 
-                    () => !string.IsNullOrWhiteSpace(name), "Name", "A name is required.")
-                .AddNotificationRequirement( 
-                    () => name != "Jar Jar Binks", "Name", "Jar Jar Binks is not wanted here!"); // TODO: Remove. Here for fun test
+                    () => name.Trim().Length > 0, 
+                    nameof(Name), 
+                    "A name is required.")
+
+                .AddNotificationRequirement(                   // TODO: Remove. Here for a UI test
+                    () => name != "Jar Jar Binks", 
+                    nameof(Name), 
+                    "Jar Jar Binks is not wanted here!"); 
 
             return AggregateExecution
                 .CheckRequirements(requirements)
@@ -59,14 +65,15 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
             Action action = () => _emailAddress = emailAddress.Trim();
 
             var requirements = RequirementList.Create()
+
                 .AddExceptionRequirement(
                     () => emailAddress != null,
-                    nameof(EmailAddress), "A program error occurred while setting the email address." // TODO: Remove these user params
-                    , new ArgumentNullException(
-                        nameof(EmailAddress), "Email address must not be null."))
+                    new ArgumentNullException(nameof(emailAddress)))
+
                 .AddNotificationRequirement(
                     () => RegexUtilities.IsValidEmail(emailAddress),
-                    nameof(EmailAddress), "A valid email address is required.");
+                    nameof(EmailAddress),
+                    "A valid email address is required.");
 
             return AggregateExecution
                 .CheckRequirements(requirements)

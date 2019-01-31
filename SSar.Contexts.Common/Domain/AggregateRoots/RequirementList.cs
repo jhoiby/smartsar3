@@ -21,9 +21,9 @@ namespace SSar.Contexts.Common.Domain.AggregateRoots
             return this;
         }
 
-        public RequirementList AddExceptionRequirement(Func<bool> test, string paramName, string userMessage, Exception exception)
+        public RequirementList AddExceptionRequirement(Func<bool> test, Exception exception)
         {
-            this.Add(new AggregateRequirement(test, paramName, userMessage, exception));
+            this.Add(new AggregateRequirement(test, null, null, exception));
 
             return this;
         }

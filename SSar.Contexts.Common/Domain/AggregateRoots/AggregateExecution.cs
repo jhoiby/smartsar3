@@ -13,14 +13,19 @@ namespace SSar.Contexts.Common.Domain.AggregateRoots
         {
             var notifications = new NotificationList();
 
-            foreach (var requirementSet in requirements)
+            foreach (var requirement in requirements)
             {
-                bool success = requirementSet.Test.Invoke();
+                bool success = requirement.Test.Invoke();
 
                 if (!success)
                 {
+                    if (requirement.Exception != null)
+                    {
+                        throw requirement.Exception;
+                    }
+
                     notifications.AddNotification(
-                        requirementSet.ParamName, requirementSet.FailureMessage);
+                        requirement.ParamName, requirement.FailureMessage);
                 }
             }
 
