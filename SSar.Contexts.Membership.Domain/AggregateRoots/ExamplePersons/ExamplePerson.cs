@@ -9,8 +9,8 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
 {
     public class ExamplePerson : AggregateRoot
     {
-        public string _name;
-        public string _emailAddress;
+        private string _name;
+        private string _emailAddress;
 
         private ExamplePerson()
         {
@@ -38,16 +38,14 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
                 .AsResult<ExamplePerson>();
         }
 
-        // TODO: Make these private property accessors then create public change methods
-
-        public AggregateResult<ExamplePerson> SetName(string name)
+        private AggregateResult<ExamplePerson> SetName(string name)
         {
             Action action = () => _name = name.Trim();
 
             var requirements = RequirementList.Create()
-                .AddRequirement( 
-                    () => !string.IsNullOrWhiteSpace(name), "Name", "Name is required.")
-                .AddRequirement( 
+                .AddNotificationRequirement( 
+                    () => !string.IsNullOrWhiteSpace(name), "Name", "A name is required.")
+                .AddNotificationRequirement( 
                     () => name != "Jar Jar Binks", "Name", "Jar Jar Binks is not wanted here!"); // TODO: Remove. Here for fun test
 
             return AggregateExecution
@@ -56,22 +54,19 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
                 .ReturnAggregateResult(this);
         }
 
-        public AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
+        private AggregateResult<ExamplePerson> SetEmailAddress(string emailAddress)
         {
             Action action = () => _emailAddress = emailAddress.Trim();
 
             var requirements = RequirementList.Create()
-                .AddException(
-                    () => emailAddress == null,
-                    nameof(EmailAddress), "A program error occurred (null email address)."
+                .AddExceptionRequirement(
+                    () => emailAddress != null,
+                    nameof(EmailAddress), "A program error occurred while setting the email address." // TODO: Remove these user params
                     , new ArgumentNullException(
                         nameof(EmailAddress), "Email address must not be null."))
-                .AddRequirement(
-                    () => emailAddress.Trim().Length==0,
-                    nameof(EmailAddress), "Email address is required.")
-                .AddRequirement(
-                    () => !RegexUtilities.IsValidEmail(emailAddress),
-                    nameof(EmailAddress), "Please supply a valid email address.");
+                .AddNotificationRequirement(
+                    () => RegexUtilities.IsValidEmail(emailAddress),
+                    nameof(EmailAddress), "A valid email address is required.");
 
             return AggregateExecution
                 .CheckRequirements(requirements)
@@ -81,9 +76,9 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
         
 
         // This is here to compare the above pattern to a more traditional,
-        // less-abstracted pattern.
+        // less-abstracted pattern. Food for thought...
         //
-        // Note: Not tested, made private to discourage use.
+        // Note: Not tested, don't use.
         //
         private AggregateResult<ExamplePerson> SetEmailAddress2(string emailAddress)
         {
@@ -95,14 +90,9 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
                 throw new ArgumentNullException(nameof(emailAddress));
             }
 
-            if (emailAddress.Trim().Length == 0)
-            {
-                notifications.AddNotification(nameof(EmailAddress), "Email address is required.");
-            }
-
             if (!RegexUtilities.IsValidEmail(emailAddress))
             {
-                notifications.AddNotification(nameof(EmailAddress), "Please supply a valid email address.");
+                notifications.AddNotification(nameof(EmailAddress), "A valid email address is required.");
             }
 
             if (notifications.HasNotifications)

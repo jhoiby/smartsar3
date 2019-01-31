@@ -10,7 +10,7 @@ namespace SSar.Contexts.Membership.Application.Commands
 {
     public class CreateExamplePersonCommandHandler : AppRequestHandler<CreateExamplePersonCommand, CommandResult>
     {
-        private AppDbContext _dbContext;
+        private readonly AppDbContext _dbContext;
 
         public CreateExamplePersonCommandHandler(AppDbContext dbContext)
         {

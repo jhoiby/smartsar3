@@ -14,14 +14,14 @@ namespace SSar.Contexts.Common.Domain.AggregateRoots
             return new RequirementList();
         }
 
-        public RequirementList AddRequirement(Func<bool> test, string paramName, string userMessage)
+        public RequirementList AddNotificationRequirement(Func<bool> test, string paramName, string userMessage)
         {
             this.Add(new AggregateRequirement(test, paramName, userMessage)); 
 
             return this;
         }
 
-        public RequirementList AddException(Func<bool> test, string paramName, string userMessage, Exception exception)
+        public RequirementList AddExceptionRequirement(Func<bool> test, string paramName, string userMessage, Exception exception)
         {
             this.Add(new AggregateRequirement(test, paramName, userMessage, exception));
 
