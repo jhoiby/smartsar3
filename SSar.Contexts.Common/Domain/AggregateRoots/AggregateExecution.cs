@@ -4,6 +4,9 @@ using SSar.Contexts.Common.Domain.Notifications;
 
 namespace SSar.Contexts.Common.Domain.AggregateRoots
 {
+    // TODO this into a service and inject
+    // into aggregates. E.g. 'AggregateExecutionService'
+
     public static class AggregateExecution
     {
         public static NotificationList CheckRequirements(List<AggregateRequirement> requirements)
