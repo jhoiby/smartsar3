@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SSar.UnitTests.Infrastructure.Outbox
+namespace SSar.UnitTests.Contexts.Common.Data.Outbox
 {
     public class OutboxServiceTests
     {

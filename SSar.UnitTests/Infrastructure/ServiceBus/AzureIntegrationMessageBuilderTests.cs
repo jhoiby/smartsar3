@@ -9,12 +9,10 @@ using SSar.Infrastructure;
 using SSar.Infrastructure.ServiceBus;
 using Xunit;
 
-namespace SSar.UnitTests.Application.IntegrationEvents
+namespace SSar.UnitTests.Infrastructure.ServiceBus
 {
-    public class IntegrationEventAzureBusMessageBuilderTests
+    public class AzureIntegrationMessageBuilderTests
     {
-        #region Arrange
-
         private readonly IntegrationEvent _integrationEvent;
 
         private class TestIntegrationEvent : IntegrationEvent
@@ -28,12 +26,10 @@ namespace SSar.UnitTests.Application.IntegrationEvents
             public string SomeProperty { get; }
         }
 
-        public IntegrationEventAzureBusMessageBuilderTests()
+        public AzureIntegrationMessageBuilderTests()
         {
             _integrationEvent = new TestIntegrationEvent("Hello world");
         }
-
-        #endregion
 
         [Fact]
         public void Build_returns_AzureServiceBusMessage()

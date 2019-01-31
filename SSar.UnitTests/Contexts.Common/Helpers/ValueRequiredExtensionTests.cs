@@ -2,7 +2,7 @@
 using SSar.Contexts.Common.Helpers;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.Helpers
+namespace SSar.UnitTests.Contexts.Common.Helpers
 {
     public class ValueRequiredExtensionTests
     {

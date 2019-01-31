@@ -5,7 +5,7 @@ using Shouldly;
 using SSar.Contexts.Common.Domain.Notifications;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.Notifications
+namespace SSar.UnitTests.Contexts.Common.Domain.Notifications
 {
     public class NotificationListTests
     {

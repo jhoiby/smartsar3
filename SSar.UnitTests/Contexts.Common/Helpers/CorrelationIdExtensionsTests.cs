@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Shouldly;
 using SSar.Contexts.Common.Helpers;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.Helpers
+namespace SSar.UnitTests.Contexts.Common.Helpers
 {
     public class CorrelationIdExtensionsTests
     {

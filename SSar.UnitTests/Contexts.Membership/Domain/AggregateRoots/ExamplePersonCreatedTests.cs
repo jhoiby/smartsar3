@@ -3,7 +3,7 @@ using Shouldly;
 using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
-namespace SSar.UnitTests.Domain.AggregateRoots
+namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
 {
     public class ExamplePersonCreatedTests
     {

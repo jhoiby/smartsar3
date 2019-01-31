@@ -3,7 +3,7 @@ using Shouldly;
 using SSar.Contexts.Common.Domain.DomainEvents;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.DomainEvents
+namespace SSar.UnitTests.Contexts.Common.Domain.DomainEvents
 {
     public class DomainEventTests
     {

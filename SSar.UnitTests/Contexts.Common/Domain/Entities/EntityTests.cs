@@ -3,7 +3,7 @@ using Shouldly;
 using SSar.Contexts.Common.Domain.Entities;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.Entities
+namespace SSar.UnitTests.Contexts.Common.Domain.Entities
 {
     public class EntityTests
     {

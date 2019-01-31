@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using Shouldly;
-using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
 using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
-namespace SSar.UnitTests.Domain.NewAggregateRoots
+namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
 {
     public class ExamplePersonTests
     {

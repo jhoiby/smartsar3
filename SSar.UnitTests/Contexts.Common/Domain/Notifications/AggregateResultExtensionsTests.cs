@@ -2,10 +2,9 @@
 using Shouldly;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.Notifications
+namespace SSar.UnitTests.Contexts.Common.Domain.Notifications
 {
     public class AggregateResultExtensionsTests
     {

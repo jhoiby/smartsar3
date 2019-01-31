@@ -3,7 +3,7 @@ using Shouldly;
 using SSar.Contexts.Common.Application.IntegrationEvents;
 using Xunit;
 
-namespace SSar.UnitTests.Infrastructure.IntegrationEvents
+namespace SSar.UnitTests.Contexts.Common.Application.IntegrationEvents
 {
     public class IntegrationEventTests
     {

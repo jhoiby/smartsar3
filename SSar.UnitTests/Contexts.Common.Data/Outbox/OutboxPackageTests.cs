@@ -3,9 +3,9 @@ using Shouldly;
 using SSar.Contexts.Common.Data.Outbox;
 using Xunit;
 
-namespace SSar.UnitTests.Data.Outbox
+namespace SSar.UnitTests.Contexts.Common.Data.Outbox
 {
-    public class OutboxRecordTests
+    public class OutboxPackageTests
     {
         [Fact]
         public void Constructor_should_set_properties()
