@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SSar.Contexts.Common.Application.Commands;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
 

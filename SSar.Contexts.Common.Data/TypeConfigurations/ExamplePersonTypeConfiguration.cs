@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 
 namespace SSar.Contexts.Common.Data.TypeConfigurations
 {

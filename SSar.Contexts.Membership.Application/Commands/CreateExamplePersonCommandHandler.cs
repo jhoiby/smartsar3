@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using SSar.Contexts.Common.Data.Extensions;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
@@ -19,18 +19,12 @@ namespace SSar.Contexts.Membership.Application.Commands
 
         protected override async Task<CommandResult> HandleCore(CreateExamplePersonCommand request, CancellationToken cancellationToken)
         {
-            var personResult = ExamplePerson.Create(request.Name, request.EmailAddress);
-            var saveResult = await personResult.AddIfSucceeded(_dbContext);
-            var commandResult = saveResult.ToCommandResult();
-
-            return commandResult;
-
-            //return 
-            //    ( await 
-            //        ExamplePerson
-            //            .Create(request.Name, request.EmailAddress)
-            //            .AddIfSucceeded(_dbContext))
-            //    .ToCommandResult();
+            return
+                (await
+                    ExamplePerson
+                        .Create(request.Name, request.EmailAddress)
+                        .AddIfSucceeded(_dbContext))
+                .ToCommandResult();
         }
     }
 }

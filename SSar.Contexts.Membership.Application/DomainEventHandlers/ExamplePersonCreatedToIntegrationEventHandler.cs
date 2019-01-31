@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
 using SSar.Contexts.Membership.Application.IntegrationEvents;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 
 namespace SSar.Contexts.Membership.Application.DomainEventHandlers
 {

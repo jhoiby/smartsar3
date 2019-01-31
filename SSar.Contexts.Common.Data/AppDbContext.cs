@@ -11,10 +11,11 @@ using SSar.Contexts.Common.Data.Extensions;
 using SSar.Contexts.Common.Data.Outbox;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Data.TypeConfigurations;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
 using SSar.Contexts.IdentityAccess.Domain.Entities;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 
 namespace SSar.Contexts.Common.Data
 {

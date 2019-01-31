@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Remotion.Linq.Clauses;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 
 namespace SSar.Contexts.Common.Domain.Notifications

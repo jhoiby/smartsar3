@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using SSar.Contexts.Common.Data.ServiceInterfaces;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
 

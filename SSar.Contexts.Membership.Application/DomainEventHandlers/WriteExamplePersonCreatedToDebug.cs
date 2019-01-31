@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 
 namespace SSar.Contexts.Membership.Application.DomainEventHandlers
 {

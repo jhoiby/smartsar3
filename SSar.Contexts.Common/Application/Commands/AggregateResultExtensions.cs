@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
 

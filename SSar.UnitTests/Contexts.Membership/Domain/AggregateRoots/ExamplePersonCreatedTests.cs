@@ -1,6 +1,6 @@
 ﻿using System;
 using Shouldly;
-using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
 using Xunit;
 
 namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Shouldly;
+using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.Notifications;
 using Xunit;

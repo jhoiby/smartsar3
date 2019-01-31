@@ -1,6 +1,6 @@
 ﻿using SSar.Contexts.Common.Domain.DomainEvents;
 
-namespace SSar.Contexts.Membership.Domain.Entities.ExamplePersons
+namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
 {
     public class TestEvent1 : DomainEvent
     {
