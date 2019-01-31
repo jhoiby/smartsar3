@@ -75,7 +75,7 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons
                     nameof(EmailAddress),
                     "A valid email address is required.");
 
-            return AggregateExecution
+            return AggregateExecution                   // TODO: Inject as 'AggregateService'?
                 .CheckRequirements(requirements)
                 .ExecuteAction(action)
                 .ReturnAggregateResult(this);
