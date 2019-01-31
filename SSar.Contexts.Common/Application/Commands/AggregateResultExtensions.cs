@@ -6,8 +6,6 @@ using SSar.Contexts.Common.Domain.Notifications;
 
 namespace SSar.Contexts.Common.Application.Commands
 { 
-    // TODO: Add unit tests
-
     public static class AggregateResultExtensions
     {
         public static CommandResult ToCommandResult<TAggregate>(this AggregateResult<TAggregate> aggregateResult)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Shouldly;
-using SSar.Contexts.IdentityAuth.Application.Extensions;
+using SSar.Contexts.IdentityAccess.Application.Extensions;
 using Xunit;
 
 namespace SSar.UnitTests.Contexts.IdentityAccess.Application

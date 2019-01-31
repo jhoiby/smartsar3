@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using FluentValidation;
+﻿using FluentValidation;
 
-namespace SSar.Contexts.IdentityAuth.Application.Commands
+namespace SSar.Contexts.IdentityAccess.Application.Commands
 {
     public class CreateRoleCommandValidator : AbstractValidator<CreateRoleCommand>
     {

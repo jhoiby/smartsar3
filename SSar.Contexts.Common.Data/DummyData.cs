@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using SSar.Contexts.IdentityAuth.Domain.Entities;
+using SSar.Contexts.IdentityAccess.Domain.Entities;
 
 namespace SSar.Contexts.Common.Data
 {

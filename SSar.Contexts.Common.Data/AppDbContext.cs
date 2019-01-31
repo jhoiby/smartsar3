@@ -13,7 +13,7 @@ using SSar.Contexts.Common.Data.ServiceInterfaces;
 using SSar.Contexts.Common.Data.TypeConfigurations;
 using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
-using SSar.Contexts.IdentityAuth.Domain.Entities;
+using SSar.Contexts.IdentityAccess.Domain.Entities;
 using SSar.Contexts.Membership.Domain.Entities.ExamplePersons;
 
 namespace SSar.Contexts.Common.Data

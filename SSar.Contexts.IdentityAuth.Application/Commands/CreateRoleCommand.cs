@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Text;
-using MediatR;
+﻿using MediatR;
 using SSar.Contexts.Common.Application.Commands;
 
-namespace SSar.Contexts.IdentityAuth.Application.Commands
+namespace SSar.Contexts.IdentityAccess.Application.Commands
 {
     public class CreateRoleCommand : IRequest<CommandResult>
     {

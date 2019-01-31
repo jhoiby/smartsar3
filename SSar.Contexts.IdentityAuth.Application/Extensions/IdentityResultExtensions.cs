@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using SSar.Contexts.Common.Application.Commands;
 using SSar.Contexts.Common.Domain.Notifications;
 
-namespace SSar.Contexts.IdentityAuth.Application.Extensions
+namespace SSar.Contexts.IdentityAccess.Application.Extensions
 {
     public static class IdentityResultExtensions
     {

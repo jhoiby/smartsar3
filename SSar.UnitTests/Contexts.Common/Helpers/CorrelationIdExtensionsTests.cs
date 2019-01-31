@@ -14,7 +14,7 @@ namespace SSar.UnitTests.Contexts.Common.Helpers
 
             var correlationId = id.ToCorrelationId();
 
-            correlationId.ShouldBe("02807C1F", Case.Insensitive);
+            correlationId.ShouldBe("02807C1F", StringCompareShould.IgnoreCase);
         }
     }
 }

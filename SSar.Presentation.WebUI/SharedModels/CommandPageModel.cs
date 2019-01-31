@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SSar.Contexts.Common.Application.Commands;
 using SSar.Contexts.Common.Domain.Notifications;
 
-namespace SSar.Presentation.WebUI.Bases
+namespace SSar.Presentation.WebUI.SharedModels
 {
     public class CommandPageModel : PageModel
     {

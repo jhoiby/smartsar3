@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SSar.Contexts.Common.Domain.Notifications;
 using SSar.Contexts.Membership.Application.Commands;
-using SSar.Presentation.WebUI.Bases;
+using SSar.Presentation.WebUI.SharedModels;
 
 namespace SSar.Presentation.WebUI.Areas.Membership.Pages.ExamplePerson
 {

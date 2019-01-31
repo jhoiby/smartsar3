@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SSar.Contexts.IdentityAuth.Domain.Entities;
+using SSar.Contexts.IdentityAccess.Domain.Entities;
 
 namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
 {

@@ -1,9 +1,4 @@
-﻿using SSar.Contexts.Common.Application;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SSar.Contexts.IdentityAuth.Application
+﻿namespace SSar.Contexts.IdentityAccess.Application
 {
     public static class IdentityBoundedContextInfo
     {

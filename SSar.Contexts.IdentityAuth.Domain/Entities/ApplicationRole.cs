@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Identity;
 
-namespace SSar.Contexts.IdentityAuth.Domain.Entities
+namespace SSar.Contexts.IdentityAccess.Domain.Entities
 {
     public class ApplicationRole : IdentityRole<Guid>
     {

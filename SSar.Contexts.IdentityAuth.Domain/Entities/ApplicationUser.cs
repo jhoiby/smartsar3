@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 
-namespace SSar.Contexts.IdentityAuth.Domain.Entities
+namespace SSar.Contexts.IdentityAccess.Domain.Entities
 {
     public class ApplicationUser : IdentityUser<Guid>
     {

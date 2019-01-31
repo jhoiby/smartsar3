@@ -34,8 +34,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Application\SSar.Contexts.IdentityAuth.Application.csproj" />
-    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAuth.Domain.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Application\SSar.Contexts.IdentityAccess.Application.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAccess.Domain.csproj" />
     <ProjectReference Include="..\SSar.Contexts.Membership.Application\SSar.Contexts.Membership.Application.csproj" />
     <ProjectReference Include="..\SSar.Infrastructure\SSar.Infrastructure.csproj" />
   </ItemGroup>

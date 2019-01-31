@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SSar.Contexts.Common\SSar.Contexts.Common.csproj" />
-    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAuth.Domain.csproj" />
+    <ProjectReference Include="..\SSar.Contexts.IdentityAuth.Domain\SSar.Contexts.IdentityAccess.Domain.csproj" />
     <ProjectReference Include="..\SSar.Contexts.Membership.Domain\SSar.Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 

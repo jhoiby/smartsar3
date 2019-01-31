@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SSar.Contexts.IdentityAuth.Application.Commands;
-using SSar.Presentation.WebUI.Bases;
+using SSar.Contexts.IdentityAccess.Application.Commands;
+using SSar.Presentation.WebUI.SharedModels;
 
 namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Roles
 {
