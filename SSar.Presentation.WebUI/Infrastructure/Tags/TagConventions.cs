@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using HtmlTags;
 using HtmlTags.Conventions;
 
-// This code is from Jimmy Bogard's Contoso University with Razor Example
-// See: https://jimmybogard.com/migrating-contoso-university-example-to-razor-pages/ 
-
 namespace SSar.Presentation.WebUI.Infrastructure.Tags
 {
     public class TagConventions : HtmlConventionRegistry
@@ -26,10 +23,14 @@ namespace SSar.Presentation.WebUI.Infrastructure.Tags
             Labels.Always.AddClass("control-label");
             Labels.ModifyForAttribute<DisplayAttribute>((t, a) => t.Text(a.Name));
 
-            // Just assume a "Data." prefix for attributes.
+            // Just assume a "Data.", "Query." or "Command." prefix for attributes.
             Labels
                 .Always
-                .ModifyWith(er => er.CurrentTag.Text(er.CurrentTag.Text().Replace("Data ", "")));
+                .ModifyWith(er => er.CurrentTag.Text(
+                    er.CurrentTag.Text()
+                        .Replace("Data ", "")
+                        .Replace("Query ", "")
+                        .Replace("Command ", "")));
 
             //Editors.BuilderPolicy<InstructorSelectElementBuilder>();
             //Editors.BuilderPolicy<DepartmentSelectElementBuilder>();

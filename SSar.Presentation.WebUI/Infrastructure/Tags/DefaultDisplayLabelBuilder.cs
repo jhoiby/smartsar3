@@ -4,9 +4,6 @@ using HtmlTags;
 using HtmlTags.Conventions;
 using HtmlTags.Conventions.Elements;
 
-// This code is from Jimmy Bogard's Contoso University with Razor Example
-// See: https://jimmybogard.com/migrating-contoso-university-example-to-razor-pages/ 
-
 namespace SSar.Presentation.WebUI.Infrastructure.Tags
 {
     public class DefaultDisplayLabelBuilder : IElementBuilder

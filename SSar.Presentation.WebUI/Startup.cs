@@ -30,6 +30,7 @@ using SSar.Infrastructure.Authorization;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
+using SSar.Presentation.WebUI.Infrastructure.Tags;
 using SSar.Presentation.WebUI.Services;
 
 namespace SSar.Presentation.WebUI
@@ -84,7 +85,7 @@ namespace SSar.Presentation.WebUI
                     o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                 });
 
-            services.AddHtmlTags();
+            services.AddHtmlTags(new TagConventions());
             
             services.AddTransient(typeof(RequestPreProcessorBehavior<,>),
                 typeof(RequestAuthorizationBehavior<>));
