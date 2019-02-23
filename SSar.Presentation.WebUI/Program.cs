@@ -17,6 +17,8 @@ namespace SSar.Presentation.WebUI
             string logPath = AppDomain.CurrentDomain.BaseDirectory +  // Deep in bin/... folder and
                 "..\\..\\..\\Logs\\ApplicationLog -.txt";             // back up to project root (hopefully)
 
+            Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()                                 // Application log threshold
                 .MinimumLevel.Override(

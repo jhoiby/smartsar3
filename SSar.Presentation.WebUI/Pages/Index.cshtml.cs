@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SSar.Presentation.WebUI.Pages
 {
@@ -6,7 +8,7 @@ namespace SSar.Presentation.WebUI.Pages
     {
         public void OnGet()
         {
-
+            Debug.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }
