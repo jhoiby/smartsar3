@@ -5,10 +5,40 @@
 @{
 }
 
-    <h1>
-        Member Organizations
-    </h1>
+<h1 class="mb-4">
+    Member Organizations
+</h1>
 
-    <div>
-        <a asp-page="/MemberOrgs/Create">Add member organization</a><br />
-    </div>
+<div class="mb-4">
+    <a asp-page="/MemberOrgs/Create">Add member organization</a><br />
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Organization Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model?.Data?.MemberOrganizations?.Count == 0)
+    {
+        <tr>
+            <td>No member organizations were found. Click 'Add member organization' to add a new member organization.</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var organization in Model.Data.MemberOrganizations)
+        {
+            <tr>
+                <td>@organization.Name</td>
+                <td>
+                    <a asp-page="Edit" asp-route-personId="@organization.Id">Edit</a> |
+                    <a asp-page="Delete" asp-route-personId="@organization.Id">Delete</a>
+                </td>
+            </tr>
+        }
+            
+    }
+    </tbody>
+</table>
