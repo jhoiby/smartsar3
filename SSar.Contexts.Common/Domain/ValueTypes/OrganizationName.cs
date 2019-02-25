@@ -12,7 +12,7 @@ namespace SSar.Contexts.Common.Domain.ValueTypes
             Name = name.Require(nameof(name)).Trim();
         }
 
-        public string Name { get; }
+        public string Name { get; private set; }
 
         public override string ToString() => Name;
     }
