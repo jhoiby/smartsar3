@@ -8,24 +8,24 @@ using SSar.Contexts.Common.Application.Commands;
 using SSar.Contexts.Common.Data;
 using SSar.Contexts.Common.Data.Extensions;
 using SSar.Contexts.Common.Domain.ValueTypes;
-using SSar.Contexts.Membership.Domain.AggregateRoots.MembershipOrganizations;
+using SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateMembershipOrganizationCommandHandler : AppRequestHandler<CreateMembershipOrganizationCommand, CommandResult>
+    public class CreateMemberOrganizationCommandHandler : AppRequestHandler<CreateMemberOrganizationCommand, CommandResult>
     {
         private readonly AppDbContext _dbContext;
 
-        public CreateMembershipOrganizationCommandHandler(AppDbContext dbContext)
+        public CreateMemberOrganizationCommandHandler(AppDbContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        protected override async Task<CommandResult> HandleCore(CreateMembershipOrganizationCommand request, CancellationToken cancellationToken)
+        protected override async Task<CommandResult> HandleCore(CreateMemberOrganizationCommand request, CancellationToken cancellationToken)
         {
             return
                 (await 
-                    MembershipOrganization
+                    MemberOrganization
                         .Create(new OrganizationName(request.Name))
                         .AddIfSucceeded(_dbContext))
                 .ToCommandResult();

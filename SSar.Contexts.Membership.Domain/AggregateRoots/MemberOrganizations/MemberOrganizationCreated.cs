@@ -5,12 +5,12 @@ using System.Text;
 using SSar.Contexts.Common.Domain.ValueTypes;
 using SSar.Contexts.Common.Helpers;
 
-namespace SSar.Contexts.Membership.Domain.AggregateRoots.MembershipOrganizations
+namespace SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations
 {
     [Serializable]
-    public class MembershipOrganizationCreated : DomainEvent
+    public class MemberOrganizationCreated : DomainEvent
     {
-        public MembershipOrganizationCreated(Guid id, OrganizationName name)
+        public MemberOrganizationCreated(Guid id, OrganizationName name)
         {
            Id = id.Require(nameof(id));
            Name = name.Name.Require(nameof(name));

@@ -3,13 +3,13 @@ using SSar.Contexts.Common.Application.Commands;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateMembershipOrganizationCommand : IRequest<CommandResult>
+    public class CreateMemberOrganizationCommand : IRequest<CommandResult>
     {
-        public CreateMembershipOrganizationCommand()
+        public CreateMemberOrganizationCommand()
         {
         }
 
-        public CreateMembershipOrganizationCommand(string name)
+        public CreateMemberOrganizationCommand(string name)
         {
             Name = name;
         }

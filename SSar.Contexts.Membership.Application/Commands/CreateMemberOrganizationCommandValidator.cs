@@ -5,9 +5,9 @@ using FluentValidation;
 
 namespace SSar.Contexts.Membership.Application.Commands
 {
-    public class CreateMembershipOrganizationCommandValidator : AbstractValidator<CreateMembershipOrganizationCommand>
+    public class CreateMemberOrganizationCommandValidator : AbstractValidator<CreateMemberOrganizationCommand>
     {
-        public CreateMembershipOrganizationCommandValidator()
+        public CreateMemberOrganizationCommandValidator()
         {
             RuleFor(x => x.Name)
                 .NotEmpty();

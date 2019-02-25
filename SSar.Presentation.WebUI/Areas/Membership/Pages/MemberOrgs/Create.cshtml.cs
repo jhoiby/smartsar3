@@ -12,7 +12,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs
     public class CreateModel : CommandPageModel
     {
         [BindProperty]
-        public CreateMembershipOrganizationCommand Command { get; set; }
+        public CreateMemberOrganizationCommand Command { get; set; }
 
         public void OnGet()
         {

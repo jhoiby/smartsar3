@@ -6,35 +6,35 @@ using SSar.Contexts.Common.Domain.AggregateRoots;
 using SSar.Contexts.Common.Domain.Notifications;
 using SSar.Contexts.Common.Domain.ValueTypes;
 
-namespace SSar.Contexts.Membership.Domain.AggregateRoots.MembershipOrganizations
+namespace SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations
 {
-    public class MembershipOrganization : AggregateRoot
+    public class MemberOrganization : AggregateRoot
     {
         private OrganizationName _name;
 
-        private MembershipOrganization()
+        private MemberOrganization()
         {
         }
 
         public OrganizationName Name => _name;
 
-        public static AggregateResult<MembershipOrganization> Create(OrganizationName name)
+        public static AggregateResult<MemberOrganization> Create(OrganizationName name)
         {
-            var memberOrg = new MembershipOrganization();
+            var memberOrg = new MemberOrganization();
             var notifications = new NotificationList();
             
             memberOrg.SetOrgName(name);
 
             if (!notifications.HasNotifications)
             {
-                memberOrg.AddEvent(new MembershipOrganizationCreated(memberOrg.Id, memberOrg.Name));
+                memberOrg.AddEvent(new MemberOrganizationCreated(memberOrg.Id, memberOrg.Name));
             }
 
             return memberOrg.OrNotifications(notifications)
-                .AsResult<MembershipOrganization>();
+                .AsResult<MemberOrganization>();
         }
 
-        private AggregateResult<MembershipOrganization> SetOrgName(OrganizationName name)
+        private AggregateResult<MemberOrganization> SetOrgName(OrganizationName name)
         {
             var requirements = RequirementList.Create()
                 .AddExceptionRequirement(
