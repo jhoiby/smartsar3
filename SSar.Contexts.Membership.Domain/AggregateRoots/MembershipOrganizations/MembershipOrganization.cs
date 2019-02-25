@@ -27,10 +27,8 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.MembershipOrganizations
 
             if (!notifications.HasNotifications)
             {
-                throw new NotImplementedException("MembershipOrganizationCreated event not implemented");
-                //memberOrg.AddEvent(new MembershipOrganizationCreated(name, contactMethods));
+                memberOrg.AddEvent(new MembershipOrganizationCreated(memberOrg.Id, memberOrg.Name));
             }
-            // TODO: Add MembershipOrganizationCreated event
 
             return memberOrg.OrNotifications(notifications)
                 .AsResult<MembershipOrganization>();
