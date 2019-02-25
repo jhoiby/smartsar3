@@ -18,7 +18,7 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.MembershipOrganizations
 
         public OrganizationName Name => _name;
 
-        public static AggregateResult<MembershipOrganization> Create(OrganizationName name, ContactMethods contactMethods)
+        public static AggregateResult<MembershipOrganization> Create(OrganizationName name)
         {
             var memberOrg = new MembershipOrganization();
             var notifications = new NotificationList();
