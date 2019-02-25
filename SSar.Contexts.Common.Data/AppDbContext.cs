@@ -16,6 +16,7 @@ using SSar.Contexts.Common.Domain.Entities;
 using SSar.Contexts.Common.Domain.ServiceInterfaces;
 using SSar.Contexts.IdentityAccess.Domain.Entities;
 using SSar.Contexts.Membership.Domain.AggregateRoots.ExamplePersons;
+using SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations;
 
 namespace SSar.Contexts.Common.Data
 {
@@ -46,18 +47,11 @@ namespace SSar.Contexts.Common.Data
 
         public DbSet<ExamplePerson> ExamplePersons { get; set; }
         public DbSet<OutboxPackage> OutboxPackages { get; set; }
+        public DbSet<MemberOrganization> MemberOrganizations { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            // TODO: What exception handling/unwrapping that needs to take place?
-
-            // TODO: Concerned about single responsibility. This has two:
-            // TODO:     1. Persisting data to DB
-            // TODO:     2. Publishing events to propagate side-effects
-            // TODO: Consider pulling the event dispatching out 
-            // TODO: and handling elsewhere.
-
             var aggregatesWithDomainEvents = ChangeTracker.Entries<IAggregateRoot>()
                 .Select(e => e.Entity)
                 .Where(e => e.Events.Any())
@@ -75,7 +69,7 @@ namespace SSar.Contexts.Common.Data
             var publishedEvents = await _integrationEvents
                 .PublishToBus(_busSender);
             
-            // TODO: Add scheduled retries for packages left in outbox
+            // TODO: Add scheduled retries for packages left in outbox, to prevent orphans
             publishedEvents.RemoveFromOutbox(_outboxService);
 
             await base.SaveChangesAsync(cancellationToken); // Outbox changes
@@ -94,6 +88,7 @@ namespace SSar.Contexts.Common.Data
 
             modelBuilder.ApplyConfiguration(new ExamplePersonTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OutboxPackageTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new MemberOrganizationTypeConfiguration());
         }
     }
 }
