@@ -1,0 +1,17 @@
+﻿@page
+@using SSar.Presentation.WebUI.Infrastructure.Tags
+@model SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs.CreateModel
+@{
+}
+<h1>
+    Add a Member Organization
+</h1>
+
+<div asp-validation-summary="All"></div>
+
+<form method="POST">
+
+    @Html.FormBlock(m => m.Command.Name)
+    <input type="submit" value="Create"/>
+
+</form>
