@@ -26,7 +26,7 @@ namespace SSar.Contexts.Membership.Application.Commands
             return
                 (await 
                     MemberOrganization
-                        .Create(new OrganizationName(request.FullName, request.ShortName, request.ReportingCode))
+                        .Create(new OrganizationName(request.FullName, request.Nickname, request.ReportingCode))
                         .AddIfSucceeded(_dbContext))
                 .ToCommandResult();
         }

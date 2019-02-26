@@ -21,7 +21,7 @@ namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
             @event.ShouldSatisfyAllConditions(
                 () => @event.Id.ShouldBe(id),
                 () => @event.FullName.ShouldBe("Tasty Mold, Inc."),
-                () => @event.ShortName.ShouldBe("Tasty Mold"),
+                () => @event.Nickname.ShouldBe("Tasty Mold"),
                 () => @event.ReportingCode.ShouldBe("TMI"));
         }
     }

@@ -282,7 +282,7 @@ namespace SSar.Contexts.Common.Data.Migrations
 
                             b1.Property<string>("ReportingCode");
 
-                            b1.Property<string>("ShortName");
+                            b1.Property<string>("Nickname");
 
                             b1.HasKey("MemberOrganization_id");
 

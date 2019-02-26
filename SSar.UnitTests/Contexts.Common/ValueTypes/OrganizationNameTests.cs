@@ -10,13 +10,13 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
     public class OrganizationNameTests
     {
         private readonly string _validFullName = "Acme Road Runner Seed, Inc.";
-        private readonly string _validShortName = "Acme Seed";
+        private readonly string _validNickname = "Acme Seed";
         private readonly string _validReportingCode = "ARRS";
 
         [Fact]
         public void Constructor_should_set_name()
         {
-            var orgName = new OrganizationName(_validFullName, _validShortName, _validReportingCode);
+            var orgName = new OrganizationName(_validFullName, _validNickname, _validReportingCode);
 
             orgName.FullName.ShouldBe(_validFullName);
         }
@@ -24,7 +24,7 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         [Fact]
         public void Constructor_given_null_name_should_throw_ArgNullException()
         {
-            Should.Throw<ArgumentNullException>(() => new OrganizationName(null, _validShortName, _validReportingCode))
+            Should.Throw<ArgumentNullException>(() => new OrganizationName(null, _validNickname, _validReportingCode))
                 .ParamName.ShouldBe("fullName");
         }
 
@@ -34,7 +34,7 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         [InlineData("   Acme Anvils")]
         public void Constructor_given_padded_name_should_trim_it(string paddedFullName)
         {
-            var orgName = new OrganizationName(paddedFullName, _validShortName, _validReportingCode);
+            var orgName = new OrganizationName(paddedFullName, _validNickname, _validReportingCode);
 
             orgName.FullName.ShouldBe(paddedFullName.Trim());
         }
@@ -42,41 +42,41 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         [Fact]
         public void ToString_should_return_full_name()
         {
-            var orgName = new OrganizationName(_validFullName, _validShortName, _validReportingCode);
+            var orgName = new OrganizationName(_validFullName, _validNickname, _validReportingCode);
 
             orgName.ToString().ShouldBe(_validFullName);
         }
 
         [Fact]
-        public void Constructor_should_set_ShortName()
+        public void Constructor_should_set_Nickname()
         {
-            var orgName = new OrganizationName(_validFullName, _validShortName, _validReportingCode);
+            var orgName = new OrganizationName(_validFullName, _validNickname, _validReportingCode);
 
-            orgName.ShortName.ShouldBe(_validShortName);
+            orgName.Nickname.ShouldBe(_validNickname);
         }
 
         [Fact]
-        public void Constructor_given_null_ShortName_should_throw_ArgNullException()
+        public void Constructor_given_null_Nickname_should_throw_ArgNullException()
         {
             Should.Throw<ArgumentNullException>(() => new OrganizationName(_validFullName, null, _validReportingCode))
-                .ParamName.ShouldBe("shortName");
+                .ParamName.ShouldBe("nickName");
         }
 
         [Theory]
         [InlineData("Acme Anvils   ")]
         [InlineData(" Acme Anvils")]
         [InlineData("   Acme Anvils")]
-        public void Constructor_given_padded_ShortName_should_trim_it(string paddedShortName)
+        public void Constructor_given_padded_Nickname_should_trim_it(string paddedNickname)
         {
-            var orgName = new OrganizationName(_validFullName, paddedShortName, _validReportingCode);
+            var orgName = new OrganizationName(_validFullName, paddedNickname, _validReportingCode);
 
-            orgName.ShortName.ShouldBe(paddedShortName.Trim());
+            orgName.Nickname.ShouldBe(paddedNickname.Trim());
         }
 
         [Fact]
         public void Constructor_should_set_ReportingCode()
         {
-            var orgName = new OrganizationName(_validFullName, _validShortName, _validReportingCode);
+            var orgName = new OrganizationName(_validFullName, _validNickname, _validReportingCode);
 
             orgName.ReportingCode.ShouldBe(_validReportingCode);
         }
@@ -84,7 +84,7 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         [Fact]
         public void Constructor_given_null_ReportingCode_should_throw_ArgNullException()
         {
-            Should.Throw<ArgumentNullException>(() => new OrganizationName(_validFullName, _validShortName, null))
+            Should.Throw<ArgumentNullException>(() => new OrganizationName(_validFullName, _validNickname, null))
                 .ParamName.ShouldBe("reportingCode");
         }
 
@@ -96,7 +96,7 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         {
             var orgName = new OrganizationName(_validFullName, paddedReportingCode, _validReportingCode);
 
-            orgName.ShortName.ShouldBe(paddedReportingCode.Trim());
+            orgName.Nickname.ShouldBe(paddedReportingCode.Trim());
         }
 
     }

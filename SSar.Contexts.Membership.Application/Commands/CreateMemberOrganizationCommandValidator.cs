@@ -12,7 +12,7 @@ namespace SSar.Contexts.Membership.Application.Commands
             RuleFor(x => x.FullName)
                 .NotEmpty();
 
-            RuleFor(x => x.ShortName)
+            RuleFor(x => x.Nickname)
                 .NotEmpty();
 
             RuleFor(x => x.ReportingCode)

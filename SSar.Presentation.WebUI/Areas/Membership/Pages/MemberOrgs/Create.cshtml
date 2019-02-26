@@ -11,7 +11,7 @@
 
 <form method="POST">
     @Html.FormBlock(m => m.Command.FullName)
-    @Html.FormBlock(m => m.Command.ShortName)
+    @Html.FormBlock(m => m.Command.Nickname)
     @Html.FormBlock(m => m.Command.ReportingCode)
     <input type="submit" value="Create" />
 </form>

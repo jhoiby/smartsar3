@@ -9,7 +9,7 @@ namespace SSar.Contexts.Common.Data.Migrations
             migrationBuilder.RenameColumn(
                 name: "Name_Name",
                 table: "MemberOrganizations",
-                newName: "Name_ShortName");
+                newName: "Name_Nickname");
 
             migrationBuilder.AddColumn<string>(
                 name: "Name_FullName",
@@ -33,7 +33,7 @@ namespace SSar.Contexts.Common.Data.Migrations
                 table: "MemberOrganizations");
 
             migrationBuilder.RenameColumn(
-                name: "Name_ShortName",
+                name: "Name_Nickname",
                 table: "MemberOrganizations",
                 newName: "Name_Name");
         }

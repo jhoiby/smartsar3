@@ -39,7 +39,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs
             {
                 public Guid Id { get; set; }
                 public string FullName { get; set; }
-                public string ShortName { get; set; }
+                public string Nickname { get; set; }
                 public string ReportingCode { get; set; }
             }
         }
@@ -59,7 +59,7 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs
                     MemberOrganizations = await _queryService.ListQuery<Result.MemberOrganization>(
                         "SELECT _id AS Id, " +
                         "Name_FullName AS FullName, " +
-                        "Name_ShortName AS ShortName, " +
+                        "Name_Nickname AS Nickname, " +
                         "Name_ReportingCode AS ReportingCode " +
                         "FROM MemberOrganizations")
                 };

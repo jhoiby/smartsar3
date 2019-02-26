@@ -14,13 +14,13 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations
         {
            Id = id.Require(nameof(id));
            FullName = name.FullName.Require(nameof(name.FullName));
-           ShortName = name.ShortName.Require(nameof(name.ShortName));
+           Nickname = name.Nickname.Require(nameof(name.Nickname));
            ReportingCode = name.ReportingCode.Require(nameof(name.ReportingCode));
         }
 
         public Guid Id { get;  }
         public string FullName { get; }
-        public string ShortName { get; }
+        public string Nickname { get; }
         public string ReportingCode { get; }
     }
 }
