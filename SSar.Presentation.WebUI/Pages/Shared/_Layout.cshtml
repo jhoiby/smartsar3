@@ -32,14 +32,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Membership" asp-page="ExamplePerson/Index">Example persons</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Membership" href="#" role="button" aria-haspopup="true" aria-expanded="false">Membership</a>
+                            <div class="dropdown-menu" aria-labelledby="Membership">
+                                <a class="dropdown-item" asp-area="Membership" asp-page="/Members/Index">Member Management</a>
+                            </div>
                         </li>
-                        <li class="navitem dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Admin" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                             <div class="dropdown-menu" aria-labelledby="Admin">
-                                <a class="dropdown-item" asp-area="Identity" asp-page="Roles/Index">Roles</a>
-                                <a class="dropdown-item" asp-area="Membership" asp-page="MemberOrgs/Index">Member Organizations</a>
+                                <a class="dropdown-item" asp-area="Membership" asp-page="/MemberOrgs/Index">Member Organizations</a>
+                                <a class="dropdown-item" asp-area="Identity" asp-page="/Roles/Index">User Roles</a>
+                                <a class="dropdown-item" asp-area="Membership" asp-page="/ExamplePerson/Index">Example persons (test)</a>
                             </div>
                         </li>
                         <li class="nav-item">
