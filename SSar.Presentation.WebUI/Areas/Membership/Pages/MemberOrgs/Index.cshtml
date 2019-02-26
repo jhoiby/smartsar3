@@ -15,9 +15,11 @@
 
 <table class="table">
     <thead>
-    <tr>
-        <th scope="col">Organization Name</th>
-    </tr>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Organization Name</th>
+            <th scope="col"></th>
+        </tr>
     </thead>
     <tbody>
     @if (Model?.Data?.MemberOrganizations?.Count == 0)
@@ -31,7 +33,8 @@
         foreach (var organization in Model.Data.MemberOrganizations)
         {
             <tr>
-                <td>@organization.Name</td>
+                <td>@organization.ReportingCode</td>
+                <td>@organization.ShortName</td>
                 <td>
                     <a asp-page="Edit" asp-route-personId="@organization.Id">Edit</a> |
                     <a asp-page="Delete" asp-route-personId="@organization.Id">Delete</a>

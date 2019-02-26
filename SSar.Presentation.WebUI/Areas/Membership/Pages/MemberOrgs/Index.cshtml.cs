@@ -38,7 +38,9 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs
             public  class MemberOrganization
             {
                 public Guid Id { get; set; }
-                public string Name { get; set; }
+                public string FullName { get; set; }
+                public string ShortName { get; set; }
+                public string ReportingCode { get; set; }
             }
         }
 
@@ -55,7 +57,11 @@ namespace SSar.Presentation.WebUI.Areas.Membership.Pages.MemberOrgs
                 => new Result
                 {
                     MemberOrganizations = await _queryService.ListQuery<Result.MemberOrganization>(
-                        "SELECT _id AS Id, Name_Name AS Name FROM MemberOrganizations")
+                        "SELECT _id AS Id, " +
+                        "Name_FullName AS FullName, " +
+                        "Name_ShortName AS ShortName, " +
+                        "Name_ReportingCode AS ReportingCode " +
+                        "FROM MemberOrganizations")
                 };
         }
     }

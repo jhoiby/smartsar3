@@ -13,10 +13,15 @@ namespace SSar.Contexts.Membership.Domain.AggregateRoots.MemberOrganizations
         public MemberOrganizationCreated(Guid id, OrganizationName name)
         {
            Id = id.Require(nameof(id));
-           Name = name.Name.Require(nameof(name));
+           FullName = name.FullName.Require(nameof(name.FullName));
+           ShortName = name.ShortName.Require(nameof(name.ShortName));
+           ReportingCode = name.ReportingCode.Require(nameof(name.ReportingCode));
         }
+
         public Guid Id { get;  }
-        public string Name { get; }
+        public string FullName { get; }
+        public string ShortName { get; }
+        public string ReportingCode { get; }
     }
 }
 

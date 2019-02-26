@@ -11,16 +11,18 @@ namespace SSar.UnitTests.Contexts.Membership.Domain.AggregateRoots
     public class MemberOrganizationCreatedTests
     {
         [Fact]
-        public void Constructor_sets_name_and_id()
+        public void Constructor_sets_properties()
         {
             var id = Guid.NewGuid();
-            var orgName = new OrganizationName("Tasty Mold, Inc.");
+            var orgName = new OrganizationName("Tasty Mold, Inc.", "Tasty Mold", "TMI");
 
             var @event = new MemberOrganizationCreated(id, orgName);
 
             @event.ShouldSatisfyAllConditions(
                 () => @event.Id.ShouldBe(id),
-                () => @event.Name.ShouldBe(orgName.Name));
+                () => @event.FullName.ShouldBe("Tasty Mold, Inc."),
+                () => @event.ShortName.ShouldBe("Tasty Mold"),
+                () => @event.ReportingCode.ShouldBe("TMI"));
         }
     }
 }

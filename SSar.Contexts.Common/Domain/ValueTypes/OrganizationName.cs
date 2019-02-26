@@ -7,13 +7,19 @@ namespace SSar.Contexts.Common.Domain.ValueTypes
 {
     public class OrganizationName
     {
-        public OrganizationName(string name)
+        public OrganizationName(string fullName, string shortName, string reportingCode)
         {
-            Name = name.Require(nameof(name)).Trim();
+            FullName = fullName.Require(nameof(fullName)).Trim();
+            ShortName = shortName.Require(nameof(shortName)).Trim();
+            ReportingCode = reportingCode.Require(nameof(reportingCode)).Trim();
         }
 
-        public string Name { get; private set; }
+        public string FullName { get; private set; }
 
-        public override string ToString() => Name;
+        public string ShortName { get; private set; }
+
+        public string ReportingCode { get; private set; }
+
+        public override string ToString() => FullName;
     }
 }

@@ -9,11 +9,15 @@ namespace SSar.Contexts.Membership.Application.Commands
         {
         }
 
-        public CreateMemberOrganizationCommand(string name)
+        public CreateMemberOrganizationCommand(string fullName, string shortName, string reportingCode)
         {
-            Name = name;
+            FullName = fullName;
+            ShortName = shortName;
+            ReportingCode = reportingCode;
         }
 
-        public string Name { get; set; }
+        public string FullName { get; set; }
+        public string ShortName { get; set; }
+        public string ReportingCode { get; set; }
     }
 }

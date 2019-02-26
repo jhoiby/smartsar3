@@ -9,8 +9,14 @@ namespace SSar.Contexts.Membership.Application.Commands
     {
         public CreateMemberOrganizationCommandValidator()
         {
-            RuleFor(x => x.Name)
+            RuleFor(x => x.FullName)
                 .NotEmpty();
+
+            RuleFor(x => x.ShortName)
+                .NotEmpty();
+
+            RuleFor(x => x.ReportingCode)
+                .NotEmpty().MaximumLength(8);
         }
     }
 }

@@ -10,8 +10,8 @@
 <div asp-validation-summary="All"></div>
 
 <form method="POST">
-
-    @Html.FormBlock(m => m.Command.Name)
-    <input type="submit" value="Create"/>
-
+    @Html.FormBlock(m => m.Command.FullName)
+    @Html.FormBlock(m => m.Command.ShortName)
+    @Html.FormBlock(m => m.Command.ReportingCode)
+    <input type="submit" value="Create" />
 </form>
