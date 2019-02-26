@@ -59,7 +59,7 @@ namespace SSar.UnitTests.Contexts.Common.ValueTypes
         public void Constructor_given_null_Nickname_should_throw_ArgNullException()
         {
             Should.Throw<ArgumentNullException>(() => new OrganizationName(_validFullName, null, _validReportingCode))
-                .ParamName.ShouldBe("nickName");
+                .ParamName.ShouldBe("nickname");
         }
 
         [Theory]
