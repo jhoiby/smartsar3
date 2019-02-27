@@ -5,6 +5,7 @@ using HtmlTags;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -67,25 +68,25 @@ namespace SSar.Presentation.WebUI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication()
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddMicrosoftAccount(microsoftOptions =>
                 {
                     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
-                })
-                .AddGoogle(o =>
-                {
-                    o.ClientId = Configuration["Authentication:Google:ClientId"];
-                    o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                    o.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
-                    o.ClaimActions.Clear();
-                    o.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
-                    o.ClaimActions.MapJsonKey("urn:google:profile", "link");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                 });
+                //.AddGoogle(o =>
+                //{
+                //    o.ClientId = Configuration["Authentication:Google:ClientId"];
+                //    o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                //    o.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                //    o.ClaimActions.Clear();
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                //    o.ClaimActions.MapJsonKey("urn:google:profile", "link");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                //});
 
             services.AddHtmlTags(new TagConventions());
             
@@ -154,13 +155,12 @@ namespace SSar.Presentation.WebUI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseAuthentication();
-
+            // If the app uses Session or TempData based on Session:
+            // app.UseSession();
             app.UseMvc();
         }
     }
