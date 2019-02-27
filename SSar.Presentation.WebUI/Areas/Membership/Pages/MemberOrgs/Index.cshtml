@@ -16,8 +16,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Code</th>
             <th scope="col">Organization Name</th>
+            <th scope="col">Report Code</th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -32,14 +32,14 @@
     {
         foreach (var organization in Model.Data.MemberOrganizations)
         {
-            <tr>
-                <td>@organization.ReportingCode</td>
-                <td>@organization.Nickname</td>
-                <td>
-                    <a asp-page="Edit" asp-route-personId="@organization.Id">Edit</a> |
-                    <a asp-page="Delete" asp-route-personId="@organization.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@organization.FullName</td>
+            <td>@organization.ReportingCode</td>
+            <td>
+                <a asp-page="Edit" asp-route-personId="@organization.Id">Edit</a> |
+                <a asp-page="Delete" asp-route-personId="@organization.Id">Delete</a>
+            </td>
+        </tr>
         }
             
     }
