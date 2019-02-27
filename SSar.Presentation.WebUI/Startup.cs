@@ -73,6 +73,8 @@ namespace SSar.Presentation.WebUI
                 {
                     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
+                    microsoftOptions.AuthorizationEndpoint =
+                        Configuration["Authentication:Microsoft:AuthorizationEndpoint"];
                 });
                 //.AddGoogle(o =>
                 //{
