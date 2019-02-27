@@ -72,20 +72,20 @@ namespace SSar.Presentation.WebUI
                 {
                     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
-                })
-                .AddGoogle(o =>
-                {
-                    o.ClientId = Configuration["Authentication:Google:ClientId"];
-                    o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-                    o.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
-                    o.ClaimActions.Clear();
-                    o.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
-                    o.ClaimActions.MapJsonKey("urn:google:profile", "link");
-                    o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
                 });
+                //.AddGoogle(o =>
+                //{
+                //    o.ClientId = Configuration["Authentication:Google:ClientId"];
+                //    o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                //    o.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                //    o.ClaimActions.Clear();
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                //    o.ClaimActions.MapJsonKey("urn:google:profile", "link");
+                //    o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                //});
 
             services.AddHtmlTags(new TagConventions());
             
