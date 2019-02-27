@@ -5,17 +5,18 @@ using HtmlTags;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SSar.Contexts.Common.Application.Authorization;
 using SSar.Contexts.Common.Application.IntegrationEvents;
 using SSar.Contexts.Common.Application.RequestPipelineBehaviors;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
@@ -32,6 +33,7 @@ using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
 using SSar.Presentation.WebUI.Infrastructure.Tags;
 using SSar.Presentation.WebUI.Services;
+using IAuthorizationService = SSar.Contexts.Common.Application.Authorization.IAuthorizationService;
 
 namespace SSar.Presentation.WebUI
 {
@@ -118,7 +120,14 @@ namespace SSar.Presentation.WebUI
                         Configuration["AzureServiceBus:Topic"]),
                     new AzureIntegrationMessageBuilder()));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            services.AddMvc(config =>
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                        .RequireAuthenticatedUser()
+                        .Build();
+                    config.Filters.Add(new AuthorizeFilter(policy));
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv =>
                 {
                     fv.RegisterValidatorsFromAssemblyContaining<CreateExamplePersonCommandValidator>();
