@@ -68,48 +68,60 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
             public string LastName { get; set; }
         }
 
-        public void OnGet(string returnUrl = null)
+        // REGISTRATION FUNCTIONALITY REMOVED
+        //
+        // Additional registration options will be allowed later, but for
+        // Minimum Viable Release we're relying on the fact that all users of this
+        // site already have an Azure AD account with sarci.org
+
+        public IActionResult OnGet()
         {
-            ReturnUrl = returnUrl;
+            return Content("Registration disabled. This site is for current members only. " +
+                           "If you are a member, login with your SARCI Office 365 credentials.");
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
-        {
-            returnUrl = returnUrl ?? Url.Content("~/");
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser {
-                    UserName = Input.Email,
-                    Email = Input.Email,
-                    FirstName = Input.FirstName,
-                    LastName = Input.LastName
-                };
-                var result = await _userManager.CreateAsync(user, Input.Password);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User created a new account with password.");
+        //public void OnGet(string returnUrl = null)
+        //{
+        //    ReturnUrl = returnUrl;
+        //}
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { userId = user.Id, code = code },
-                        protocol: Request.Scheme);
+        //public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        //{
+        //    returnUrl = returnUrl ?? Url.Content("~/");
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser {
+        //            UserName = Input.Email,
+        //            Email = Input.Email,
+        //            FirstName = Input.FirstName,
+        //            LastName = Input.LastName
+        //        };
+        //        var result = await _userManager.CreateAsync(user, Input.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            _logger.LogInformation("User created a new account with password.");
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+        //            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        //            var callbackUrl = Url.Page(
+        //                "/Account/ConfirmEmail",
+        //                pageHandler: null,
+        //                values: new { userId = user.Id, code = code },
+        //                protocol: Request.Scheme);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
+        //            await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+        //                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            // If we got this far, something failed, redisplay form
-            return Page();
-        }
+        //            await _signInManager.SignInAsync(user, isPersistent: false);
+        //            return LocalRedirect(returnUrl);
+        //        }
+        //        foreach (var error in result.Errors)
+        //        {
+        //            ModelState.AddModelError(string.Empty, error.Description);
+        //        }
+        //    }
+
+        //    // If we got this far, something failed, redisplay form
+        //    return Page();
+        //}
     }
 }
