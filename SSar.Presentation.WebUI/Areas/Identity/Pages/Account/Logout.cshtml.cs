@@ -37,7 +37,7 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
             }
             else
             {
-                return Page();
+                return RedirectToPage("/Index");
             }
         }
     }
