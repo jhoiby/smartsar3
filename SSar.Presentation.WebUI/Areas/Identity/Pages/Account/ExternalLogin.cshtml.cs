@@ -71,7 +71,17 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
                 ErrorMessage = $"Error from external provider: {remoteError}";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
-            var info = await _signInManager.GetExternalLoginInfoAsync();
+
+            // NEED TO REENABLE THIS FOR EXTERNAL LOGIN METHODS OTHER THAN AZURE/MS
+            // var info = await _signInManager.GetExternalLoginInfoAsync();
+
+            // Possible workaround for AzureAD issue
+            // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
+            ExternalLoginInfo info = new ExternalLoginInfo(User,
+                "Microsoft",
+                User.Claims.Where(x => x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier").FirstOrDefault().Value.ToString(),
+                "Microsoft");
+
             if (info == null)
             {
                 ErrorMessage = "Error loading external login information.";
