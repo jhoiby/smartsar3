@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E98FBFBB-A
 	ProjectSection(SolutionItems) = preProject
 		Architectural Overview.txt = Architectural Overview.txt
 		Credits.txt = Credits.txt
+		Ideas.txt = Ideas.txt
 		Known code smells.txt = Known code smells.txt
 	EndProjectSection
 EndProject

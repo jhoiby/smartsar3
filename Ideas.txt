@@ -1,0 +1,1 @@
+Look into Wyam.io for static content generation.
