@@ -74,22 +74,22 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
 
             // Not working with Google. Is there an issue with the authentication default type?
 
+            // RETURNS NULL FOR GOOGLE. NEED TO FIX
+
             ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
 
+            // Handle special case for AzureAD authentication
+            // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
             if (info == null &&
                 User.Claims.Any(x => 
                     x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier"))
             {
-                // Try another method as a workaround for AzureAD issue
-                // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
-
                 info = new ExternalLoginInfo(User,
                     "Microsoft",
                     User.Claims.Where(x => x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")
                         .FirstOrDefault().Value.ToString(),
                     "Microsoft");
             }
-
 
             if (info == null)
             {
