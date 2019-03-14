@@ -72,15 +72,21 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
-            // NEED TO REENABLE THIS FOR EXTERNAL LOGIN METHODS OTHER THAN AZURE/MS
-            // var info = await _signInManager.GetExternalLoginInfoAsync();
+            
+            var info = await _signInManager.GetExternalLoginInfoAsync();
 
-            // Possible workaround for AzureAD issue
-            // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
-            ExternalLoginInfo info = new ExternalLoginInfo(User,
-                "Microsoft",
-                User.Claims.Where(x => x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier").FirstOrDefault().Value.ToString(),
-                "Microsoft");
+            if (info == null && HttpContext.User != null)
+            {
+                // Try another method as a workaround for AzureAD issue
+                // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
+
+                info = new ExternalLoginInfo(User,
+                    "Microsoft",
+                    User.Claims.Where(x => x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")
+                        .FirstOrDefault().Value.ToString(),
+                    "Microsoft");
+            }
+
 
             if (info == null)
             {

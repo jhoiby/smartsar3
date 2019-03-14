@@ -76,7 +76,14 @@ namespace SSar.Presentation.WebUI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication()
+            services.AddAuthentication(
+                    options =>
+                    {
+                        options.DefaultScheme = IdentityConstants.ApplicationScheme;
+                        options.DefaultSignInScheme = IdentityConstants.ApplicationScheme;
+                        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                    }
+                )
                 .AddCookie(options =>
                 {
                     options.LoginPath = "/Identity/Account/Login";
@@ -218,7 +225,7 @@ namespace SSar.Presentation.WebUI
 
             // MultiIdentityLoader
             // Based on: https://stackoverflow.com/questions/45695382/how-do-i-setup-multiple-auth-schemes-in-asp-net-core-2-0
-            app.Use(async (context, next) =>
+            app.Use(async (context, next) =>  // Rename this to ?
             {
                 logger.LogDebug("MultiIdentityLoader: Executing");
                 var principal = new ClaimsPrincipal();
