@@ -72,7 +72,8 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
-            
+            // Not working with Google. Is there an issue with the authentication default type?
+
             var info = await _signInManager.GetExternalLoginInfoAsync();
 
             if (info == null && HttpContext.User != null)

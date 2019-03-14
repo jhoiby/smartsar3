@@ -30,7 +30,17 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
+
+            int deletedCookieCount = 0;
+
+            foreach (var cookie in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookie);
+                deletedCookieCount++;
+            }
+
+            _logger.LogInformation($"User logged out. {deletedCookieCount} cookies deleted.");
+
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);
