@@ -176,7 +176,7 @@ namespace SSar.Presentation.WebUI
                 logger.LogDebug("      Middleware debug point 1");
                 await next.Invoke();
                 logger.LogDebug("      Middleware debug point 8");
-
+                
                 var test1 = context.User.Identity.IsAuthenticated;
                 var test2 = context.User.Claims.Count();
                 var test3 = context.User.Identity.AuthenticationType;
@@ -197,10 +197,29 @@ namespace SSar.Presentation.WebUI
                 // await context.SignInAsync(IdentityConstants.ExternalScheme, principal, authResult1.Properties);
                 //
 
+                // CAN I DO MY OWN SHORT-CIRCUIT??? Rewrite the returnuri from OIDC callback so that I get
+                // a chance to execute? Sort of a man-in-the-middle attack?
+                //
+                // EUREKA!!!
+                //
+                // As the OIDC callback is finished and returning, modifiy the callback url so that it contains something
+                // that this will recognize and intercept, and save the url in a query string or somewhere so it can be restored.
+                // 
+                // So, UseAuthentication will write an AzureAD cookie
+                // On the next request, this will read it and save an Identity.External cookie
+                // Then this will do the final callback to the ExternalCallback handler and signin
+                //
+                // Oh crap, is that too many redirects for a browser?
+                
+                var test4 = context.Response.StatusCode.ToString();
+                var test5 = context.Response.Headers["Location"];
+                logger.LogDebug($"          Response.StatusCode = {test4}");
+                logger.LogDebug($"          Response.Location = {test5}");
+
             });
 
 
-            app.UseAuthentication();
+            app.UseAuthentication(); // For OIDC callback, this will short-circuit
 
             app.Use(async (context, next) =>
             {
