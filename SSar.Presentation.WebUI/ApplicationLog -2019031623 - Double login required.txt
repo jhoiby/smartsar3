@@ -1,0 +1,1391 @@
+2019-03-16 23:03:09.690 -07:00 [INF] Starting web host
+2019-03-16 23:03:10.903 -07:00 [DBG] Hosting starting
+2019-03-16 23:03:10.953 -07:00 [INF] User profile is available. Using 'C:\Users\james\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-16 23:03:10.956 -07:00 [DBG] Reading data from file 'C:\Users\james\AppData\Local\ASP.NET\DataProtection-Keys\key-26b4aba9-894d-4774-92d3-f07944421de1.xml'.
+2019-03-16 23:03:10.974 -07:00 [DBG] Found key "26b4aba9-894d-4774-92d3-f07944421de1".
+2019-03-16 23:03:10.983 -07:00 [DBG] Considering key "26b4aba9-894d-4774-92d3-f07944421de1" with expiration date "2019-05-09T15:50:00.2332731+00:00" as default key.
+2019-03-16 23:03:11.005 -07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2019-03-16 23:03:11.005 -07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2019-03-16 23:03:11.007 -07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2019-03-16 23:03:11.007 -07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2019-03-16 23:03:11.008 -07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2019-03-16 23:03:11.011 -07:00 [DBG] Using key "26b4aba9-894d-4774-92d3-f07944421de1" as the default key.
+2019-03-16 23:03:11.011 -07:00 [DBG] Key ring with default key "26b4aba9-894d-4774-92d3-f07944421de1" was loaded during application startup.
+2019-03-16 23:03:11.107 -07:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2019-03-16 23:03:11.211 -07:00 [DBG] The foreign key properties haven't been configured by convention because the best match {'Id' : int} are incompatible with the current principal key {'Id' : Guid}. This message can be disregarded if explicit configuration has been specified.
+2019-03-16 23:03:11.211 -07:00 [DBG] The foreign key properties haven't been configured by convention because the best match {'Id' : int} are incompatible with the current principal key {'Id' : Guid}. This message can be disregarded if explicit configuration has been specified.
+2019-03-16 23:03:11.224 -07:00 [DBG] The foreign key properties haven't been configured by convention because the best match {'Id' : int} are incompatible with the current principal key {'Id' : Guid}. This message can be disregarded if explicit configuration has been specified.
+2019-03-16 23:03:11.224 -07:00 [DBG] The foreign key properties haven't been configured by convention because the best match {'Id' : int} are incompatible with the current principal key {'Id' : Guid}. This message can be disregarded if explicit configuration has been specified.
+2019-03-16 23:03:11.247 -07:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2019-03-16 23:03:11.247 -07:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2019-03-16 23:03:11.258 -07:00 [DBG] The property 'MemberOrganization_id' on entity type 'OrganizationName' was created in shadow state because there are no eligible CLR members with a matching name.
+2019-03-16 23:03:11.295 -07:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-16 23:03:11.308 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.354 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.355 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.355 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.356 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.357 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.360 -07:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-03-16 23:03:11.378 -07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2019-03-16 23:03:11.378 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.378 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.402 -07:00 [DBG] Compiling query model: 
+'(from ApplicationRole r in DbSet<ApplicationRole>
+where [r].NormalizedName == __normalizedName_0
+select [r]).FirstOrDefault()'
+2019-03-16 23:03:11.410 -07:00 [DBG] Optimized query model: 
+'(from ApplicationRole r in DbSet<ApplicationRole>
+where [r].NormalizedName == __normalizedName_0
+select [r]).FirstOrDefault()'
+2019-03-16 23:03:11.440 -07:00 [DBG] (QueryContext queryContext) => IAsyncEnumerable<ApplicationRole> _InterceptExceptions(
+|__ source: IAsyncEnumerable<ApplicationRole> _TrackEntities(
+|   |__ results: IAsyncEnumerable<ApplicationRole> _ToSequence(() => Task<ApplicationRole> FirstOrDefault(
+|   |   |__ source: IAsyncEnumerable<ApplicationRole> _ShapedQuery(
+|   |   |   |__ queryContext: queryContext, 
+|   |   |   |__ shaperCommandContext: SelectExpression: 
+|   |   |   |       SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[CreatedDate], [r].[Description], [r].[Name], [r].[NormalizedName]
+|   |   |   |       FROM [AspNetRoles] AS [r]
+|   |   |   |       WHERE [r].[NormalizedName] = @__normalizedName_0, 
+|   |   |   |__ shaper: (MaterializationContext materializationContext) => 
+|   |   |       {
+|   |   |           instance = new ApplicationRole()
+|   |   |           instance.<Id>k__BackingField = Guid TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 0, ApplicationRole.Id)
+|   |   |           instance.<ConcurrencyStamp>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 1, ApplicationRole.ConcurrencyStamp)
+|   |   |           instance.<CreatedDate>k__BackingField = DateTime TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 2, ApplicationRole.CreatedDate)
+|   |   |           instance.<Description>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 3, ApplicationRole.Description)
+|   |   |           instance.<Name>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 4, ApplicationRole.Name)
+|   |   |           instance.<NormalizedName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 5, ApplicationRole.NormalizedName)
+|   |   |           return instance
+|   |   |       }), 
+|   |   |__ cancellationToken: queryContext.CancellationToken)), 
+|   |__ queryContext: queryContext, 
+|   |__ entityTrackingInfos: { itemType: ApplicationRole }, 
+|   |__ entityAccessors: List<Func<ApplicationRole, object>> 
+|       { 
+|           Func<ApplicationRole, ApplicationRole>, 
+|       }), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: queryContext)
+2019-03-16 23:03:11.453 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.453 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.469 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[CreatedDate], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2019-03-16 23:03:11.476 -07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[CreatedDate], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2019-03-16 23:03:11.504 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.504 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.504 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.508 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.517 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.517 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.519 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[CreatedDate], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2019-03-16 23:03:11.522 -07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[CreatedDate], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2019-03-16 23:03:11.523 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.523 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.523 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.523 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.526 -07:00 [DBG] Compiling query model: 
+'(from ApplicationUser u in DbSet<ApplicationUser>
+where [u].NormalizedUserName == __normalizedUserName_0
+select [u]).FirstOrDefault()'
+2019-03-16 23:03:11.527 -07:00 [DBG] Optimized query model: 
+'(from ApplicationUser u in DbSet<ApplicationUser>
+where [u].NormalizedUserName == __normalizedUserName_0
+select [u]).FirstOrDefault()'
+2019-03-16 23:03:11.532 -07:00 [DBG] (QueryContext queryContext) => IAsyncEnumerable<ApplicationUser> _InterceptExceptions(
+|__ source: IAsyncEnumerable<ApplicationUser> _TrackEntities(
+|   |__ results: IAsyncEnumerable<ApplicationUser> _ToSequence(() => Task<ApplicationUser> FirstOrDefault(
+|   |   |__ source: IAsyncEnumerable<ApplicationUser> _ShapedQuery(
+|   |   |   |__ queryContext: queryContext, 
+|   |   |   |__ shaperCommandContext: SelectExpression: 
+|   |   |   |       SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+|   |   |   |       FROM [AspNetUsers] AS [u]
+|   |   |   |       WHERE [u].[NormalizedUserName] = @__normalizedUserName_0, 
+|   |   |   |__ shaper: (MaterializationContext materializationContext) => 
+|   |   |       {
+|   |   |           instance = new ApplicationUser()
+|   |   |           instance.<Id>k__BackingField = Guid TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 0, ApplicationUser.Id)
+|   |   |           instance.<AccessFailedCount>k__BackingField = int TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 1, ApplicationUser.AccessFailedCount)
+|   |   |           instance.<ConcurrencyStamp>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 2, ApplicationUser.ConcurrencyStamp)
+|   |   |           instance.<Email>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 3, ApplicationUser.Email)
+|   |   |           instance.<EmailConfirmed>k__BackingField = bool TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 4, ApplicationUser.EmailConfirmed)
+|   |   |           instance.<FirstName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 5, ApplicationUser.FirstName)
+|   |   |           instance.<LastName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 6, ApplicationUser.LastName)
+|   |   |           instance.<LockoutEnabled>k__BackingField = bool TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 7, ApplicationUser.LockoutEnabled)
+|   |   |           instance.<LockoutEnd>k__BackingField = Nullable<DateTimeOffset> TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 8, ApplicationUser.LockoutEnd)
+|   |   |           instance.<NormalizedEmail>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 9, ApplicationUser.NormalizedEmail)
+|   |   |           instance.<NormalizedUserName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 10, ApplicationUser.NormalizedUserName)
+|   |   |           instance.<PasswordHash>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 11, ApplicationUser.PasswordHash)
+|   |   |           instance.<PhoneNumber>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 12, ApplicationUser.PhoneNumber)
+|   |   |           instance.<PhoneNumberConfirmed>k__BackingField = bool TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 13, ApplicationUser.PhoneNumberConfirmed)
+|   |   |           instance.<SecurityStamp>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 14, ApplicationUser.SecurityStamp)
+|   |   |           instance.<TwoFactorEnabled>k__BackingField = bool TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 15, ApplicationUser.TwoFactorEnabled)
+|   |   |           instance.<UserName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 16, ApplicationUser.UserName)
+|   |   |           return instance
+|   |   |       }), 
+|   |   |__ cancellationToken: queryContext.CancellationToken)), 
+|   |__ queryContext: queryContext, 
+|   |__ entityTrackingInfos: { itemType: ApplicationUser }, 
+|   |__ entityAccessors: List<Func<ApplicationUser, object>> 
+|       { 
+|           Func<ApplicationUser, ApplicationUser>, 
+|       }), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: queryContext)
+2019-03-16 23:03:11.534 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.534 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.534 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.536 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.538 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.538 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.538 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.547 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.547 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.547 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.548 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.560 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.560 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.560 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.560 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.575 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-03-16 23:03:11.577 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.577 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.577 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.578 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.578 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.578 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.578 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.578 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.578 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.578 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.579 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.579 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.579 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.579 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.579 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.579 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-03-16 23:03:11.579 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.579 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.579 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.580 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.580 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.580 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.580 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.580 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.580 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.580 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.581 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.581 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.581 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.581 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.581 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.581 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-03-16 23:03:11.581 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.581 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.581 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.582 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.582 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.582 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.582 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.582 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.582 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.582 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.583 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:11.583 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:11.583 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.583 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:11.583 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:11.583 -07:00 [WRN] User null validation failed: DuplicateUserName.
+2019-03-16 23:03:11.592 -07:00 [DBG] Compatibility switch AllowInputFormatterExceptionMessages in type MvcJsonOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch AllowCombiningAuthorizeFilters in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch AllowBindingHeaderValuesToNonStringModelTypes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch AllowValidatingTopLevelNodes in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch InputFormatterExceptionPolicy in type MvcOptions is using compatibility value "MalformedInputExceptions" for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch SuppressBindingUndefinedValueToEnumType in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch EnableEndpointRouting in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch MaxValidationDepth in type MvcOptions is using compatibility value 32 for version "Version_2_2"
+2019-03-16 23:03:11.608 -07:00 [DBG] Compatibility switch AllowShortCircuitingValidationWhenNoValidatorsArePresent in type MvcOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.625 -07:00 [DBG] Compatibility switch SuppressMapClientErrors in type ApiBehaviorOptions is using default value false
+2019-03-16 23:03:11.625 -07:00 [DBG] Compatibility switch SuppressUseValidationProblemDetailsForInvalidModelStateResponses in type ApiBehaviorOptions is using default value false
+2019-03-16 23:03:11.625 -07:00 [DBG] Compatibility switch AllowInferringBindingSourceForCollectionTypesAsFromQuery in type ApiBehaviorOptions is using default value false
+2019-03-16 23:03:11.627 -07:00 [DBG] Compatibility switch AllowAreas in type RazorPagesOptions is using explicitly configured value true
+2019-03-16 23:03:11.627 -07:00 [DBG] Compatibility switch AllowMappingHeadRequestsToGetHandler in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.627 -07:00 [DBG] Compatibility switch AllowDefaultHandlingForOptionsRequests in type RazorPagesOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.629 -07:00 [DBG] Compatibility switch AllowRecompilingViewsOnFileChange in type RazorViewEngineOptions is using explicitly configured value true
+2019-03-16 23:03:11.643 -07:00 [DBG] Compatibility switch SuppressTempDataAttributePrefix in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.643 -07:00 [DBG] Compatibility switch AllowRenderingMaxLengthAttribute in type MvcViewOptions is using compatibility value true for version "Version_2_2"
+2019-03-16 23:03:11.660 -07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexTypeModelBinderProvider"]
+2019-03-16 23:03:11.825 -07:00 [DBG] 'AppDbContext' disposed.
+2019-03-16 23:03:11.858 -07:00 [DBG] Hosting started
+2019-03-16 23:03:11.858 -07:00 [DBG] Loaded hosting startup assembly SSar.Presentation.WebUI
+2019-03-16 23:03:11.858 -07:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Server.IISIntegration
+
+
+FIRST PAGE LOAD: INDEX
+
+
+2019-03-16 23:03:11.890 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/  
+2019-03-16 23:03:11.890 -07:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2019-03-16 23:03:11.904 -07:00 [DBG] The request path / does not match a supported file type
+2019-03-16 23:03:11.975 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:11.979 -07:00 [DBG] AuthenticationScheme: AzureADCookie was not authenticated.
+2019-03-16 23:03:11.979 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+2019-03-16 23:03:11.979 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:12.001 -07:00 [DBG] 1 candidate(s) found for the request path '/'
+2019-03-16 23:03:12.001 -07:00 [DBG] Endpoint 'Page: /Index' with route pattern '' is valid for the request path '/'
+2019-03-16 23:03:12.001 -07:00 [DBG] Request matched endpoint 'Page: /Index'
+2019-03-16 23:03:12.002 -07:00 [INF] Executing endpoint 'Page: /Index'
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/AccessDenied.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ConfirmEmail.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ExternalLogin.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ForgotPassword.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Lockout.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Login.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/LoginWith2fa.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Logout.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/Index.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_Layout.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Register.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ResetPassword.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/_ViewImports.cshtml'.
+2019-03-16 23:03:12.004 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Error.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Roles/Create.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Roles/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ViewStart.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/ExamplePerson/Create.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/ExamplePerson/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/MemberOrgs/Create.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/MemberOrgs/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/Members/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Membership/Pages/_ViewStart.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Error.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Privacy.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Shared/_CookieConsentPartial.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Shared/_Layout.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Shared/_LoginPartial.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/Shared/_ValidationScriptsPartial.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Pages/_ViewStart.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/AccessDenied.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ConfirmEmail.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ExternalLogin.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ForgotPassword.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Lockout.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Login.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/LoginWith2fa.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Logout.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/Index.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_Layout.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Manage/_ViewStart.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/Register.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ResetPassword.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Account/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/Error.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_Layout.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ViewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Identity/Pages/_ViewStart.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/AzureAD/Pages/Account/AccessDenied.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/AzureAD/Pages/Account/Error.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/AzureAD/Pages/Account/SignedOut.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/AzureAD/Pages/Account/_viewImports.cshtml'.
+2019-03-16 23:03:12.005 -07:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/AzureAD/Pages/_ViewStart.cshtml'.
+2019-03-16 23:03:12.028 -07:00 [INF] Route matched with {page = "/Index", area = "", action = "", controller = ""}. Executing page /Index
+2019-03-16 23:03:12.029 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:12.029 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:12.029 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:12.029 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:12.029 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:12.041 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Pages.IndexModel.OnGet with arguments (null) - ModelState is "Valid"
+2019-03-16 23:03:12.043 -07:00 [INF] Executed handler method OnGet, returned result .
+2019-03-16 23:03:12.044 -07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-03-16 23:03:12.044 -07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:12.063 -07:00 [DBG] View lookup cache miss for view '_Layout' in controller 'null'.
+2019-03-16 23:03:12.065 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_Layout.cshtml'.
+2019-03-16 23:03:12.104 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.109 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:12.110 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:12.112 -07:00 [DBG] View lookup cache miss for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:12.118 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_LoginPartial.cshtml'.
+2019-03-16 23:03:12.128 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.128 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and 
+2019-03-16 23:03:12.129 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register
+2019-03-16 23:03:12.129 -07:00 [DBG] Found the endpoints ["Page: /Account/Login"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.129 -07:00 [DBG] Successfully processed template Identity/Account/Login for Page: /Account/Login resulting in /Identity/Account/Login and 
+2019-03-16 23:03:12.129 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Login"] with result /Identity/Account/Login
+2019-03-16 23:03:12.130 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.130 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:12.130 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:12.130 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.130 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:12.130 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:12.131 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.131 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:12.131 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:12.132 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.132 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:12.132 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:12.132 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.132 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:12.133 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:12.133 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.133 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:12.133 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:12.134 -07:00 [DBG] View lookup cache miss for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:12.136 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_CookieConsentPartial.cshtml'.
+2019-03-16 23:03:12.141 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.141 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:12.141 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:12.142 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:12.142 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:12.142 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:12.166 -07:00 [INF] Executed page /Index in 135.59890000000001ms
+2019-03-16 23:03:12.167 -07:00 [INF] Executed endpoint 'Page: /Index'
+2019-03-16 23:03:12.172 -07:00 [INF] Request finished in 282.9944ms 200 text/html; charset=utf-8
+
+
+GET LOGIN PAGE
+
+
+2019-03-16 23:03:13.481 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/Identity/Account/Login  
+2019-03-16 23:03:13.481 -07:00 [DBG] The request path /Identity/Account/Login does not match a supported file type
+2019-03-16 23:03:13.481 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:13.481 -07:00 [DBG] AuthenticationScheme: AzureADCookie was not authenticated.
+2019-03-16 23:03:13.481 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+2019-03-16 23:03:13.481 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:13.484 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/Login'
+2019-03-16 23:03:13.484 -07:00 [DBG] Endpoint 'Page: /Account/Login' with route pattern 'Identity/Account/Login' is valid for the request path '/Identity/Account/Login'
+2019-03-16 23:03:13.484 -07:00 [DBG] Request matched endpoint 'Page: /Account/Login'
+2019-03-16 23:03:13.484 -07:00 [INF] Executing endpoint 'Page: /Account/Login'
+2019-03-16 23:03:13.513 -07:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2019-03-16 23:03:13.513 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:13.513 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:13.513 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:13.513 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:13.513 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:13.517 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel+InputModel' ...
+2019-03-16 23:03:13.517 -07:00 [DBG] Skipped binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.Input' since its binding information disallowed it for the current request.
+2019-03-16 23:03:13.519 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:13.520 -07:00 [DBG] Could not find a value in the request with name '' for binding parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:13.520 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:13.520 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:13.520 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:13.521 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:13.521 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:13.522 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.OnGetAsync with arguments ([""]) - ModelState is "Valid"
+2019-03-16 23:03:13.526 -07:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-03-16 23:03:13.527 -07:00 [INF] Executed handler method OnGetAsync, returned result .
+2019-03-16 23:03:13.527 -07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-03-16 23:03:13.527 -07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:13.535 -07:00 [DBG] A new antiforgery cookie token was created.
+2019-03-16 23:03:13.569 -07:00 [DBG] Found the endpoints ["Page: /Account/ForgotPassword"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.570 -07:00 [DBG] Successfully processed template Identity/Account/ForgotPassword for Page: /Account/ForgotPassword resulting in /Identity/Account/ForgotPassword and 
+2019-03-16 23:03:13.570 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ForgotPassword"] with result /Identity/Account/ForgotPassword
+2019-03-16 23:03:13.570 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.570 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and ?returnUrl=%2F
+2019-03-16 23:03:13.570 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register?returnUrl=%2F
+2019-03-16 23:03:13.571 -07:00 [DBG] Found the endpoints ["Page: /Account/ExternalLogin"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.571 -07:00 [DBG] Successfully processed template Identity/Account/ExternalLogin for Page: /Account/ExternalLogin resulting in /Identity/Account/ExternalLogin and ?returnUrl=%2F
+2019-03-16 23:03:13.571 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ExternalLogin"] with result /Identity/Account/ExternalLogin?returnUrl=%2F
+2019-03-16 23:03:13.572 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_Layout.cshtml'.
+2019-03-16 23:03:13.573 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.573 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:13.573 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:13.573 -07:00 [DBG] View lookup cache miss for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:13.573 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_LoginPartial.cshtml'.
+2019-03-16 23:03:13.573 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.573 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and 
+2019-03-16 23:03:13.573 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register
+2019-03-16 23:03:13.573 -07:00 [DBG] Found the endpoints ["Page: /Account/Login"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.573 -07:00 [DBG] Successfully processed template Identity/Account/Login for Page: /Account/Login resulting in /Identity/Account/Login and 
+2019-03-16 23:03:13.573 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Login"] with result /Identity/Account/Login
+2019-03-16 23:03:13.573 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.573 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:13.573 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:13.574 -07:00 [DBG] View lookup cache miss for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:13.574 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_CookieConsentPartial.cshtml'.
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:13.574 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:13.574 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:13.574 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:13.575 -07:00 [DBG] View lookup cache miss for view '_ValidationScriptsPartial' in controller 'null'.
+2019-03-16 23:03:13.577 -07:00 [DBG] Using precompiled view for '/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml'.
+2019-03-16 23:03:13.584 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:13.585 -07:00 [INF] Executed page /Account/Login in 71.464300000000009ms
+2019-03-16 23:03:13.585 -07:00 [INF] Executed endpoint 'Page: /Account/Login'
+2019-03-16 23:03:13.585 -07:00 [INF] Request finished in 104.3168ms 200 text/html; charset=utf-8
+
+
+POST EXTERNAL LOGIN (FIRST CALL, BEFORE CHALLENGE REDIRECT)
+
+
+2019-03-16 23:03:15.290 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/Identity/Account/ExternalLogin?returnUrl=%2F application/x-www-form-urlencoded 199
+2019-03-16 23:03:15.290 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:15.290 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:15.290 -07:00 [DBG] AuthenticationScheme: AzureADCookie was not authenticated.
+2019-03-16 23:03:15.290 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+2019-03-16 23:03:15.290 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:15.294 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:15.294 -07:00 [DBG] Endpoint 'Page: /Account/ExternalLogin' with route pattern 'Identity/Account/ExternalLogin' is valid for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:15.294 -07:00 [DBG] Request matched endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:15.294 -07:00 [INF] Executing endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:15.305 -07:00 [INF] Route matched with {page = "/Account/ExternalLogin", area = "Identity", action = "", controller = ""}. Executing page /Account/ExternalLogin
+2019-03-16 23:03:15.305 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:15.305 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:15.305 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:15.305 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:15.305 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:15.315 -07:00 [DBG] Antiforgery successfully validated a request.
+2019-03-16 23:03:15.317 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:15.318 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' using the name '' in request data ...
+2019-03-16 23:03:15.320 -07:00 [DBG] Could not find a value in the request with name 'Email' for binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String'.
+2019-03-16 23:03:15.320 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String'.
+2019-03-16 23:03:15.321 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:15.321 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:15.321 -07:00 [DBG] Attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to bind parameter 'provider' of type 'System.String' ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to bind parameter 'provider' of type 'System.String' using the name 'provider' in request data ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to bind parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to bind parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to validate the bound parameter 'provider' of type 'System.String' ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to validate the bound parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:15.332 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:15.332 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:15.333 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:15.333 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.OnPost with arguments (["AzureAD","/"]) - ModelState is "Invalid"
+2019-03-16 23:03:15.334 -07:00 [DBG] Found the endpoints ["Page: /Account/ExternalLogin"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:15.334 -07:00 [DBG] Successfully processed template Identity/Account/ExternalLogin for Page: /Account/ExternalLogin resulting in /Identity/Account/ExternalLogin and ?returnUrl=%2F&handler=Callback
+2019-03-16 23:03:15.334 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ExternalLogin"] with result /Identity/Account/ExternalLogin?returnUrl=%2F&handler=Callback
+2019-03-16 23:03:15.335 -07:00 [INF] Executed handler method OnPost, returned result Microsoft.AspNetCore.Mvc.ChallengeResult.
+2019-03-16 23:03:15.336 -07:00 [INF] Executing ChallengeResult with authentication schemes (["AzureAD"]).
+2019-03-16 23:03:15.791 -07:00 [INF] AuthenticationScheme: AzureADOpenID was challenged.
+2019-03-16 23:03:15.794 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:15.796 -07:00 [INF] Executed page /Account/ExternalLogin in 491.39540000000005ms
+2019-03-16 23:03:15.797 -07:00 [INF] Executed endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:15.801 -07:00 [INF] Request finished in 511.7987ms 302 
+
+
+POST OIDC CALLBACK FROM CHALLENGE (FIRST LOGIN TRY)
+
+
+2019-03-16 23:03:16.201 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/signin-oidc application/x-www-form-urlencoded 1898
+2019-03-16 23:03:16.201 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:16.211 -07:00 [DBG] Updating configuration
+2019-03-16 23:03:16.212 -07:00 [DBG] Received 'id_token'
+2019-03-16 23:03:16.266 -07:00 [INF] AuthenticationScheme: AzureADCookie signed in.
+2019-03-16 23:03:16.266 -07:00 [INF] Request finished in 65.4015ms 302 
+
+
+GET CALL TO ExternalLogin.CallbackHandler (FIRST LOGIN TRY)
+
+
+2019-03-16 23:03:16.268 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/Identity/Account/ExternalLogin?returnUrl=%2F&handler=Callback  
+2019-03-16 23:03:16.268 -07:00 [DBG] The request path /Identity/Account/ExternalLogin does not match a supported file type
+2019-03-16 23:03:16.269 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:16.269 -07:00 [DBG] AuthenticationScheme: AzureADCookie was successfully authenticated.
+2019-03-16 23:03:16.269 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+
+2019-03-16 23:03:16.269 -07:00 [DBG] AzureAD Auth Helper: Attempting signin with Identity cookie.
+2019-03-16 23:03:16.270 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
+2019-03-16 23:03:16.270 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
+2019-03-16 23:03:16.270 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.   <<<< FAIL AUTHENTICATE Identity.External
+2019-03-16 23:03:16.270 -07:00 [DBG]     - Authenticate test failed.
+2019-03-16 23:03:16.270 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+
+
+2019-03-16 23:03:16.270 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:16.270 -07:00 [DBG] Endpoint 'Page: /Account/ExternalLogin' with route pattern 'Identity/Account/ExternalLogin' is valid for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:16.270 -07:00 [DBG] Request matched endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:16.270 -07:00 [INF] Executing endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:16.270 -07:00 [INF] Route matched with {page = "/Account/ExternalLogin", area = "Identity", action = "", controller = ""}. Executing page /Account/ExternalLogin
+2019-03-16 23:03:16.270 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:16.270 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:16.270 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:16.270 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:16.270 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Skipped binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' since its binding information disallowed it for the current request.
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to bind parameter 'remoteError' of type 'System.String' ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Could not find a value in the request with name '' for binding parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to bind parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to bind parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] Attempting to validate the bound parameter 'remoteError' of type 'System.String' ...
+2019-03-16 23:03:16.270 -07:00 [DBG] Done attempting to validate the bound parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:16.270 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:16.270 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.OnGetCallbackAsync with arguments (["/",""]) - ModelState is "Valid"
+
+This will fail the first time through
+
+2019-03-16 23:03:16.273 -07:00 [DBG] Executing OnGetCallbackAsync.
+2019-03-16 23:03:16.273 -07:00 [DBG] Calling SignInManager.GetExternalLoginInfoAsync.
+2019-03-16 23:03:16.274 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.  <<< FAIL
+2019-03-16 23:03:16.274 -07:00 [DBG] SignInManager.GetExternalLoginInfoAsync returned null?: True.   <<< FAIL
+
+2019-03-16 23:03:18.883 -07:00 [INF] Executed handler method OnGetCallbackAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2019-03-16 23:03:18.883 -07:00 [DBG] Found the endpoints ["Page: /Account/Login"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.883 -07:00 [DBG] Successfully processed template Identity/Account/Login for Page: /Account/Login resulting in /Identity/Account/Login and ?ReturnUrl=%2F
+2019-03-16 23:03:18.883 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Login"] with result /Identity/Account/Login?ReturnUrl=%2F
+2019-03-16 23:03:18.883 -07:00 [INF] Executing RedirectToPageResult, redirecting to ./Login.
+2019-03-16 23:03:18.892 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:18.892 -07:00 [INF] Executed page /Account/ExternalLogin in 2622.2110000000002ms
+2019-03-16 23:03:18.892 -07:00 [INF] Executed endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:18.892 -07:00 [INF] Request finished in 2624.2153ms 302 
+
+
+BOUNCED BACK TO MAIN LOGIN PAGE FOR TRY #2
+
+
+2019-03-16 23:03:18.895 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/Identity/Account/Login?ReturnUrl=%2F  
+2019-03-16 23:03:18.895 -07:00 [DBG] The request path /Identity/Account/Login does not match a supported file type
+
+
+***** This is the middleware call for the login page redisplay after the callback authentication failure
+***** NOTE THAT NOW Identity.External AUTHENTICATE SUCCEEDS
+***** I bet if we were to try the ExternalLogin.OnGetCallBackAsync again it would work now
+
+
+2019-03-16 23:03:18.895 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:18.895 -07:00 [DBG] AuthenticationScheme: AzureADCookie was successfully authenticated.
+2019-03-16 23:03:18.895 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:18.895 -07:00 [DBG] AzureAD Auth Helper: Attempting signin with Identity cookie.
+2019-03-16 23:03:18.895 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
+2019-03-16 23:03:18.896 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
+
+SUCCESS!!!! But it is one page-load too late. Does this have something to do with the similar issue I had last year
+where the sign in doesn't take effect until the NEXT page load? Find out how I got around that.
+
+2019-03-16 23:03:18.896 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:18.896 -07:00 [DBG]     - Authenticate test succeeded.
+2019-03-16 23:03:18.896 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+
+
+2019-03-16 23:03:18.896 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/Login'
+2019-03-16 23:03:18.896 -07:00 [DBG] Endpoint 'Page: /Account/Login' with route pattern 'Identity/Account/Login' is valid for the request path '/Identity/Account/Login'
+2019-03-16 23:03:18.896 -07:00 [DBG] Request matched endpoint 'Page: /Account/Login'
+2019-03-16 23:03:18.896 -07:00 [INF] Executing endpoint 'Page: /Account/Login'
+2019-03-16 23:03:18.896 -07:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2019-03-16 23:03:18.896 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:18.896 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:18.896 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:18.896 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:18.896 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:18.896 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel+InputModel' ...
+2019-03-16 23:03:18.896 -07:00 [DBG] Skipped binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.Input' since its binding information disallowed it for the current request.
+2019-03-16 23:03:18.896 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:18.896 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:18.896 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:18.896 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:18.896 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:18.896 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:18.896 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:18.896 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LoginModel.OnGetAsync with arguments (["/"]) - ModelState is "Valid"
+2019-03-16 23:03:18.897 -07:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-03-16 23:03:18.897 -07:00 [INF] Executed handler method OnGetAsync, returned result .
+2019-03-16 23:03:18.897 -07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-03-16 23:03:18.897 -07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:18.898 -07:00 [DBG] A new antiforgery cookie token was created.
+2019-03-16 23:03:18.899 -07:00 [DBG] Found the endpoints ["Page: /Account/ForgotPassword"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.899 -07:00 [DBG] Successfully processed template Identity/Account/ForgotPassword for Page: /Account/ForgotPassword resulting in /Identity/Account/ForgotPassword and 
+2019-03-16 23:03:18.899 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ForgotPassword"] with result /Identity/Account/ForgotPassword
+2019-03-16 23:03:18.899 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.899 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and ?returnUrl=%2F
+2019-03-16 23:03:18.899 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register?returnUrl=%2F
+2019-03-16 23:03:18.899 -07:00 [DBG] Found the endpoints ["Page: /Account/ExternalLogin"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.899 -07:00 [DBG] Successfully processed template Identity/Account/ExternalLogin for Page: /Account/ExternalLogin resulting in /Identity/Account/ExternalLogin and ?returnUrl=%2F
+2019-03-16 23:03:18.899 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ExternalLogin"] with result /Identity/Account/ExternalLogin?returnUrl=%2F
+2019-03-16 23:03:18.899 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.899 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:18.899 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:18.899 -07:00 [DBG] View lookup cache hit for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Account/Login"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Identity/Account/Login for Page: /Account/Login resulting in /Identity/Account/Login and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Login"] with result /Identity/Account/Login
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:18.900 -07:00 [DBG] View lookup cache hit for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:18.900 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:18.900 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:18.900 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:18.901 -07:00 [DBG] View lookup cache hit for view '_ValidationScriptsPartial' in controller 'null'.
+2019-03-16 23:03:18.901 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:18.901 -07:00 [INF] Executed page /Account/Login in 5.2482000000000006ms
+2019-03-16 23:03:18.901 -07:00 [INF] Executed endpoint 'Page: /Account/Login'
+2019-03-16 23:03:18.901 -07:00 [INF] Request finished in 6.4468ms 200 text/html; charset=utf-8
+2019-03-16 23:03:20.362 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/Identity/Account/ExternalLogin?returnUrl=%2F application/x-www-form-urlencoded 242
+2019-03-16 23:03:20.362 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:20.363 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:20.363 -07:00 [DBG] AuthenticationScheme: AzureADCookie was successfully authenticated.
+2019-03-16 23:03:20.363 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+2019-03-16 23:03:20.363 -07:00 [DBG] AzureAD Auth Helper: Attempting signin with Identity cookie.
+2019-03-16 23:03:20.363 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
+2019-03-16 23:03:20.363 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
+2019-03-16 23:03:20.363 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.
+2019-03-16 23:03:20.363 -07:00 [DBG]     - Authenticate test failed.
+2019-03-16 23:03:20.363 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:20.363 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:20.363 -07:00 [DBG] Endpoint 'Page: /Account/ExternalLogin' with route pattern 'Identity/Account/ExternalLogin' is valid for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:20.363 -07:00 [DBG] Request matched endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:20.363 -07:00 [INF] Executing endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:20.363 -07:00 [INF] Route matched with {page = "/Account/ExternalLogin", area = "Identity", action = "", controller = ""}. Executing page /Account/ExternalLogin
+2019-03-16 23:03:20.363 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:20.363 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:20.363 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:20.363 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:20.363 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:20.363 -07:00 [DBG] Antiforgery successfully validated a request.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' using the name '' in request data ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Could not find a value in the request with name 'Email' for binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind parameter 'provider' of type 'System.String' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind parameter 'provider' of type 'System.String' using the name 'provider' in request data ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to validate the bound parameter 'provider' of type 'System.String' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to validate the bound parameter 'provider' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:20.364 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.364 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:20.364 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.OnPost with arguments (["AzureAD","/"]) - ModelState is "Invalid"
+2019-03-16 23:03:20.364 -07:00 [DBG] Found the endpoints ["Page: /Account/ExternalLogin"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:20.364 -07:00 [DBG] Successfully processed template Identity/Account/ExternalLogin for Page: /Account/ExternalLogin resulting in /Identity/Account/ExternalLogin and ?returnUrl=%2F&handler=Callback
+2019-03-16 23:03:20.364 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ExternalLogin"] with result /Identity/Account/ExternalLogin?returnUrl=%2F&handler=Callback
+2019-03-16 23:03:20.364 -07:00 [INF] Executed handler method OnPost, returned result Microsoft.AspNetCore.Mvc.ChallengeResult.
+2019-03-16 23:03:20.364 -07:00 [INF] Executing ChallengeResult with authentication schemes (["AzureAD"]).
+2019-03-16 23:03:20.365 -07:00 [INF] AuthenticationScheme: AzureADOpenID was challenged.
+2019-03-16 23:03:20.365 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:20.365 -07:00 [INF] Executed page /Account/ExternalLogin in 1.4778ms
+2019-03-16 23:03:20.365 -07:00 [INF] Executed endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:20.365 -07:00 [INF] Request finished in 2.66ms 302 
+2019-03-16 23:03:20.665 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/signin-oidc application/x-www-form-urlencoded 1904
+2019-03-16 23:03:20.665 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:20.666 -07:00 [DBG] Updating configuration
+2019-03-16 23:03:20.666 -07:00 [DBG] Received 'id_token'
+2019-03-16 23:03:20.668 -07:00 [INF] AuthenticationScheme: AzureADCookie signed in.
+2019-03-16 23:03:20.668 -07:00 [INF] Request finished in 3.3194ms 302 
+2019-03-16 23:03:20.678 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/Identity/Account/ExternalLogin?returnUrl=%2F&handler=Callback  
+2019-03-16 23:03:20.678 -07:00 [DBG] The request path /Identity/Account/ExternalLogin does not match a supported file type
+2019-03-16 23:03:20.678 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:20.678 -07:00 [DBG] AuthenticationScheme: AzureADCookie was successfully authenticated.
+2019-03-16 23:03:20.678 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:20.678 -07:00 [DBG] AzureAD Auth Helper: Attempting signin with Identity cookie.
+2019-03-16 23:03:20.678 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
+2019-03-16 23:03:20.678 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
+2019-03-16 23:03:20.678 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:20.678 -07:00 [DBG]     - Authenticate test succeeded.
+2019-03-16 23:03:20.678 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:20.678 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:20.678 -07:00 [DBG] Endpoint 'Page: /Account/ExternalLogin' with route pattern 'Identity/Account/ExternalLogin' is valid for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:20.678 -07:00 [DBG] Request matched endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:20.678 -07:00 [INF] Executing endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:20.678 -07:00 [INF] Route matched with {page = "/Account/ExternalLogin", area = "Identity", action = "", controller = ""}. Executing page /Account/ExternalLogin
+2019-03-16 23:03:20.679 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:20.679 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:20.679 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:20.679 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:20.679 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Skipped binding property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' since its binding information disallowed it for the current request.
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to bind parameter 'remoteError' of type 'System.String' ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Could not find a value in the request with name '' for binding parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to bind parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to bind parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] Attempting to validate the bound parameter 'remoteError' of type 'System.String' ...
+2019-03-16 23:03:20.679 -07:00 [DBG] Done attempting to validate the bound parameter 'remoteError' of type 'System.String'.
+2019-03-16 23:03:20.679 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:20.679 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.OnGetCallbackAsync with arguments (["/",""]) - ModelState is "Valid"
+2019-03-16 23:03:20.679 -07:00 [DBG] Executing OnGetCallbackAsync.
+2019-03-16 23:03:20.679 -07:00 [DBG] Calling SignInManager.GetExternalLoginInfoAsync.
+2019-03-16 23:03:20.679 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:20.680 -07:00 [DBG] SignInManager.GetExternalLoginInfoAsync returned null?: False.
+2019-03-16 23:03:22.548 -07:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-16 23:03:22.550 -07:00 [DBG] Compiling query model: 
+'(from IdentityUserLogin<Guid> userLogin in DbSet<IdentityUserLogin<Guid>>
+where [userLogin].LoginProvider == __loginProvider_0 && [userLogin].ProviderKey == __providerKey_1
+select [userLogin]).SingleOrDefault()'
+2019-03-16 23:03:22.551 -07:00 [DBG] Optimized query model: 
+'(from IdentityUserLogin<Guid> userLogin in DbSet<IdentityUserLogin<Guid>>
+where [userLogin].LoginProvider == __loginProvider_0 && [userLogin].ProviderKey == __providerKey_1
+select [userLogin]).SingleOrDefault()'
+2019-03-16 23:03:22.555 -07:00 [DBG] (QueryContext queryContext) => IAsyncEnumerable<IdentityUserLogin<Guid>> _InterceptExceptions(
+|__ source: IAsyncEnumerable<IdentityUserLogin<Guid>> _TrackEntities(
+|   |__ results: IAsyncEnumerable<IdentityUserLogin<Guid>> _ToSequence(() => Task<IdentityUserLogin<Guid>> SingleOrDefault(
+|   |   |__ source: IAsyncEnumerable<IdentityUserLogin<Guid>> _ShapedQuery(
+|   |   |   |__ queryContext: queryContext, 
+|   |   |   |__ shaperCommandContext: SelectExpression: 
+|   |   |   |       SELECT TOP(2) [userLogin].[LoginProvider], [userLogin].[ProviderKey], [userLogin].[ProviderDisplayName], [userLogin].[UserId]
+|   |   |   |       FROM [AspNetUserLogins] AS [userLogin]
+|   |   |   |       WHERE ([userLogin].[LoginProvider] = @__loginProvider_0) AND ([userLogin].[ProviderKey] = @__providerKey_1), 
+|   |   |   |__ shaper: (MaterializationContext materializationContext) => 
+|   |   |       {
+|   |   |           instance = new IdentityUserLogin<Guid>()
+|   |   |           instance.<LoginProvider>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 0, IdentityUserLogin`1.LoginProvider)
+|   |   |           instance.<ProviderKey>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 1, IdentityUserLogin`1.ProviderKey)
+|   |   |           instance.<ProviderDisplayName>k__BackingField = string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 2, IdentityUserLogin`1.ProviderDisplayName)
+|   |   |           instance.<UserId>k__BackingField = Guid TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 3, IdentityUserLogin`1.UserId)
+|   |   |           return instance
+|   |   |       }), 
+|   |   |__ cancellationToken: queryContext.CancellationToken)), 
+|   |__ queryContext: queryContext, 
+|   |__ entityTrackingInfos: { itemType: IdentityUserLogin`1 }, 
+|   |__ entityAccessors: List<Func<IdentityUserLogin<Guid>, object>> 
+|       { 
+|           Func<IdentityUserLogin<Guid>, IdentityUserLogin<Guid>>, 
+|       }), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: queryContext)
+2019-03-16 23:03:22.557 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:22.558 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:22.558 -07:00 [DBG] Executing DbCommand [Parameters=[@__loginProvider_0='?' (Size = 450), @__providerKey_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [userLogin].[LoginProvider], [userLogin].[ProviderKey], [userLogin].[ProviderDisplayName], [userLogin].[UserId]
+FROM [AspNetUserLogins] AS [userLogin]
+WHERE ([userLogin].[LoginProvider] = @__loginProvider_0) AND ([userLogin].[ProviderKey] = @__providerKey_1)
+2019-03-16 23:03:22.560 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__loginProvider_0='?' (Size = 450), @__providerKey_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [userLogin].[LoginProvider], [userLogin].[ProviderKey], [userLogin].[ProviderDisplayName], [userLogin].[UserId]
+FROM [AspNetUserLogins] AS [userLogin]
+WHERE ([userLogin].[LoginProvider] = @__loginProvider_0) AND ([userLogin].[ProviderKey] = @__providerKey_1)
+2019-03-16 23:03:22.562 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:22.562 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:22.562 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:24.536 -07:00 [INF] Executed handler method OnGetCallbackAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:24.546 -07:00 [DBG] Found the endpoints ["Page: /Account/ExternalLogin"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.546 -07:00 [DBG] Successfully processed template Identity/Account/ExternalLogin for Page: /Account/ExternalLogin resulting in /Identity/Account/ExternalLogin and ?returnUrl=%2F&handler=Confirmation
+2019-03-16 23:03:24.546 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/ExternalLogin"] with result /Identity/Account/ExternalLogin?returnUrl=%2F&handler=Confirmation
+2019-03-16 23:03:24.546 -07:00 [DBG] A new antiforgery cookie token was created.
+2019-03-16 23:03:24.551 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:24.552 -07:00 [DBG] View lookup cache miss for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:24.552 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_LoginPartial.cshtml'.
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Account/Register"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Identity/Account/Register for Page: /Account/Register resulting in /Identity/Account/Register and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Register"] with result /Identity/Account/Register
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Account/Login"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Identity/Account/Login for Page: /Account/Login resulting in /Identity/Account/Login and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Login"] with result /Identity/Account/Login
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:24.552 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.552 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:24.552 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:24.552 -07:00 [DBG] View lookup cache miss for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:24.553 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_CookieConsentPartial.cshtml'.
+2019-03-16 23:03:24.553 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.553 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:24.553 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:24.553 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:24.553 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:24.553 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:24.554 -07:00 [DBG] View lookup cache miss for view '_ValidationScriptsPartial' in controller 'null'.
+2019-03-16 23:03:24.554 -07:00 [DBG] Using precompiled view for '/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml'.
+2019-03-16 23:03:24.554 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:24.555 -07:00 [INF] Executed page /Account/ExternalLogin in 3875.9872ms
+2019-03-16 23:03:24.555 -07:00 [INF] Executed endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:24.555 -07:00 [DBG] 'AppDbContext' disposed.
+2019-03-16 23:03:24.555 -07:00 [INF] Request finished in 3877.4439ms 200 text/html; charset=utf-8
+2019-03-16 23:03:39.643 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/Identity/Account/ExternalLogin?returnUrl=%2F&handler=Confirmation application/x-www-form-urlencoded 270
+2019-03-16 23:03:39.643 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:39.643 -07:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2019-03-16 23:03:39.644 -07:00 [DBG] AuthenticationScheme: AzureADCookie was successfully authenticated.
+2019-03-16 23:03:39.644 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:39.644 -07:00 [DBG] AzureAD Auth Helper: Attempting signin with Identity cookie.
+2019-03-16 23:03:39.644 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
+2019-03-16 23:03:39.644 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
+2019-03-16 23:03:39.644 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:39.644 -07:00 [DBG]     - Authenticate test succeeded.
+2019-03-16 23:03:39.644 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:39.644 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:39.644 -07:00 [DBG] Endpoint 'Page: /Account/ExternalLogin' with route pattern 'Identity/Account/ExternalLogin' is valid for the request path '/Identity/Account/ExternalLogin'
+2019-03-16 23:03:39.644 -07:00 [DBG] Request matched endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:39.644 -07:00 [INF] Executing endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:39.644 -07:00 [INF] Route matched with {page = "/Account/ExternalLogin", area = "Identity", action = "", controller = ""}. Executing page /Account/ExternalLogin
+2019-03-16 23:03:39.644 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:39.644 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:39.644 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:39.644 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:39.644 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:39.644 -07:00 [DBG] Antiforgery successfully validated a request.
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' using the name 'Input' in request data ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String' using the name 'Input.Email' in request data ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel.Email' of type 'System.String'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to bind property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel' ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to validate the bound property 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.Input' of type 'SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel+InputModel'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' using the name 'returnUrl' in request data ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:39.645 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:39.645 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:39.645 -07:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2019-03-16 23:03:39.645 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.ExternalLoginModel.OnPostConfirmationAsync with arguments (["/"]) - ModelState is "Valid"
+2019-03-16 23:03:39.647 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:39.647 -07:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-03-16 23:03:39.647 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.647 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.647 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:39.648 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:39.648 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.648 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.648 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.672 -07:00 [DBG] 'AppDbContext' generated a value for the 'Id' property of new 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.677 -07:00 [DBG] Context 'AppDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.679 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.693 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.695 -07:00 [DBG] SaveChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.695 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.695 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.701 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.701 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.703 -07:00 [DBG] Beginning transaction with isolation level 'ReadCommitted'.
+2019-03-16 23:03:39.715 -07:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2019-03-16 23:03:39.721 -07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2019-03-16 23:03:39.723 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.724 -07:00 [DBG] Committing transaction.
+2019-03-16 23:03:39.724 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.724 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.724 -07:00 [DBG] Disposing transaction.
+2019-03-16 23:03:39.732 -07:00 [DBG] An 'ApplicationUser' entity tracked by 'AppDbContext' changed from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.735 -07:00 [DBG] SaveChanges completed for 'AppDbContext' with 1 entities written to the database.
+2019-03-16 23:03:39.741 -07:00 [DBG] Compiling query model: 
+'from OutboxPackage p in DbSet<OutboxPackage>
+where 
+    (from Guid <generated>_1 in __idArray_0
+    select [<generated>_1]).Contains([p].PackageId)
+select [p]'
+2019-03-16 23:03:39.742 -07:00 [DBG] Optimized query model: 
+'from OutboxPackage p in DbSet<OutboxPackage>
+where 
+    (from Guid <generated>_1 in __idArray_0
+    select [<generated>_1]).Contains([p].PackageId)
+select [p]'
+2019-03-16 23:03:39.746 -07:00 [DBG] (QueryContext queryContext) => IEnumerable<OutboxPackage> _InterceptExceptions(
+|__ source: IEnumerable<OutboxPackage> _TrackEntities(
+|   |__ results: IEnumerable<OutboxPackage> _ShapedQuery(
+|   |   |__ queryContext: queryContext, 
+|   |   |__ shaperCommandContext: SelectExpression: 
+|   |   |       SELECT [p].[PackageId], [p].[Created], [p].[ObjectType], [p].[SerializedObject], [p].[ValidUntil]
+|   |   |       FROM [OutboxPackages] AS [p]
+|   |   |       WHERE 0 = 1, 
+|   |   |__ shaper: (MaterializationContext materializationContext) => 
+|   |       {
+|   |           instance = new OutboxPackage(
+|   |               Guid TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 0, OutboxPackage.PackageId), 
+|   |               string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 2, OutboxPackage.ObjectType), 
+|   |               string TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 3, OutboxPackage.SerializedObject), 
+|   |               DateTime TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 4, OutboxPackage.ValidUntil)
+|   |           )
+|   |           instance.<Created>k__BackingField = DateTime TryReadValue(ValueBuffer materializationContext.get_ValueBuffer(), 1, OutboxPackage.Created)
+|   |           return instance
+|   |       }), 
+|   |__ queryContext: queryContext, 
+|   |__ entityTrackingInfos: { itemType: OutboxPackage }, 
+|   |__ entityAccessors: List<Func<OutboxPackage, object>> 
+|       { 
+|           Func<OutboxPackage, OutboxPackage>, 
+|       }), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: queryContext)
+2019-03-16 23:03:39.747 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.747 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.748 -07:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PackageId], [p].[Created], [p].[ObjectType], [p].[SerializedObject], [p].[ValidUntil]
+FROM [OutboxPackages] AS [p]
+WHERE 0 = 1
+2019-03-16 23:03:39.748 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PackageId], [p].[Created], [p].[ObjectType], [p].[SerializedObject], [p].[ValidUntil]
+FROM [OutboxPackages] AS [p]
+WHERE 0 = 1
+2019-03-16 23:03:39.749 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.749 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.749 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.749 -07:00 [DBG] SaveChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.749 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.749 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.749 -07:00 [DBG] SaveChanges completed for 'AppDbContext' with 0 entities written to the database.
+2019-03-16 23:03:39.752 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.752 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.753 -07:00 [DBG] Executing DbCommand [Parameters=[@__loginProvider_0='?' (Size = 450), @__providerKey_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [userLogin].[LoginProvider], [userLogin].[ProviderKey], [userLogin].[ProviderDisplayName], [userLogin].[UserId]
+FROM [AspNetUserLogins] AS [userLogin]
+WHERE ([userLogin].[LoginProvider] = @__loginProvider_0) AND ([userLogin].[ProviderKey] = @__providerKey_1)
+2019-03-16 23:03:39.753 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__loginProvider_0='?' (Size = 450), @__providerKey_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [userLogin].[LoginProvider], [userLogin].[ProviderKey], [userLogin].[ProviderDisplayName], [userLogin].[UserId]
+FROM [AspNetUserLogins] AS [userLogin]
+WHERE ([userLogin].[LoginProvider] = @__loginProvider_0) AND ([userLogin].[ProviderKey] = @__providerKey_1)
+2019-03-16 23:03:39.754 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.754 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.754 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.762 -07:00 [DBG] Context 'AppDbContext' started tracking 'IdentityUserLogin<Guid>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.763 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.763 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.763 -07:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:39.764 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2019-03-16 23:03:39.765 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.765 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.765 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.770 -07:00 [DBG] An 'ApplicationUser' entity tracked by 'AppDbContext' changed from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.770 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.771 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.771 -07:00 [DBG] SaveChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.771 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.771 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.771 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.771 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.772 -07:00 [DBG] Beginning transaction with isolation level 'ReadCommitted'.
+2019-03-16 23:03:39.775 -07:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2019-03-16 23:03:39.775 -07:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 4000), @p3='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserLogins] ([LoginProvider], [ProviderKey], [ProviderDisplayName], [UserId])
+VALUES (@p0, @p1, @p2, @p3);
+2019-03-16 23:03:39.777 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 4000), @p3='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserLogins] ([LoginProvider], [ProviderKey], [ProviderDisplayName], [UserId])
+VALUES (@p0, @p1, @p2, @p3);
+2019-03-16 23:03:39.777 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.777 -07:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2019-03-16 23:03:39.783 -07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p16='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2019-03-16 23:03:39.784 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.784 -07:00 [DBG] Committing transaction.
+2019-03-16 23:03:39.784 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.784 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.784 -07:00 [DBG] Disposing transaction.
+2019-03-16 23:03:39.784 -07:00 [DBG] An 'ApplicationUser' entity tracked by 'AppDbContext' changed from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.785 -07:00 [DBG] An 'IdentityUserLogin<Guid>' entity tracked by 'AppDbContext' changed from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2019-03-16 23:03:39.785 -07:00 [DBG] SaveChanges completed for 'AppDbContext' with 2 entities written to the database.
+2019-03-16 23:03:39.785 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.785 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.785 -07:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PackageId], [p].[Created], [p].[ObjectType], [p].[SerializedObject], [p].[ValidUntil]
+FROM [OutboxPackages] AS [p]
+WHERE 0 = 1
+2019-03-16 23:03:39.785 -07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[PackageId], [p].[Created], [p].[ObjectType], [p].[SerializedObject], [p].[ValidUntil]
+FROM [OutboxPackages] AS [p]
+WHERE 0 = 1
+2019-03-16 23:03:39.785 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.785 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.785 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.785 -07:00 [DBG] SaveChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.785 -07:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2019-03-16 23:03:39.786 -07:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2019-03-16 23:03:39.786 -07:00 [DBG] SaveChanges completed for 'AppDbContext' with 0 entities written to the database.
+2019-03-16 23:03:39.798 -07:00 [DBG] Compiling query model: 
+'from IdentityUserClaim<Guid> uc in DbSet<IdentityUserClaim<Guid>>
+where bool [uc].UserId.Equals(__user_Id_0)
+select Claim [uc].ToClaim()'
+2019-03-16 23:03:39.800 -07:00 [DBG] Optimized query model: 
+'from IdentityUserClaim<Guid> uc in DbSet<IdentityUserClaim<Guid>>
+where bool [uc].UserId.Equals(__user_Id_0)
+select Claim [uc].ToClaim()'
+2019-03-16 23:03:39.808 -07:00 [DBG] (QueryContext queryContext) => IAsyncEnumerable<Claim> _InterceptExceptions(
+|__ source: IAsyncEnumerable<Claim> _ShapedQuery(
+|   |__ queryContext: queryContext, 
+|   |__ shaperCommandContext: SelectExpression: 
+|   |       SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+|   |       FROM [AspNetUserClaims] AS [uc]
+|   |       WHERE [uc].[UserId] = @__user_Id_0, 
+|   |__ shaper: (QueryContext queryContext | IdentityUserClaim<Guid> uc) => Claim uc.ToClaim()), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: Unhandled parameter: queryContext)
+2019-03-16 23:03:39.809 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.809 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.809 -07:00 [DBG] Executing DbCommand [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0
+2019-03-16 23:03:39.810 -07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0
+2019-03-16 23:03:39.812 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.812 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.812 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.829 -07:00 [DBG] Compiling query model: 
+'from IdentityUserRole<Guid> userRole in DbSet<IdentityUserRole<Guid>>
+join ApplicationRole role in DbSet<ApplicationRole>
+on [userRole].RoleId equals [role].Id
+where bool [userRole].UserId.Equals(__userId_0)
+select [role].Name'
+2019-03-16 23:03:39.829 -07:00 [DBG] Optimized query model: 
+'from IdentityUserRole<Guid> userRole in DbSet<IdentityUserRole<Guid>>
+join ApplicationRole role in DbSet<ApplicationRole>
+on [userRole].RoleId equals [role].Id
+where bool [userRole].UserId.Equals(__userId_0)
+select [role].Name'
+2019-03-16 23:03:39.842 -07:00 [DBG] (QueryContext queryContext) => IAsyncEnumerable<string> _InterceptExceptions(
+|__ source: IAsyncEnumerable<string> _ShapedQuery(
+|   |__ queryContext: queryContext, 
+|   |__ shaperCommandContext: SelectExpression: 
+|   |       SELECT [role].[Name]
+|   |       FROM [AspNetUserRoles] AS [userRole]
+|   |       INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+|   |       WHERE [userRole].[UserId] = @__userId_0, 
+|   |__ shaper: (QueryContext queryContext | TransparentIdentifier<ValueBuffer, ValueBuffer> t0) => string TryReadValue(t0.Inner, 0, ApplicationRole.Name)), 
+|__ contextType: SSar.Contexts.Common.Data.AppDbContext, 
+|__ logger: DiagnosticsLogger<Query>, 
+|__ queryContext: Unhandled parameter: queryContext)
+2019-03-16 23:03:39.842 -07:00 [DBG] Opening connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.842 -07:00 [DBG] Opened connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.842 -07:00 [DBG] Executing DbCommand [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0
+2019-03-16 23:03:39.844 -07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0
+2019-03-16 23:03:39.844 -07:00 [DBG] A data reader was disposed.
+2019-03-16 23:03:39.844 -07:00 [DBG] Closing connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.845 -07:00 [DBG] Closed connection to database 'SSar.ApplicationDb' on server 'localhost'.
+2019-03-16 23:03:39.850 -07:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2019-03-16 23:03:39.850 -07:00 [INF] User created an account using Microsoft provider.
+2019-03-16 23:03:39.850 -07:00 [INF] Executed handler method OnPostConfirmationAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2019-03-16 23:03:39.850 -07:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2019-03-16 23:03:39.850 -07:00 [DBG] Cookie '.AspNetCore.Mvc.CookieTempDataProvider' suppressed due to consent policy.
+2019-03-16 23:03:39.850 -07:00 [INF] Executed page /Account/ExternalLogin in 206.01610000000002ms
+2019-03-16 23:03:39.850 -07:00 [INF] Executed endpoint 'Page: /Account/ExternalLogin'
+2019-03-16 23:03:39.850 -07:00 [DBG] 'AppDbContext' disposed.
+2019-03-16 23:03:39.851 -07:00 [INF] Request finished in 207.5787ms 302 
+2019-03-16 23:03:39.853 -07:00 [INF] Request starting HTTP/2.0 GET https://localhost:44336/  
+2019-03-16 23:03:39.853 -07:00 [DBG] The request path / does not match a supported file type
+2019-03-16 23:03:39.857 -07:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2019-03-16 23:03:39.857 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:39.857 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:39.857 -07:00 [DBG] 1 candidate(s) found for the request path '/'
+2019-03-16 23:03:39.858 -07:00 [DBG] Endpoint 'Page: /Index' with route pattern '' is valid for the request path '/'
+2019-03-16 23:03:39.858 -07:00 [DBG] Request matched endpoint 'Page: /Index'
+2019-03-16 23:03:39.858 -07:00 [INF] Executing endpoint 'Page: /Index'
+2019-03-16 23:03:39.858 -07:00 [INF] Route matched with {page = "/Index", area = "", action = "", controller = ""}. Executing page /Index
+2019-03-16 23:03:39.858 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:39.858 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:39.858 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:39.858 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:39.858 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:39.858 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Pages.IndexModel.OnGet with arguments (null) - ModelState is "Valid"
+2019-03-16 23:03:39.859 -07:00 [INF] Executed handler method OnGet, returned result .
+2019-03-16 23:03:39.859 -07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2019-03-16 23:03:39.859 -07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:39.860 -07:00 [DBG] View lookup cache hit for view '_Layout' in controller 'null'.
+2019-03-16 23:03:39.860 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.860 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:39.860 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:39.860 -07:00 [DBG] View lookup cache hit for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:39.860 -07:00 [DBG] Found the endpoints ["Page: /Account/Manage/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.860 -07:00 [DBG] Successfully processed template Identity/Account/Manage for Page: /Account/Manage/Index resulting in /Identity/Account/Manage and 
+2019-03-16 23:03:39.860 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Manage/Index"] with result /Identity/Account/Manage
+2019-03-16 23:03:39.861 -07:00 [DBG] No endpoints found for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.861 -07:00 [DBG] Found the endpoints ["Page: /Account/Logout"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.861 -07:00 [DBG] Successfully processed template Identity/Account/Logout for Page: /Account/Logout resulting in /Identity/Account/Logout and 
+2019-03-16 23:03:39.861 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Logout"] with result /Identity/Account/Logout
+2019-03-16 23:03:39.861 -07:00 [DBG] An antiforgery cookie token was reused.
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:39.862 -07:00 [DBG] View lookup cache hit for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:39.862 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:39.862 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:39.862 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:39.863 -07:00 [INF] Executed page /Index in 4.9964ms
+2019-03-16 23:03:39.863 -07:00 [INF] Executed endpoint 'Page: /Index'
+2019-03-16 23:03:39.863 -07:00 [INF] Request finished in 9.6581ms 200 text/html; charset=utf-8
+2019-03-16 23:03:42.611 -07:00 [INF] Request starting HTTP/2.0 POST https://localhost:44336/Identity/Account/Logout application/x-www-form-urlencoded 225
+2019-03-16 23:03:42.611 -07:00 [DBG] POST requests are not supported
+2019-03-16 23:03:42.612 -07:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2019-03-16 23:03:42.612 -07:00 [DBG] AuthenticationScheme: Identity.External was successfully authenticated.
+2019-03-16 23:03:42.612 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
+2019-03-16 23:03:42.612 -07:00 [DBG] 1 candidate(s) found for the request path '/Identity/Account/Logout'
+2019-03-16 23:03:42.612 -07:00 [DBG] Endpoint 'Page: /Account/Logout' with route pattern 'Identity/Account/Logout' is valid for the request path '/Identity/Account/Logout'
+2019-03-16 23:03:42.612 -07:00 [DBG] Request matched endpoint 'Page: /Account/Logout'
+2019-03-16 23:03:42.612 -07:00 [INF] Executing endpoint 'Page: /Account/Logout'
+2019-03-16 23:03:42.622 -07:00 [INF] Route matched with {page = "/Account/Logout", area = "Identity", action = "", controller = ""}. Executing page /Account/Logout
+2019-03-16 23:03:42.622 -07:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter","Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.AutoValidateAntiforgeryTokenAuthorizationFilter"]
+2019-03-16 23:03:42.622 -07:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:42.622 -07:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2019-03-16 23:03:42.622 -07:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2019-03-16 23:03:42.622 -07:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.SaveTempDataFilter"]
+2019-03-16 23:03:42.622 -07:00 [DBG] Antiforgery successfully validated a request.
+2019-03-16 23:03:42.622 -07:00 [DBG] Attempting to bind parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:42.622 -07:00 [DBG] Could not find a value in the request with name '' for binding parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:42.622 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:42.622 -07:00 [DBG] Done attempting to bind parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:42.622 -07:00 [DBG] Attempting to validate the bound parameter 'returnUrl' of type 'System.String' ...
+2019-03-16 23:03:42.622 -07:00 [DBG] Done attempting to validate the bound parameter 'returnUrl' of type 'System.String'.
+2019-03-16 23:03:42.622 -07:00 [INF] Executing handler method SSar.Presentation.WebUI.Areas.Identity.Pages.Account.LogoutModel.OnPost with arguments ([""]) - ModelState is "Valid"
+2019-03-16 23:03:42.624 -07:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2019-03-16 23:03:42.624 -07:00 [INF] AuthenticationScheme: Identity.External signed out.
+2019-03-16 23:03:42.624 -07:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2019-03-16 23:03:42.624 -07:00 [INF] User logged out.
+2019-03-16 23:03:42.624 -07:00 [INF] Executed handler method OnPost, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2019-03-16 23:03:42.626 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.626 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:42.626 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:42.626 -07:00 [DBG] View lookup cache miss for view '_LoginPartial' in controller 'null'.
+2019-03-16 23:03:42.627 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_LoginPartial.cshtml'.
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Account/Manage/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Identity/Account/Manage for Page: /Account/Manage/Index resulting in /Identity/Account/Manage and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Manage/Index"] with result /Identity/Account/Manage
+2019-03-16 23:03:42.627 -07:00 [DBG] No endpoints found for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Account/Logout"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Identity/Account/Logout for Page: /Account/Logout resulting in /Identity/Account/Logout and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Account/Logout"] with result /Identity/Account/Logout
+2019-03-16 23:03:42.627 -07:00 [DBG] An antiforgery cookie token was reused.
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template  for Page: /Index resulting in  and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Index"] with result /
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Members/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Membership/Members for Page: /Members/Index resulting in /Membership/Members and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Members/Index"] with result /Membership/Members
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /MemberOrgs/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Membership/MemberOrgs for Page: /MemberOrgs/Index resulting in /Membership/MemberOrgs and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /MemberOrgs/Index"] with result /Membership/MemberOrgs
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Roles/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Identity/Roles for Page: /Roles/Index resulting in /Identity/Roles and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Roles/Index"] with result /Identity/Roles
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /ExamplePerson/Index"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Membership/ExamplePerson for Page: /ExamplePerson/Index resulting in /Membership/ExamplePerson and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /ExamplePerson/Index"] with result /Membership/ExamplePerson
+2019-03-16 23:03:42.627 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.627 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:42.627 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:42.627 -07:00 [DBG] View lookup cache miss for view '_CookieConsentPartial' in controller 'null'.
+2019-03-16 23:03:42.628 -07:00 [DBG] Using precompiled view for '/Pages/Shared/_CookieConsentPartial.cshtml'.
+2019-03-16 23:03:42.628 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.628 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:42.628 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:42.628 -07:00 [DBG] Found the endpoints ["Page: /Privacy"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2019-03-16 23:03:42.628 -07:00 [DBG] Successfully processed template Privacy for Page: /Privacy resulting in /Privacy and 
+2019-03-16 23:03:42.628 -07:00 [DBG] Link generation succeeded for endpoints ["Page: /Privacy"] with result /Privacy
+2019-03-16 23:03:42.628 -07:00 [INF] Executed page /Account/Logout in 6.3631ms
+2019-03-16 23:03:42.628 -07:00 [INF] Executed endpoint 'Page: /Account/Logout'
+2019-03-16 23:03:42.628 -07:00 [INF] Request finished in 17.2134ms 200 text/html; charset=utf-8
