@@ -613,6 +613,9 @@ GET CALL TO ExternalLogin.CallbackHandler (FIRST LOGIN TRY)
 2019-03-16 23:03:16.270 -07:00 [INF] AuthenticationScheme: Identity.External signed in.
 2019-03-16 23:03:16.270 -07:00 [DBG] AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).
 2019-03-16 23:03:16.270 -07:00 [DBG] AuthenticationScheme: Identity.External was not authenticated.   <<<< FAIL AUTHENTICATE Identity.External
+
+*** Could it be failing because the Identity.External cookie was saved, but it's not yet available in the HTTP Context? Could I just add the cookie to the context immediately?
+
 2019-03-16 23:03:16.270 -07:00 [DBG]     - Authenticate test failed.
 2019-03-16 23:03:16.270 -07:00 [DBG] AzureAD Auth Helper: Invoking next middleware.
 
@@ -670,7 +673,9 @@ BOUNCED BACK TO MAIN LOGIN PAGE FOR TRY #2
 
 
 ***** This is the middleware call for the login page redisplay after the callback authentication failure
+
 ***** NOTE THAT NOW Identity.External AUTHENTICATE SUCCEEDS
+
 ***** I bet if we were to try the ExternalLogin.OnGetCallBackAsync again it would work now
 
 

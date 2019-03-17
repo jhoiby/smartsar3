@@ -212,6 +212,11 @@ namespace SSar.Presentation.WebUI
 
                         logger.LogDebug("AzureAD Auth Helper: Attempting signin with Identity cookie.");
                         await context.SignInAsync(IdentityConstants.ExternalScheme, principal, authResult1.Properties);
+
+                        // TO TRY: GET COOKIE FROM REPLY AND PUT IT IN CURRENT REQUEST?
+                        // THIS APPEARS TO BE THE PROBLEM!!!!
+
+                        var cookieTest = context.Request.Cookies;
                         
                         logger.LogDebug("AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).");
                         var authResultTest = await context.AuthenticateAsync(IdentityConstants.ExternalScheme);
