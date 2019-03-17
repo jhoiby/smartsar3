@@ -200,7 +200,6 @@ namespace SSar.Presentation.WebUI
                         context.User = principal;
 
                         // Persist info for Identity.External authenticate handler to use
-                        logger.LogDebug("AzureAD Auth Helper: Attempting signin with Identity cookie.");
 
                         // See Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler:139 for clues on how to set up this SignIn
 
@@ -209,10 +208,21 @@ namespace SSar.Presentation.WebUI
                             authResult1.Ticket.Properties.Items[".AuthScheme"] = "Microsoft";
                             authResult1.Ticket.Properties.Items["LoginProvider"] = "Microsoft";
                         }
+
+
+                        logger.LogDebug("AzureAD Auth Helper: Attempting signin with Identity cookie.");
                         await context.SignInAsync(IdentityConstants.ExternalScheme, principal, authResult1.Properties);
                         
-
-                        var authResultTest = await context.AuthenticateAsync(IdentityConstants.ExternalScheme); 
+                        logger.LogDebug("AzureAD Auth Helper: Attempting test AuthenticateAsync(Identity.External).");
+                        var authResultTest = await context.AuthenticateAsync(IdentityConstants.ExternalScheme);
+                        if (authResultTest.Succeeded)
+                        {
+                            logger.LogDebug("    - Authenticate test succeeded.");
+                        }
+                        else
+                        {
+                            logger.LogDebug("    - Authenticate test failed.");
+                        }
                         var cookiesTest = context.Request.Cookies;
                     }
                 }
