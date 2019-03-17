@@ -171,10 +171,48 @@ namespace SSar.Presentation.WebUI
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.Use(async (context, next) =>
+            {
+                logger.LogDebug("      Middleware debug point 1");
+                await next.Invoke();
+                logger.LogDebug("      Middleware debug point 8");
+
+                var test1 = context.User.Identity.IsAuthenticated;
+                var test2 = context.User.Claims.Count();
+                var test3 = context.User.Identity.AuthenticationType;
+                logger.LogDebug($"          User.IsAuthenticated = {test1.ToString()}");
+                logger.LogDebug($"          User.Claims.Count = {test2.ToString()}");
+                logger.LogDebug($"          User.Identity.AuthenticationType = {test3}");
+
+                var authResultTest1 = await context.AuthenticateAsync(AzureADDefaults.AuthenticationScheme);
+                logger.LogDebug($"          AzureAD AuthResult.Succeeded = {authResultTest1.Succeeded.ToString()}");
+
+                //
+                //
+                // TODO: Try to perform a SignIn(Identity.External) here to save an identity cookie.
+                //
+                // Will need to build the parameters for the SignIn method. I may have to extract the ticket the same way OIDC does?
+                // See Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler:139 for clues on how to set up this SignIn.
+                //
+                // await context.SignInAsync(IdentityConstants.ExternalScheme, principal, authResult1.Properties);
+                //
+
+            });
+
+
             app.UseAuthentication();
 
             app.Use(async (context, next) =>
             {
+                logger.LogDebug("      Middleware debug point 2");
+                await next.Invoke();
+                logger.LogDebug("      Middleware debug point 7");
+            });
+
+            app.Use(async (context, next) =>
+            {
+                logger.LogDebug("AzureAD Auth Helper: middleware execution starting.");
+
                 // If not authenticated, attempt AzureAD authentication/conversion
                 if (!context.User.Identities.Any(x => x.IsAuthenticated))
                 {
@@ -241,10 +279,33 @@ namespace SSar.Presentation.WebUI
                 }
 
                 logger.LogDebug("AzureAD Auth Helper: Invoking next middleware.");
+
+
+                logger.LogDebug("AzureAD Auth Helper: Calling next.Invoke().");
                 await next.Invoke();
+                logger.LogDebug("AzureAD Auth Helper: Returned from next.Invoke()");
+
+
+                logger.LogDebug("AzureAD Auth Helper: Execution complete");
+            });
+            
+            app.Use(async (context, next) =>
+            {
+                logger.LogDebug("      Middleware debug point 3");
+                await next.Invoke();
+                logger.LogDebug("      Middleware debug point 6");
             });
 
             app.UseMvc();
+
+
+
+            app.Use(async (context, next) =>
+            {
+                logger.LogDebug("      Middleware debug point 4");
+                await next.Invoke();
+                logger.LogDebug("      Middleware debug point 5");
+            });
         }
     }
 }
