@@ -22,7 +22,7 @@ namespace SSar.Presentation.WebUI
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()                                 // Application log threshold
                 .MinimumLevel.Override(
-                    "Microsoft", LogEventLevel.Warning)               // AspNetCore log threshold
+                    "Microsoft", LogEventLevel.Debug)               // AspNetCore log threshold
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
                 .WriteTo.Async( p=> 

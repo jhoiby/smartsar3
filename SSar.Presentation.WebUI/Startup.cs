@@ -1,10 +1,14 @@
+using System;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Claims;
+using Dapper;
 using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.AzureAD.UI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +21,7 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using SSar.Contexts.Common.Application.IntegrationEvents;
 using SSar.Contexts.Common.Application.RequestPipelineBehaviors;
 using SSar.Contexts.Common.Application.ServiceInterfaces;
@@ -85,6 +90,11 @@ namespace SSar.Presentation.WebUI
                     o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
                     o.ClaimActions.MapJsonKey("urn:google:profile", "link");
                     o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                })
+                .AddAzureAD(options =>
+                {
+                    Configuration.Bind("Authentication:AzureAd", options);
+
                 });
 
             services.AddHtmlTags(new TagConventions());
@@ -140,7 +150,9 @@ namespace SSar.Presentation.WebUI
             IHostingEnvironment env,
             AppDbContext appDbContext, 
             RoleManager<ApplicationRole> roleManager, 
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -160,6 +172,62 @@ namespace SSar.Presentation.WebUI
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.Use(async (context, next) =>
+            {
+                // If not authenticated, attempt AzureAD authentication/conversion
+                if (!context.User.Identities.Any(x => x.IsAuthenticated))
+                {
+                    var principal = new ClaimsPrincipal();
+
+                    // Get AzureAD authenticate info
+                    
+                    var authResult1 = await context.AuthenticateAsync(AzureADDefaults.AuthenticationScheme);
+                    var authResult2 = await context.AuthenticateAsync(IdentityConstants.ExternalScheme);
+
+                    if (authResult2?.Ticket?.Properties != null)
+                    {
+                        authResult2.Ticket.Properties.Items[".AuthScheme"] = "Microsoft";
+                        authResult2.Ticket.Properties.Items["LoginProvider"] = "Microsoft";
+                    }
+
+
+
+                    if (authResult1?.Principal != null)
+                    {
+                        // Build ClaimsPrincipal (user)
+                        principal.AddIdentities(authResult1.Principal.Identities);
+                        context.User = principal;
+
+                        // Persist info for Identity.External authenticate handler to use
+                        logger.LogDebug("AzureAD Auth Helper: Attempting signin with Identity cookie.");
+
+                        // See Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler:139 for clues on how to set up this SignIn
+
+                        if (authResult1?.Ticket?.Properties != null)
+                        {
+                            authResult1.Ticket.Properties.Items[".AuthScheme"] = "Microsoft";
+                            authResult1.Ticket.Properties.Items["LoginProvider"] = "Microsoft";
+                        }
+                        await context.SignInAsync(IdentityConstants.ExternalScheme, principal, authResult1.Properties);
+                        
+
+                        var authResultTest = await context.AuthenticateAsync(IdentityConstants.ExternalScheme); 
+                        var cookiesTest = context.Request.Cookies;
+                    }
+                }
+                else
+                {
+                    // Tests for Google comparison
+
+                    var authResultG = await context.AuthenticateAsync(IdentityConstants.ExternalScheme);
+
+                    var test1 = context.Request.Cookies;
+                }
+
+                logger.LogDebug("AzureAD Auth Helper: Invoking next middleware.");
+                await next.Invoke();
+            });
 
             app.UseMvc();
         }

@@ -62,13 +62,24 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
+            
+            _logger.LogDebug("Executing OnGetCallbackAsync.");
+            var TEST1 = HttpContext.User;
+            var TEST2 = HttpContext.User.Identities;
+            var TEST3 = HttpContext.User.Identity;
+            var TEST4 = HttpContext.User.Claims;
+            var TEST5 = HttpContext.User.Claims.Count();
+
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
                 ErrorMessage = $"Error from external provider: {remoteError}";
                 return RedirectToPage("./Login", new {ReturnUrl = returnUrl });
             }
+            _logger.LogDebug("Calling SignInManager.GetExternalLoginInfoAsync.");
             var info = await _signInManager.GetExternalLoginInfoAsync();
+
+            _logger.LogDebug($"SignInManager.GetExternalLoginInfoAsync returned null?: {(info == null).ToString()}.");
             if (info == null)
             {
                 ErrorMessage = "Error loading external login information.";
@@ -76,6 +87,9 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
             }
 
             // Sign in the user with this external login provider if the user already has a login.
+
+            // WE GOT THE EXTERNAL LOGIN INFO TO LOAD, FINALLY, BUT NOW ExternalLoginSignInAsync IS FAILING
+
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor : true);
             if (result.Succeeded)
             {
