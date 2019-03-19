@@ -12,6 +12,7 @@ using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -100,6 +101,12 @@ namespace SSar.Presentation.WebUI
                     Configuration.Bind("Authentication:AzureAd", options);
 
                 });
+
+            services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+            {
+                options.Authority = options.Authority + "/v2.0/";
+                options.TokenValidationParameters.ValidateIssuer = true;
+            });
 
             services.AddHtmlTags(new TagConventions());
             
