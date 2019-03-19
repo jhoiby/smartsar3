@@ -40,7 +40,7 @@ using SSar.Infrastructure.Authorization;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
-using SSar.Presentation.WebUI.Configuration;
+using SSar.Presentation.WebUI.Middleware;
 using SSar.Presentation.WebUI.Infrastructure.Tags;
 using SSar.Presentation.WebUI.Services;
 using IAuthorizationService = SSar.Contexts.Common.Application.Authorization.IAuthorizationService;
