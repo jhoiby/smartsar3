@@ -1,15 +1,17 @@
+using System;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.Security.Claims;
-using System.Threading.Tasks;
+using System.Text.Encodings.Web;
+using System.Web;
+using Dapper;
 using FluentValidation.AspNetCore;
 using HtmlTags;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.AzureAD.UI;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -20,7 +22,6 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Azure.ServiceBus;
-using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +40,7 @@ using SSar.Infrastructure.Authorization;
 using SSar.Infrastructure.DomainEventDispatch;
 using SSar.Infrastructure.IntegrationEventQueues;
 using SSar.Infrastructure.ServiceBus;
+using SSar.Presentation.WebUI.Middleware;
 using SSar.Presentation.WebUI.Infrastructure.Tags;
 using SSar.Presentation.WebUI.Services;
 using IAuthorizationService = SSar.Contexts.Common.Application.Authorization.IAuthorizationService;
@@ -57,7 +59,6 @@ namespace SSar.Presentation.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
             var serviceProvider = services.BuildServiceProvider();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -76,23 +77,11 @@ namespace SSar.Presentation.WebUI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication(
-                    options =>
-                    {
-                        options.DefaultScheme = IdentityConstants.ApplicationScheme;
-                        options.DefaultSignInScheme = IdentityConstants.ApplicationScheme;
-                        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
-                    }
-                )
-                .AddCookie(options =>
+            services.AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
                 {
-                    options.LoginPath = "/Identity/Account/Login";
-                    options.LogoutPath = "/Identity/Account/Logout";
-                })
-                .AddAzureAD(options =>
-                {
-                    Configuration.Bind("Authentication:AzureAd", options);
-                    
+                    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
+                    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
                 })
                 .AddGoogle(o =>
                 {
@@ -106,49 +95,18 @@ namespace SSar.Presentation.WebUI
                     o.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
                     o.ClaimActions.MapJsonKey("urn:google:profile", "link");
                     o.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-                }); ;
+                })
+                .AddAzureAD(options =>
+                {
+                    Configuration.Bind("Authentication:AzureAd", options);
 
+                });
 
             services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
             {
                 options.Authority = options.Authority + "/v2.0/";
-                options.TokenValidationParameters.ValidateIssuer = false;
-
-                // From: https://www.jerriepelser.com/blog/accessing-tokens-aspnet-core-2/
-                //options.SaveTokens = true;
-                //options.Events = new OpenIdConnectEvents
-                //{
-                //    OnTokenValidated = async ctx =>
-                //    {
-                //        var principal = new ClaimsPrincipal();
-                //        var authResult = await ctx.HttpContext.AuthenticateAsync(AzureADDefaults.AuthenticationScheme);
-                //        if (authResult?.Principal != null)
-                //        {
-                //            principal.AddIdentities(authResult.Principal.Identities);
-                //        }
-                //        ctx.HttpContext.User = principal;
-                //    }
-                //};
-
+                options.TokenValidationParameters.ValidateIssuer = true;
             });
-
-            //services.Configure<OAuthOptions>(options =>
-            //{
-            //    options.Events = new OAuthEvents()
-            //    {
-            //        OnCreatingTicket = async ctx =>
-            //        {
-            //            var principal = new ClaimsPrincipal();
-            //            var authResult = await ctx.HttpContext.AuthenticateAsync(AzureADDefaults.AuthenticationScheme);
-            //            if (authResult?.Principal != null)
-            //            {
-            //                principal.AddIdentities(authResult.Principal.Identities);
-            //            }
-            //            ctx.HttpContext.User = principal;
-            //        }
-            //    }
-            //    ;
-            //});
 
             services.AddHtmlTags(new TagConventions());
             
@@ -204,6 +162,7 @@ namespace SSar.Presentation.WebUI
             AppDbContext appDbContext, 
             RoleManager<ApplicationRole> roleManager, 
             UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
@@ -218,44 +177,12 @@ namespace SSar.Presentation.WebUI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAzureADIdentityBridge();
             app.UseAuthentication();
-
-            // MultiIdentityLoader
-            // Based on: https://stackoverflow.com/questions/45695382/how-do-i-setup-multiple-auth-schemes-in-asp-net-core-2-0
-            app.Use(async (context, next) =>  // Rename this to ?
-            {
-                logger.LogDebug("MultiIdentityLoader: Executing");
-                var principal = new ClaimsPrincipal();
-                
-                if (!context.User.Identities.Any(x => x.IsAuthenticated))
-                {
-                    logger.LogDebug("MultiIdentityLoader: Attempting authentication with AzureAD scheme.");
-                    var authResult1 = await context.AuthenticateAsync(AzureADDefaults.AuthenticationScheme);
-                    if (authResult1?.Principal != null)
-                    {
-                        principal.AddIdentities(authResult1.Principal.Identities);
-                        
-                        var name = principal.Claims.Where(c => c.Type == "preferred_username").Select(c => c.Value)
-                            .FirstOrDefault();
-
-                        ((ClaimsIdentity)principal.Identity)
-                            .AddClaim(new Claim(ClaimTypes.Name, name));
-
-                        logger.LogDebug("MultiIdentityLoader: Successfully authenticated user with AzureAD scheme.");
-                    }
-
-                    context.User = principal;
-                }
-
-                await next.Invoke();
-            });
-
-            // If the app uses Session or TempData based on Session:
-            // app.UseSession();
-
             app.UseMvc();
         }
     }

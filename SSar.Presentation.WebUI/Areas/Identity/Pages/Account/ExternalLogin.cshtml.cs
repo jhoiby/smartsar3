@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -62,35 +62,16 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
-            var testUser = HttpContext.User;
-            var testIdentity = testUser.Identity;
-
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
                 ErrorMessage = $"Error from external provider: {remoteError}";
-                return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
+                return RedirectToPage("./Login", new {ReturnUrl = returnUrl });
             }
+            _logger.LogDebug("Calling SignInManager.GetExternalLoginInfoAsync.");
+            var info = await _signInManager.GetExternalLoginInfoAsync();
 
-            // Not working with Google. Is there an issue with the authentication default type?
-
-            // RETURNS NULL FOR GOOGLE. NEED TO FIX
-
-            ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
-
-            // Handle special case for AzureAD authentication
-            // See https://stackoverflow.com/questions/40227643/signinmanager-getexternallogininfoasync-always-returns-null-with-open-id-to-a 
-            if (info == null &&
-                User.Claims.Any(x => 
-                    x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier"))
-            {
-                info = new ExternalLoginInfo(User,
-                    "Microsoft",
-                    User.Claims.Where(x => x.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")
-                        .FirstOrDefault().Value.ToString(),
-                    "Microsoft");
-            }
-
+            _logger.LogDebug($"SignInManager.GetExternalLoginInfoAsync returned null?: {(info == null).ToString()}.");
             if (info == null)
             {
                 ErrorMessage = "Error loading external login information.";
@@ -98,7 +79,8 @@ namespace SSar.Presentation.WebUI.Areas.Identity.Pages.Account
             }
 
             // Sign in the user with this external login provider if the user already has a login.
-            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor : true);
             if (result.Succeeded)
             {
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
